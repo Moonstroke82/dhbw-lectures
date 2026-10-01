@@ -1,0 +1,18 @@
+{
+  "title": "IT Management and Enterprise Architecture Management",
+  "short": "IT Management & EAM",
+  "semester": 4,
+  "hours": 55,
+  "assessment": "Written exam",
+  "first_run": 2028,
+  "icon": "architecture",
+  "tagline": "How companies steer IT strategically and operationally, and how enterprise architecture links business and IT.",
+  "outcomes": [
+    "Distinguish the fields of strategic and operational IT management",
+    "Apply methods for IT service management (ITIL), IT controlling and governance",
+    "Understand and discuss the main domains of an enterprise architecture",
+    "Plan and assess IT landscapes, integration and sourcing options",
+    "Work with EAM frameworks (TOGAF, ArchiMate) and tools (e.g. LeanIX)",
+    "Consider compliance and ethical requirements in IT decisions"
+  ]
+}

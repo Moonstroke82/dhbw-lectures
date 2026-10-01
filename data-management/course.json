@@ -1,0 +1,18 @@
+{
+  "title": "Data Management",
+  "short": "Data Management",
+  "semester": 2,
+  "hours": 60,
+  "assessment": "Written exam + design project",
+  "first_run": 2027,
+  "icon": "database",
+  "tagline": "From data models and SQL to data quality, data pipelines and modern data architectures.",
+  "outcomes": [
+    "Distinguish structured, semi-structured and unstructured data",
+    "Model business situations as entity-relationship models",
+    "Design simple relational databases and write SQL queries",
+    "Compare relational and NoSQL databases, data warehouses and data lakes",
+    "Assess and improve data quality; prepare data with Python",
+    "Reflect on legal and organisational conditions for using data"
+  ]
+}

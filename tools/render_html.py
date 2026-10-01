@@ -147,6 +147,7 @@ def render(deck, out_path, include_notes=False):
 <link rel="stylesheet" href="../assets/slides.css">
 </head>
 <body>
+<a class="home" href="index.html">&larr; All sessions</a>
 <div class="reveal"><div class="slides">
 {slides}
 </div></div>
@@ -200,6 +201,10 @@ def css():
 .badge.optional {{ background:var(--optional); }} .badge.exercise {{ background:var(--accent); }}
 .footer, .pageno {{ position:absolute; top:{theme.FOOTER_Y}px; font-size:{theme.FOOTER_SIZE}px; color:var(--muted); }}
 .footer {{ left:43px; }} .pageno {{ right:43px; }}
+.home {{ position:fixed; left:14px; bottom:10px; z-index:30; font-size:13px; color:var(--muted); text-decoration:none;
+  font-family:{theme.WEB_FONT}; }}
+.home:hover {{ color:var(--accent); }}
+.print-pdf .home {{ display:none; }}
 section.title, section.section {{ background: var(--primary) !important; }}
 .titleslide, .sectionslide {{ position:absolute; left:60px; top:110px; width:840px; color:#fff; }}
 .titleslide .course {{ font-size:20px; margin-bottom:12px; }}
@@ -209,23 +214,4 @@ section.title, section.section {{ background: var(--primary) !important; }}
 .bar {{ width:80px; height:4px; background:var(--accent); margin:18px 0; }}
 .titleslide .sub, .sectionslide p {{ font-size:18px; margin-bottom:6px; }}
 .titleslide .meta {{ font-size:14px; margin-bottom:6px; }}
-"""
-
-
-def index_page(title, intro, items, depth):
-    """items: list of (href, label, sublabel)."""
-    lis = "".join(f'<li><a href="{esc(h)}">{esc(l)}</a>{" – " + esc(s) if s else ""}</li>' for h, l, s in items)
-    up = "../" * depth
-    return f"""<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{esc(title)}</title><link rel="stylesheet" href="{up}assets/index.css"></head>
-<body><main><h1>{esc(title)}</h1><p>{intro}</p><ul>{lis}</ul></main></body></html>
-"""
-
-
-INDEX_CSS = f"""body {{ font-family: {theme.WEB_FONT}; color:#{theme.COLORS['text']}; margin:0; background:#{theme.COLORS['light']}; }}
-main {{ max-width: 760px; margin: 48px auto; background:#fff; padding: 32px 40px; border-top: 6px solid #{theme.COLORS['primary']}; }}
-h1 {{ color:#{theme.COLORS['primary']}; }}
-a {{ color:#{theme.COLORS['accent']}; font-weight:700; }}
-li {{ margin: 8px 0; }}
 """

@@ -34,6 +34,10 @@
 .badge.optional { background:var(--optional); } .badge.exercise { background:var(--accent); }
 .footer, .pageno { position:absolute; top:510px; font-size:9px; color:var(--muted); }
 .footer { left:43px; } .pageno { right:43px; }
+.home { position:fixed; left:14px; bottom:10px; z-index:30; font-size:13px; color:var(--muted); text-decoration:none;
+  font-family:Calibri, Carlito, 'Segoe UI', Arial, Helvetica, sans-serif; }
+.home:hover { color:var(--accent); }
+.print-pdf .home { display:none; }
 section.title, section.section { background: var(--primary) !important; }
 .titleslide, .sectionslide { position:absolute; left:60px; top:110px; width:840px; color:#fff; }
 .titleslide .course { font-size:20px; margin-bottom:12px; }
