@@ -1,0 +1,7 @@
+# Generated PPTX and previews (speaker notes stay private)
+build/
+__pycache__/
+# Internal tracking with lecturer and student feedback - keep private
+**/STATUS.md
+# Private local settings (lecturer name for PPTX)
+tools/local.json
