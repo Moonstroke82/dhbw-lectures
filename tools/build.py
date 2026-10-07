@@ -20,7 +20,7 @@ import website  # noqa: E402
 from slidemd import load_deck  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-COURSES = ["data-management", "it-management-eam"]  # metadata in <course>/course.json
+COURSES = ["data-management", "it-management-eam", "data-analytics", "data-engineering-analytics-project"]  # metadata in <course>/course.json
 
 
 def export_png(pptx, out_dir):

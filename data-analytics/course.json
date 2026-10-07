@@ -1,0 +1,19 @@
+{
+  "title": "Data Analytics",
+  "short": "Data Analytics",
+  "program": "Data Science and Artificial Intelligence",
+  "semester": 5,
+  "hours": 50,
+  "assessment": "Portfolio",
+  "first_run": null,
+  "icon": "chart",
+  "tagline": "Applying analytics to real use cases: data warehouses and OLAP, machine learning, time series forecasting and big data with Spark.",
+  "outcomes": [
+    "Explain how data analysis developed and where it is applied",
+    "Interpret and evaluate data in typical data warehouse architectures",
+    "Query and analyse data with analytical SQL and OLAP",
+    "Select, adapt and assess machine learning methods for business use cases",
+    "Analyse temporal data and build time series forecasts",
+    "Analyse large data volumes with big data frameworks and present results in dashboards"
+  ]
+}

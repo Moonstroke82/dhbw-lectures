@@ -28,6 +28,10 @@ ICONS = {
     "print": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 9V3h12v6"/>'
              '<rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg>',
     "check": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12.5l4.5 4.5L19 7"/></svg>',
+    "chart": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3v18h18"/>'
+             '<path d="M7 15l4-5 3 3 5-7"/><circle cx="19" cy="6" r="1.2"/></svg>',
+    "project": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="3"/>'
+               '<circle cx="17" cy="9" r="2.5"/><path d="M2.5 20c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5M14 15.2c.9-.5 1.9-.7 3-.7 2.6 0 4.5 1.9 4.5 4.8"/></svg>',
     "book": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2z"/>'
             '<path d="M4 21V5M8 7h7"/></svg>',
 }
@@ -52,6 +56,9 @@ def load_plan(course_dir):
             cur = (m.group(1), m.group(2).strip(), [])
             parts.append(cur)
             continue
+        if ln.startswith("#"):          # any other heading ends the roadmap part (e.g. assessment tables)
+            cur = None
+            continue
         if cur and ln.startswith("| ") and not ln.startswith("| #"):
             cells = [c.strip() for c in ln.strip().strip("|").split("|")]
             if len(cells) < 3 or set(cells[0]) <= {"-"}:
@@ -60,9 +67,10 @@ def load_plan(course_dir):
             title = re.sub(r"\*\*(.+?)\*\*", r"\1", cells[1])
             title = re.sub(r"\s*\(\d+ h\)", "", title)          # no timings on the public site
             desc = re.sub(r"\s*\(\d+ h\)", "", cells[2])
-            if num == "—":
+            label = "Q&A" if num == "—" else num
+            if not num.isdigit():           # milestones like "Prep" or "Sprint" get a label but no slides link
                 num = ""
-            cur[2].append({"num": num, "title": title, "desc": desc})
+            cur[2].append({"num": num, "label": label, "title": title, "desc": desc})
     return parts
 
 
@@ -83,7 +91,7 @@ def nav(courses, depth, active=None):
 
 def footer():
     year = datetime.date.today().year
-    return (f'<footer><div class="wrap"><p>Digital Business Management (Business IT) · DHBW · {year}</p>'
+    return (f'<footer><div class="wrap"><p>DHBW · {year}</p>'
             '<p class="small">All sources are cited on the slides and in the reference list of each session. '
             'Slides are built with <a href="https://revealjs.com">reveal.js</a>.</p></div></footer></body></html>')
 
@@ -96,27 +104,43 @@ HOWTO = f"""<section class="howto"><div class="wrap"><h2>Using the slides</h2><d
 
 
 def landing(courses, available):
+    programs = {}
+    for slug, c in courses:
+        programs.setdefault(c["program"], []).append((slug, c))
+    groups = ""
+    for program, members in programs.items():
+        groups += f'<section class="program"><h2>{esc(program)}</h2><div class="courses">{cards(members, available)}</div></section>'
+    return (head("DHBW Lectures", 0) + nav(courses, 0) +
+            f"""<section class="hero landing"><div class="wrap"><p class="eyebrow">DHBW</p>
+<h1>Lecture slides</h1><p class="lead">Slides, exercises and references for the courses. Open a course to see the full session roadmap.</p></div></section>
+<main class="wrap">{groups}</main>""" + HOWTO + footer())
+
+
+def cards(courses, available):
     cards = ""
     for slug, c in courses:
         n_avail = len(available.get(slug, []))
-        n_total = sum(len(p[2]) for p in c["plan"])
+        n_total = n_sessions(c)
         if n_avail:
             status = f'<span class="badge live">{n_avail} of {n_total} sessions online</span>'
-        else:
+        elif c.get("first_run"):
             status = f'<span class="badge soon">Starts {c["first_run"]}</span>'
+        else:
+            status = '<span class="badge soon">In preparation</span>'
         cards += f"""<a class="course-card" href="{slug}/index.html">
 <div class="band"><span class="icon">{ICONS[c['icon']]}</span></div>
-<div class="body"><p class="meta">Semester {c['semester']} · {c['hours']} hours</p><h3>{esc(c['title'])}</h3>
+<div class="body"><p class="meta">Semester {c['semester']} · {c['hours']} hours · {esc(c['assessment'])}</p><h3>{esc(c['title'])}</h3>
 <p>{esc(c['tagline'])}</p><div class="foot">{status}<span class="go">View course →</span></div></div></a>"""
-    return (head("DHBW Lectures", 0) + nav(courses, 0) +
-            f"""<section class="hero landing"><div class="wrap"><p class="eyebrow">DHBW · Digital Business Management (Business IT)</p>
-<h1>Lecture slides</h1><p class="lead">Slides, exercises and references for the courses. Open a course to see the full session roadmap.</p></div></section>
-<main class="wrap"><div class="courses">{cards}</div></main>""" + HOWTO + footer())
+    return cards
+
+
+def n_sessions(c):
+    return sum(1 for p in c["plan"] for s in p[2] if s["num"])
 
 
 def course_page(slug, c, courses, available):
-    chips = "".join(f'<span class="chip">{esc(t)}</span>' for t in (
-        f"Semester {c['semester']}", f"{c['hours']} hours", f"{sum(len(p[2]) for p in c['plan'])} sessions", c["assessment"]))
+    chips = "".join(f'<span class="chip">{esc(t)}</span>' for t in c.get("chips") or (
+        f"Semester {c['semester']}", f"{c['hours']} hours", f"{n_sessions(c)} sessions", c["assessment"]))
     outcomes = "".join(f'<li><span class="ck">{ICONS["check"]}</span>{esc(o)}</li>' for o in c["outcomes"])
     parts = ""
     for code, title, sessions in c["plan"]:
@@ -124,7 +148,7 @@ def course_page(slug, c, courses, available):
         for s in sessions:
             num = s["num"].zfill(2) if s["num"] else ""
             live = num and num in available.get(slug, [])
-            label = s["num"] or "Q&A"
+            label = s["label"]
             inner = (f'<span class="num">{esc(label)}</span><div><h4>{esc(s["title"])}</h4>'
                      f'<p>{md_inline(s["desc"])}</p>'
                      f'{"<span class=open>Open slides →</span>" if live else "<span class=pending>Coming soon</span>"}</div>')
@@ -133,10 +157,10 @@ def course_page(slug, c, courses, available):
         parts += f'<div class="part"><h3><span>{esc(code)}</span>{esc(title)}</h3><div class="sessions">{items}</div></div>'
     return (head(c["title"], 1) + nav(courses, 1, slug) +
             f"""<section class="hero small"><div class="wrap"><span class="hero-icon">{ICONS[c['icon']]}</span>
-<p class="eyebrow">DHBW · Digital Business Management (Business IT)</p><h1>{esc(c['title'])}</h1>
+<p class="eyebrow">DHBW · {esc(c['program'])}</p><h1>{esc(c['title'])}</h1>
 <p class="lead">{esc(c['tagline'])}</p><div class="chips">{chips}</div></div></section>
 <main class="wrap"><section class="outcomes"><h2>What you will learn</h2><ul>{outcomes}</ul></section>
-<section class="roadmap"><h2>Session roadmap</h2>{parts}</section></main>""" + HOWTO + footer())
+<section class="roadmap"><h2>{esc(c.get('roadmap_title', 'Session roadmap'))}</h2>{parts}</section></main>""" + HOWTO + footer())
 
 
 CSS = f""":root {{ --primary:#{C['primary']}; --accent:#{C['accent']}; --optional:#{C['optional']}; --text:#{C['text']};
@@ -166,7 +190,10 @@ a {{ color:var(--accent); }}
 .chip {{ background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); padding:6px 14px; border-radius:999px; font-size:14px; }}
 main {{ padding:56px 24px; }}
 h2 {{ color:var(--primary); font-size:30px; margin:0 0 24px; }}
-.courses {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:28px; margin-top:-120px; position:relative; }}
+.courses {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:28px; position:relative; }}
+.program {{ margin-bottom:56px; }}
+.program:first-child {{ margin-top:-150px; }}
+.program:first-child h2 {{ color:#fff; }}
 .course-card {{ background:#fff; border-radius:14px; overflow:hidden; text-decoration:none; color:var(--text);
   box-shadow:0 10px 30px rgba(15,23,42,.12); border:1px solid var(--border); transition:transform .15s, box-shadow .15s; display:flex; flex-direction:column; }}
 .course-card:hover {{ transform:translateY(-4px); box-shadow:0 16px 40px rgba(15,23,42,.18); }}
@@ -200,7 +227,7 @@ code {{ background:var(--light); padding:1px 5px; border-radius:4px; }}
   color:var(--text); text-decoration:none; }}
 .session.live {{ border-color:var(--accent); box-shadow:0 4px 14px rgba(42,157,143,.12); transition:transform .15s; }}
 .session.live:hover {{ transform:translateY(-2px); }}
-.session .num {{ flex:none; width:40px; height:40px; border-radius:50%; background:var(--light); color:var(--primary); font-weight:700;
+.session .num {{ flex:none; min-width:40px; padding:0 8px; height:40px; border-radius:999px; background:var(--light); color:var(--primary); font-weight:700;
   display:flex; align-items:center; justify-content:center; font-size:15px; }}
 .session.live .num {{ background:var(--accent); color:#fff; }}
 .session h4 {{ margin:0 0 4px; color:var(--primary); font-size:17px; line-height:1.3; }}

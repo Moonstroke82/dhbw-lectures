@@ -2,12 +2,14 @@
 
 **Lecture website: https://moonstroke82.github.io/dhbw-lectures/**
 
-Lecture material for DHBW, Digital Business Management (Business IT), Bachelor. All material is in English.
+Lecture material for DHBW bachelor programmes: Digital Business Management (Business IT) and Data Science and Artificial Intelligence (DSKI). All material is in English.
 
-| Folder | Module | Semester | Hours | Assessment | First run |
-|---|---|---|---|---|---|
-| [data-management](data-management/MODULE.md) | Data Management | 2 | 60 h | Exam + design project (weighting open) | 2027 |
-| [it-management-eam](it-management-eam/MODULE.md) | IT Management and Enterprise Architecture Management | 4 | 55 h | Written exam | 2028 |
+| Folder | Programme | Module | Semester | Hours | Assessment | First run |
+|---|---|---|---|---|---|---|
+| [data-management](data-management/MODULE.md) | Business IT | Data Management | 2 | 60 h | Exam + design project (weighting open) | 2027 |
+| [it-management-eam](it-management-eam/MODULE.md) | Business IT | IT Management and Enterprise Architecture Management | 4 | 55 h | Written exam | 2028 |
+| [data-analytics](data-analytics/MODULE.md) | DSKI | Data Analytics | 5 | 50 h | Portfolio | open |
+| [data-engineering-analytics-project](data-engineering-analytics-project/MODULE.md) | DSKI | Project Data Engineering and Analytics | 6 | 50 h | Project | open |
 
 ## Outputs
 
@@ -24,3 +26,5 @@ Build: `python tools/build.py` (all sessions) or `python tools/build.py data-man
 - `SESSION_PLAN.md`: approved session plan and teaching principles
 - `STATUS.md`: session tracker, feedback from lecturer and students, decisions and changes (kept private, not in the public repo)
 - `slides/`: slide sources, one Markdown file per session
+
+Partner company names (DSKI project) are never stored in this repository; they appear only in the offline PPTX and in the private STATUS.md.

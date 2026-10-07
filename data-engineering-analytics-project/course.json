@@ -1,0 +1,20 @@
+{
+  "title": "Project Data Engineering and Analytics",
+  "short": "DE & Analytics Project",
+  "program": "Data Science and Artificial Intelligence",
+  "semester": 6,
+  "hours": 50,
+  "assessment": "Project",
+  "first_run": null,
+  "icon": "project",
+  "tagline": "Two real projects with partner companies: teams build a data pipeline and an analytics solution from kickoff to final presentation.",
+  "chips": ["Semester 6", "Two partner projects", "Kickoff · Mid-term · Final", "Project"],
+  "roadmap_title": "Project roadmap",
+  "outcomes": [
+    "Carry out a data engineering and analytics project for a real partner",
+    "Select and apply suitable methods and combine them with project management",
+    "Work in a team towards a goal and reflect on your own role and the roles of others",
+    "Justify and defend your own contribution to the project",
+    "Understand and take into account the interests of different stakeholders"
+  ]
+}
