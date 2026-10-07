@@ -35,7 +35,7 @@ def _runs(p, text, size, color="text", bold=False, italic=False):
             r.hyperlink.address = st["link"]
 
 
-def _bullet(p, level, ordered, hanging_only=False):
+def _bullet(p, level, ordered, hanging_only=False, start=1):
     pPr = p._p.get_or_add_pPr()
     ind = Pt(theme.BULLET_INDENT * (level + 1))
     pPr.set("marL", str(int(ind)))
@@ -47,7 +47,10 @@ def _bullet(p, level, ordered, hanging_only=False):
     etree.SubElement(clr, qn("a:srgbClr")).set("val", theme.COLORS["accent"])
     if ordered:
         etree.SubElement(pPr, qn("a:buFont")).set("typeface", "+mj-lt")
-        etree.SubElement(pPr, qn("a:buAutoNum")).set("type", "arabicPeriod")
+        num = etree.SubElement(pPr, qn("a:buAutoNum"))
+        num.set("type", "arabicPeriod")
+        if start > 1:
+            num.set("startAt", str(start))
     else:
         etree.SubElement(pPr, qn("a:buFont")).set("typeface", "Arial")
         etree.SubElement(pPr, qn("a:buChar")).set("char", "•" if level == 0 else "–")
@@ -56,13 +59,19 @@ def _bullet(p, level, ordered, hanging_only=False):
 def _text(slide, el, refs=False):
     _, tf = _box(slide, el["x"], el["y"], el["w"], el["h"] + 4)
     color = "muted" if el.get("muted") else "text"
+    run_start, prev = 1, None
     for i, para in enumerate(el["paras"]):
         p = tf.paragraphs[0] if i == 0 else tf.add_paragraph()
         size = para.get("size", el["size"])
         if "space" in para:
             p.space_after = Pt(para["space"])
         if "level" in para:
-            _bullet(p, para["level"], para["ordered"], hanging_only=refs)
+            # PowerPoint restarts auto-numbering after any other paragraph (e.g. sub-bullets),
+            # so each uninterrupted run of numbered items starts at its Markdown number
+            if para["ordered"] and not (prev and prev.get("ordered") and prev["level"] == para["level"]):
+                run_start = para.get("num") or 1
+            _bullet(p, para["level"], para["ordered"], hanging_only=refs, start=run_start)
+            prev = para
         _runs(p, para["text"], size, color=para.get("color", color), bold=para.get("bold", False))
 
 
@@ -111,6 +120,7 @@ def _code(slide, el):
     tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = Pt(theme.BOX_PAD)
     for i, ln in enumerate(el["text"].splitlines() or [""]):
         p = tf.paragraphs[0] if i == 0 else tf.add_paragraph()
+        p.alignment = PP_ALIGN.LEFT
         r = p.add_run()
         r.text = ln
         r.font.name = theme.FONT_MONO

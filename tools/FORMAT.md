@@ -64,6 +64,8 @@ Slides are separated by a line containing only `---`.
 
 The lecturer name is not stored in the slide files (they are public). It comes from `tools/local.json` (gitignored), e.g. `{"lecturer": "Name"}`, and appears on the PPTX title slide only.
 
+Other private values (e.g. partner company names) use a placeholder `{{private:key|Public fallback}}` anywhere in a slide file. The PPTX gets the value of `key` from `tools/local.json`; the public HTML always shows the fallback text. Never write the private value itself into a slide file, including speaker notes (the Markdown is public).
+
 ## Rules
 
 - **No timings or formats on slides.** Minutes, clock times and formats (input, pair work …) go into the speaker notes only, so students don't feel rushed.

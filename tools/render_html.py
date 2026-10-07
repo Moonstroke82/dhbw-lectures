@@ -60,7 +60,9 @@ def text_el(el, refs):
         else:
             parts.append(f'<p style="{style}">{inline(p["text"])}</p>')
     cls = "txt muted" if el.get("muted") else "txt"
-    return box({**el, "h": el["h"] + 4}, cls, "".join(parts))
+    start = next((p.get("start", 1) for p in el["paras"] if p.get("ordered")), 1)
+    body = "".join(parts) if start <= 1 else f'<div style="counter-reset:n {start - 1}">{"".join(parts)}</div>'
+    return box({**el, "h": el["h"] + 4}, cls, body)
 
 
 def table_el(el):

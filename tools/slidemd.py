@@ -147,7 +147,9 @@ def parse_blocks(lines):
                 lm = LIST_RE.match(lines[i])
                 if lm:
                     level = len(lm.group(1).replace("\t", "  ")) // 2
-                    items.append({"level": level, "ordered": lm.group(2)[0].isdigit(), "text": lm.group(3)})
+                    ordered = lm.group(2)[0].isdigit()
+                    items.append({"level": level, "ordered": ordered, "text": lm.group(3),
+                                  "num": int(lm.group(2)[:-1]) if ordered else None})
                 elif lines[i].strip() and lines[i].startswith("  ") and items:
                     items[-1]["text"] += " " + lines[i].strip()
                 else:
@@ -200,9 +202,15 @@ def _fenced_block(name, inner):
 # ---------------------------------------------------------------- file parser
 
 
-def parse_file(path):
+PRIVATE_RE = re.compile(r"\{\{private:(\w+)\|([^}]*)\}\}")
+
+
+def parse_file(path, private=None):
+    """private: dict from tools/local.json. Placeholders {{private:key|Fallback}} get the
+    private value (PPTX) or the public fallback (HTML, when private is None)."""
     path = Path(path)
     text = path.read_text(encoding="utf-8")
+    text = PRIVATE_RE.sub(lambda m: (private or {}).get(m.group(1), m.group(2)), text)
     meta = {}
     if text.startswith("---"):
         head, _, text = text[3:].partition("\n---")
@@ -300,12 +308,14 @@ def measure(block, w, base, place=None, x=0, y=0):
         return h
     if t == "list":
         h, paras = 0, []
+        start = next((it["num"] for it in block["items"] if it["ordered"]), 1)  # e.g. list continued after a code block
         for it in block["items"]:
             size = base if it["level"] == 0 else base - 2
             ind = theme.BULLET_INDENT * (it["level"] + 1)
             ih = wrap_lines(it["text"], size, w - ind) * lh(size)
             sp = size * theme.ITEM_SPACING
-            paras.append({"text": it["text"], "level": it["level"], "ordered": it["ordered"], "size": size, "space": sp})
+            paras.append({"text": it["text"], "level": it["level"], "ordered": it["ordered"], "start": start, "num": it.get("num"),
+                          "size": size, "space": sp})
             h += ih + sp
         h -= paras[-1]["space"] if paras else 0
         if place is not None:
@@ -327,7 +337,12 @@ def measure(block, w, base, place=None, x=0, y=0):
         return h
     if t == "code":
         size = max(base - 4, theme.MIN_SIZE)
-        n = len(block["text"].splitlines()) or 1
+        lines = block["text"].splitlines() or [""]
+        longest = max(font(mono=True).getlength(ln) for ln in lines) / 100  # width per pt of font size
+        while size > theme.MIN_SIZE and longest * size > w - 2 * theme.BOX_PAD:
+            size -= 1  # shrink the code only, not the whole slide
+        block["too_wide"] = longest * size > w - 2 * theme.BOX_PAD
+        n = len(lines)
         h = n * lh(size) + 2 * theme.BOX_PAD
         if place is not None:
             place.append(dict(kind="code", x=x, y=y, w=w, h=h, size=size, text=block["text"]))
@@ -459,6 +474,8 @@ def layout_slide(sl):
             break
     else:
         sl.warnings.append(f"content overflows by {h - avail:.0f} pt even at {size} pt")
+    if any(b.get("too_wide") for b in sl.blocks):
+        sl.warnings.append("code line too wide even at minimum size - break the line")
     sl.base = size
     sl.layout = []
     stack(sl.blocks, bw, size, sl.layout, bx, by)
@@ -469,8 +486,8 @@ def layout_slide(sl):
             el["muted"] = True
 
 
-def load_deck(path):
-    deck = parse_file(path)
+def load_deck(path, private=None):
+    deck = parse_file(path, private)
     for sl in deck.slides:
         _resolve_images(sl.blocks, deck.path.parent)
         layout_slide(sl)

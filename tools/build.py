@@ -36,15 +36,19 @@ def export_png(pptx, out_dir):
 
 def build(src, args):
     course = src.parent.parent.name
-    deck = load_deck(src)
-    local = ROOT / "tools" / "local.json"  # private, gitignored: e.g. {"lecturer": "..."} for the PPTX title slide
-    if local.exists():
-        for k, v in json.loads(local.read_text(encoding="utf-8")).items():
+    # private, gitignored: lecturer name for the PPTX title slide and values for
+    # {{private:key|Fallback}} placeholders (e.g. partner company names) - PPTX only
+    local = ROOT / "tools" / "local.json"
+    private = json.loads(local.read_text(encoding="utf-8")) if local.exists() else {}
+    deck = load_deck(src, private)
+    for k, v in private.items():
+        if isinstance(v, str):
             deck.meta.setdefault(k, v)
     name = src.stem
     pptx = ROOT / "build" / course / f"{name}.pptx"
     render_pptx.render(deck, pptx)
-    render_html.render(deck, ROOT / "docs" / course / f"{name}.html", include_notes=args.notes)
+    public = load_deck(src)  # public web version: placeholders get their fallback text
+    render_html.render(public, ROOT / "docs" / course / f"{name}.html", include_notes=args.notes)
     ok = True
     for n, sl in enumerate(deck.slides, 1):
         for w in sl.warnings:
