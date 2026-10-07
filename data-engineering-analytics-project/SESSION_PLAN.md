@@ -1,4 +1,4 @@
-# Project Data Engineering and Analytics — Project Plan (DRAFT 2026-10-07, awaiting approval)
+# Project Data Engineering and Analytics — Project Plan (approved 2026-10-07)
 
 Semester 6, DSKI. 50 h contact time + 100 h self-study. Assessment: project.
 
@@ -25,7 +25,7 @@ Legend for learning-outcome links: **SC** subject competence · **MC** methodolo
 | Sprint | **Analytics and integration sprints** | Analysis and models; evaluation; dashboard or data product; testing and integration; documentation and hand-over | Data product, documentation | SC, MC |
 | 3 | **Final presentation (4 h)** | Results and demo for the partner companies; each student explains and defends their contribution; retrospective | Final presentation, code, documentation, individual reflection | SC, PSC, OC |
 
-## Assessment (proposal, to be decided)
+## Assessment (agreed 2026-10-07)
 
 | Component | Form | Weight |
 |---|---|---|
@@ -38,5 +38,5 @@ Individual grades can differ within a team through the individual component (han
 
 ## Notes
 
-- The plenary meetings add up to about 10 h. How the remaining contact time is counted (e.g. scheduled team work with the lecturer available for coaching, sprint reviews with the companies) is still to be decided.
+- **Hours:** about 10 h are the plenary meetings (kickoff, mid-term, final). The remaining ~40 h are independent team work (coding, analysis, meetings with the company); teams plan these hours themselves.
 - Agree with each company before the kickoff: data access, NDA, IP of results, and where code is hosted. Company code and data must not go into public repositories.

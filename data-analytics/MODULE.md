@@ -60,7 +60,6 @@ Editions and years are checked against the publisher / DHBW library catalogue wh
 
 ## Open questions
 
-- Portfolio components and weighting (proposal in [SESSION_PLAN.md](SESSION_PLAN.md))
 - First run (year) and lecture dates
 
 ---

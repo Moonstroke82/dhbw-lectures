@@ -41,7 +41,7 @@ The project builds on content of earlier modules, especially Data Engineering an
 
 - **Two partner companies, two projects.** The course splits into two project teams, one per company.
 - **Head start in semester 5:** the companies introduce their projects in the first session of *Data Analytics*, so teams can form and start preparing during semester 5.
-- **Semester 6 is implementation only.** Plenary meetings: kickoff, mid-term presentation, final presentation. No lectures in between.
+- **Semester 6 is implementation only.** Plenary meetings (about 10 h): kickoff, mid-term presentation, final presentation. No lectures in between. The remaining ~40 h are independent team work that teams plan themselves.
 - Company names and project details appear only in the offline slides (PPTX), never on the public website.
 
 ## Literature
@@ -50,7 +50,6 @@ Current literature on the project topics is provided by the lecturer or research
 
 ## Open questions
 
-- Assessment criteria and weighting (proposal in [SESSION_PLAN.md](SESSION_PLAN.md))
 - Agreements with the partner companies: data access, confidentiality / NDA, intellectual property of results, where code is hosted
 - First run (year) and dates for kickoff, mid-term and final presentation
 

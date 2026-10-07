@@ -1,4 +1,4 @@
-# Data Analytics — Session Plan (DRAFT 2026-10-07, awaiting approval)
+# Data Analytics — Session Plan (approved 2026-10-07)
 
 50 h (60-minute hours) = **16 sessions × 3 h + 1 final session × 2 h**. Semester 5, DSKI. Assessment: portfolio.
 
@@ -47,7 +47,7 @@ Legend for learning-outcome links: **SC** subject competence · **MC** methodolo
 | 16 | **Scalable machine learning** | ML pipelines with Spark MLlib; evaluating models at scale; costs and limits; course synthesis | Spark ML lab | MC, OC |
 | 17 | **Portfolio presentations and wrap-up (2 h)** | Group case study presentations; feedback; outlook to semester 6 | Presentations | PSC, OC |
 
-## Portfolio (proposal, to be decided)
+## Portfolio (agreed 2026-10-07)
 
 | Component | Form | Weight |
 |---|---|---|
@@ -55,7 +55,7 @@ Legend for learning-outcome links: **SC** subject competence · **MC** methodolo
 | Group case study | End-to-end analytics case on a public dataset in larger groups (handbook allows this), incl. a big data framework or dashboard; notebook + presentation in session 17 | 40 % |
 | Individual research brief | Short paper on a topic not covered in class (e.g. a new method or tool), researched independently | 15 % |
 
-The case study deliberately does **not** use partner-company data (confidentiality, and no double assessment with the semester-6 project). Check portfolio rules in the DHBW study and examination regulations before finalising.
+The case study deliberately does **not** use partner-company data (confidentiality, and no double assessment with the semester-6 project). Portfolio rules in the DHBW study and examination regulations still to be checked.
 
 ## Teaching principles (as for the other courses)
 
