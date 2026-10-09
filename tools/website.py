@@ -175,17 +175,17 @@ a {{ color:var(--accent); }}
 .logo {{ width:28px; height:28px; color:var(--accent); display:inline-flex; }}
 .nav nav a {{ margin-left:24px; color:var(--muted); text-decoration:none; font-weight:600; font-size:15px; }}
 .nav nav a:hover, .nav nav a.active {{ color:var(--primary); }}
-.hero {{ background:linear-gradient(135deg, var(--primary) 0%, #16304f 55%, var(--accent) 140%); color:#fff; padding:88px 0 96px;
-  position:relative; overflow:hidden; }}
+.hero {{ background:var(--primary); color:#fff; padding:88px 0 96px; position:relative; overflow:hidden;
+  border-top:6px solid var(--accent); }}
 .hero::after {{ content:""; position:absolute; right:-120px; top:-120px; width:420px; height:420px; border-radius:50%;
-  border:60px solid rgba(255,255,255,.06); }}
+  border:60px solid rgba(255,255,255,.07); }}
 .hero.landing {{ padding-bottom:170px; }}
 .hero.small {{ padding:64px 0 72px; }}
 .hero h1 {{ font-size:48px; line-height:1.1; margin:8px 0 16px; max-width:820px; }}
 .hero.small h1 {{ font-size:40px; }}
-.eyebrow {{ text-transform:uppercase; letter-spacing:.08em; font-size:13px; font-weight:700; color:#9fe0d6; margin:0; }}
+.eyebrow {{ text-transform:uppercase; letter-spacing:.08em; font-size:13px; font-weight:700; color:#fff; opacity:.85; margin:0; }}
 .lead {{ font-size:20px; max-width:680px; opacity:.92; margin:0; }}
-.hero-icon {{ display:inline-flex; width:48px; height:48px; color:#9fe0d6; margin-bottom:12px; }}
+.hero-icon {{ display:inline-flex; width:48px; height:48px; color:#fff; margin-bottom:12px; }}
 .chips {{ margin-top:24px; display:flex; flex-wrap:wrap; gap:10px; }}
 .chip {{ background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); padding:6px 14px; border-radius:999px; font-size:14px; }}
 main {{ padding:56px 24px; }}
@@ -194,10 +194,10 @@ h2 {{ color:var(--primary); font-size:30px; margin:0 0 24px; }}
 .program {{ margin-bottom:56px; }}
 .program:first-child {{ margin-top:-150px; }}
 .program:first-child h2 {{ color:#fff; }}
-.course-card {{ background:#fff; border-radius:14px; overflow:hidden; text-decoration:none; color:var(--text);
+.course-card {{ background:#fff; border-radius:4px; overflow:hidden; text-decoration:none; color:var(--text);
   box-shadow:0 10px 30px rgba(15,23,42,.12); border:1px solid var(--border); transition:transform .15s, box-shadow .15s; display:flex; flex-direction:column; }}
 .course-card:hover {{ transform:translateY(-4px); box-shadow:0 16px 40px rgba(15,23,42,.18); }}
-.band {{ height:96px; background:linear-gradient(120deg, var(--accent), var(--primary)); display:flex; align-items:center; padding:0 28px; }}
+.band {{ height:96px; background:var(--accent); display:flex; align-items:center; padding:0 28px; }}
 .band .icon {{ width:52px; height:52px; color:#fff; display:inline-flex; }}
 .course-card .body {{ padding:24px 28px 28px; display:flex; flex-direction:column; flex:1; }}
 .course-card h3 {{ font-size:23px; color:var(--primary); margin:4px 0 10px; line-height:1.25; }}
@@ -206,11 +206,11 @@ h2 {{ color:var(--primary); font-size:30px; margin:0 0 24px; }}
 .foot {{ margin-top:auto; padding-top:22px; display:flex; justify-content:space-between; align-items:center; }}
 .go {{ color:var(--accent); font-weight:700; }}
 .badge {{ font-size:13px; font-weight:700; padding:4px 12px; border-radius:999px; }}
-.badge.live {{ background:#e3f4f1; color:#1d7a6f; }}
+.badge.live {{ background:#fce6e8; color:#b00015; }}
 .badge.soon {{ background:var(--light); color:var(--muted); }}
 .howto {{ background:var(--light); padding:56px 0; }}
 .tips {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:24px; }}
-.tip {{ background:#fff; border-radius:12px; padding:24px; border:1px solid var(--border); }}
+.tip {{ background:#fff; border-radius:4px; padding:24px; border:1px solid var(--border); }}
 .tip .ic {{ display:inline-flex; width:36px; height:36px; color:var(--accent); }}
 .tip h3 {{ margin:8px 0 6px; color:var(--primary); }}
 .tip p {{ margin:0; color:var(--muted); }}
@@ -218,14 +218,14 @@ kbd {{ background:var(--light); border:1px solid var(--border); border-bottom-wi
 code {{ background:var(--light); padding:1px 5px; border-radius:4px; }}
 .outcomes ul {{ list-style:none; padding:0; margin:0 0 56px; display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:14px 32px; }}
 .outcomes li {{ display:flex; gap:12px; align-items:flex-start; }}
-.ck {{ flex:none; width:24px; height:24px; border-radius:50%; background:#e3f4f1; color:var(--accent); display:inline-flex; padding:4px; }}
+.ck {{ flex:none; width:24px; height:24px; border-radius:50%; background:#fce6e8; color:var(--accent); display:inline-flex; padding:4px; }}
 .part {{ margin-bottom:40px; }}
 .part h3 {{ display:flex; align-items:center; gap:12px; color:var(--primary); font-size:21px; margin:0 0 16px; }}
-.part h3 span {{ background:var(--primary); color:#fff; font-size:13px; padding:3px 10px; border-radius:6px; letter-spacing:.04em; }}
+.part h3 span {{ background:var(--accent); color:#fff; font-size:13px; padding:3px 10px; border-radius:2px; letter-spacing:.04em; }}
 .sessions {{ display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:16px; }}
-.session {{ display:flex; gap:16px; padding:18px 20px; border:1px solid var(--border); border-radius:12px; background:#fff;
+.session {{ display:flex; gap:16px; padding:18px 20px; border:1px solid var(--border); border-radius:4px; background:#fff;
   color:var(--text); text-decoration:none; }}
-.session.live {{ border-color:var(--accent); box-shadow:0 4px 14px rgba(42,157,143,.12); transition:transform .15s; }}
+.session.live {{ border-color:var(--accent); box-shadow:0 4px 14px rgba(226,0,26,.10); transition:transform .15s; }}
 .session.live:hover {{ transform:translateY(-2px); }}
 .session .num {{ flex:none; min-width:40px; padding:0 8px; height:40px; border-radius:999px; background:var(--light); color:var(--primary); font-weight:700;
   display:flex; align-items:center; justify-content:center; font-size:15px; }}
@@ -234,8 +234,8 @@ code {{ background:var(--light); padding:1px 5px; border-radius:4px; }}
 .session p {{ margin:0 0 8px; color:var(--muted); font-size:14px; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }}
 .open {{ color:var(--accent); font-weight:700; font-size:14px; }}
 .pending {{ color:var(--muted); font-size:13px; font-style:italic; }}
-footer {{ background:var(--primary); color:rgba(255,255,255,.85); padding:32px 0; font-size:15px; }}
-footer p {{ margin:4px 0; }} footer .small {{ font-size:13px; opacity:.8; }} footer a {{ color:#9fe0d6; }}
+footer {{ background:#2b2b2b; color:rgba(255,255,255,.85); padding:32px 0; font-size:15px; }}
+footer p {{ margin:4px 0; }} footer .small {{ font-size:13px; opacity:.8; }} footer a {{ color:#fff; }}
 @media (max-width:640px) {{ .hero h1 {{ font-size:34px; }} .hero.small h1 {{ font-size:30px; }} .nav nav {{ display:none; }} }}
 """
 

@@ -272,16 +272,35 @@ def text_width(runs, size):
     return w
 
 
+def word_widths(text, size, bold=False):
+    """Widths (pt) of the words in `text` (inline Markdown), each part measured in its own
+    font, so bold words and inline code are not underestimated; "**word**," stays one word."""
+    widths, cur, open_word = [], 0.0, False
+    for t, st in inline_runs(text, {"b": True} if bold else None):
+        f = font(st.get("b", False), st.get("code", False))
+        for part in re.split(r"(\s+)", t):
+            if not part:
+                continue
+            if part.isspace():
+                if open_word:
+                    widths.append(cur)
+                cur, open_word = 0.0, False
+            else:
+                cur += f.getlength(part) * size / 100
+                open_word = True
+    if open_word:
+        widths.append(cur)
+    return widths
+
+
 def wrap_lines(text, size, width_pt, bold=False):
     """Number of lines `text` (inline Markdown) needs at `size` pt in `width_pt`."""
-    words = plain(text).split()
+    words = word_widths(text, size, bold)
     if not words:
         return 1
-    f = font(bold)
-    space = f.getlength(" ") * size / 100
+    space = font(bold).getlength(" ") * size / 100
     lines, cur = 1, 0.0
-    for w in words:
-        wl = f.getlength(w) * size / 100
+    for wl in words:
         if cur and cur + space + wl > width_pt:
             lines += 1
             cur = wl

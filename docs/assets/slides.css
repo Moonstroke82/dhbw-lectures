@@ -1,5 +1,5 @@
-:root { --primary:#1F3A5F; --accent:#2A9D8F; --optional:#E76F51;
-  --text:#222222; --muted:#6B7280; --light:#F1F5F9; --border:#CBD5E1; }
+:root { --primary:#5C6971; --accent:#E2001A; --optional:#2B2B2B;
+  --text:#1E1E1E; --muted:#65737B; --light:#F2F3F4; --border:#D9DDDF; }
 .reveal { font-family: Calibri, Carlito, 'Segoe UI', Arial, Helvetica, sans-serif; color: var(--text); }
 .reveal .slides { text-align: left; }
 .reveal .slides section { width: 960px; height: 540px; padding: 0; background: #fff; }
