@@ -35,17 +35,20 @@ def entity(ax, x, y, name, w=22, h=9, weak=False):
     ax.text(x, y, name, ha="center", va="center", fontsize=13, weight="bold", color=TEXT)
 
 
-def relationship(ax, x, y, name, w=26, h=13):
+def relationship(ax, x, y, name, w=26, h=13, identifying=False):
     ax.add_patch(Polygon([(x - w / 2, y), (x, y + h / 2), (x + w / 2, y), (x, y - h / 2)], fc=LIGHT, ec=RED, lw=2))
+    if identifying:
+        ax.add_patch(Polygon([(x - w / 2 + 2.6, y), (x, y + h / 2 - 1.3), (x + w / 2 - 2.6, y), (x, y - h / 2 + 1.3)],
+                             fc="none", ec=RED, lw=1.2))
     ax.text(x, y, name, ha="center", va="center", fontsize=12, color=TEXT)
 
 
-def attribute(ax, x, y, name, key=False, w=24, h=7):
+def attribute(ax, x, y, name, key=False, w=24, h=7, partial=False):
     ax.add_patch(Ellipse((x, y), w, h, fc="white", ec=GREY, lw=1.3))
-    t = ax.text(x, y, name, ha="center", va="center", fontsize=11, color=TEXT)
-    if key:
-        t.set_text(name)
-        ax.plot([x - len(name) * 0.75, x + len(name) * 0.75], [y - 1.8, y - 1.8], color=TEXT, lw=1)
+    ax.text(x, y, name, ha="center", va="center", fontsize=11, color=TEXT)
+    if key or partial:
+        ax.plot([x - len(name) * 0.75, x + len(name) * 0.75], [y - 1.8, y - 1.8], color=TEXT, lw=1,
+                linestyle=(0, (2, 1.5)) if partial else "-")
 
 
 def line(ax, a, b, label=None, at=0.5, off=(0, 2.5)):
@@ -130,7 +133,58 @@ def crow_legend():
     save(fig, "er-crowsfoot-legend.png")
 
 
+def weak_and_recursive():
+    """Left: weak entity type Order line identified through Order. Right: recursive relationship."""
+    fig, ax = canvas(13, 4.2)
+    entity(ax, 14, 20, "Order")
+    relationship(ax, 42, 20, "contains", identifying=True)
+    entity(ax, 74, 20, "Order line", w=24, weak=True)
+    line(ax, (25, 20), (29, 20))
+    ax.text(27, 23.5, "1", ha="center", va="center", fontsize=13, weight="bold", color=RED)
+    ax.plot([55, 62], [20.7, 20.7], color=GREY, lw=1.5)   # double line: total participation
+    ax.plot([55, 62], [19.3, 19.3], color=GREY, lw=1.5)
+    ax.text(58.5, 23.5, "N", ha="center", va="center", fontsize=13, weight="bold", color=RED)
+    attribute(ax, 14, 37, "order_no", key=True, w=22)
+    line(ax, (14, 20), (14, 37))
+    attribute(ax, 63, 37, "line_no", partial=True, w=20)
+    attribute(ax, 86, 37, "quantity", w=20)
+    line(ax, (74, 20), (63, 37))
+    line(ax, (74, 20), (86, 37))
+    ax.plot([99, 99], [2, 42], color="#" + theme.COLORS["border"], lw=1)
+    # recursive: Employee manages Employee
+    entity(ax, 114, 12, "Employee", w=22)
+    relationship(ax, 114, 33, "manages", w=22, h=12)
+    for x in (107, 121):
+        y_top = 33 - 6 * (1 - abs(x - 114) / 11)
+        ax.plot([x, x], [16.5, y_top], color=GREY, lw=1.5, zorder=0)
+    ax.text(104, 24, "1", ha="center", va="center", fontsize=13, weight="bold", color=RED)
+    ax.text(124, 24, "N", ha="center", va="center", fontsize=13, weight="bold", color=RED)
+    save(fig, "er-weak-recursive.png")
+
+
+def specialisation():
+    fig, ax = canvas(12, 4.4)
+    entity(ax, 60, 34, "Employee", w=24)
+    for (x, y, n, k) in [(30, 37, "employee_no", True), (90, 37, "name", False)]:
+        attribute(ax, x, y, n, k)
+        line(ax, (60, 34), (x, y))
+    ax.add_patch(Ellipse((60, 21), 7, 7, fc="white", ec=RED, lw=2))
+    ax.text(60, 21, "d", ha="center", va="center", fontsize=13, weight="bold", color=RED)
+    ax.plot([59.4, 59.4], [29.5, 24.5], color=GREY, lw=1.5)  # double line: total specialisation
+    ax.plot([60.6, 60.6], [29.5, 24.5], color=GREY, lw=1.5)
+    for x, n, a, ax_ in [(38, "Mechanic", "qualification", 14), (82, "Salesperson", "sales_target", 106)]:
+        entity(ax, x, 6, n, w=24)
+        ax.plot([60, x], [17.5, 10.5], color=GREY, lw=1.5, zorder=0)
+        attribute(ax, ax_, 6, a, w=22)
+        line(ax, (x, 6), (ax_, 6))
+        entity(ax, x, 6, n, w=24)
+    entity(ax, 60, 34, "Employee", w=24)
+    save(fig, "er-specialisation.png")
+
+
 if __name__ == "__main__":
     chen()
     crowsfoot()
     crow_legend()
+    weak_and_recursive()
+    specialisation()
