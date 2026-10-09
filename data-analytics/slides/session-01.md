@@ -77,12 +77,12 @@ The module handbook explicitly says the focus is not on the foundations of the a
 | Part | Sessions | Topics |
 |---|---|---|
 | A · Analytics foundations and data warehousing | 1–6 | Analytics types, DWH architectures, OLAP, analytical SQL, visualisation, analytics portals |
-| B · Machine learning for data analysis | 7–11 | From business question to ML task, classification, regression, unsupervised use cases, lab workshop |
-| C · Temporal data and time series | 12–14 | Temporal data, forecasting methods, forecasting use cases |
-| D · Big data analytics | 15–17 | Spark, scalable machine learning, portfolio presentations |
+| B · Machine learning use cases and experiments | 7–10 | From business question to ML use case, ML use-case lab, A/B testing, lab workshop |
+| C · Temporal data and time series | 11–14 | Temporal data, forecasting methods, forecasting at scale and use cases |
+| D · Big data analytics and case study | 15–17 | Analytics with Spark, case study workshop, portfolio presentations |
 
 ::: notes
-Session 11 is a buffer: no new content, time for catching up, portfolio work and consultations. Session 17 is a shorter block with the portfolio presentations.
+You know the ML methods from Foundations of Data Science and AI and from AI and Machine Learning, and Spark from Cloud Computing and Big Data — here we apply them to use cases. Session 10 is a buffer: no new content, time for catching up, portfolio work and consultations. Session 17 is a shorter block with the portfolio presentations.
 :::
 
 ---

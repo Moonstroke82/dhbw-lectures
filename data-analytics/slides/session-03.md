@@ -9,7 +9,8 @@ program: DHBW Mannheim · Data Science and Artificial Intelligence · Semester 5
 # Dimensional Data and OLAP {.title}
 
 ::: notes
-Time plan for today (3 h): recap 10 min · dimensional modelling 35 min · slowly changing dimensions 20 min · break 10 min · OLAP cube and operations 25 min · lab 65 min · wrap-up 5 min · ~10 min buffer.
+Time plan for today (3 h): recap 10 min · reading a dimensional model 25 min · hierarchies 10 min · break 10 min · OLAP cube and operations 30 min · lab 80 min · wrap-up 5 min · ~10 min buffer.
+Model design (four steps, slowly changing dimensions) is taught in Data Engineering (W4DSKI_401) — those slides are optional self-study here. If 401 has not covered star schemas yet, spend 10 more minutes on them and shorten the lab.
 Students need their tpch.duckdb file from session 2. If someone lost it, the first lab cell recreates it (internet access needed for the extension download).
 :::
 
@@ -20,13 +21,13 @@ Students need their tpch.duckdb file from session 2. If someone lost it, the fir
 1. Recap: what you found in the TPC-H warehouse
 2. Dimensional modelling: facts, measures, dimensions
 3. Star and snowflake schema
-4. Hierarchies and slowly changing dimensions
+4. Hierarchies — and why history in dimensions matters
 5. The OLAP cube and its operations
 6. Lab: build a star schema and answer questions with OLAP operations
 
 ::: notes
 Time and format guide (not shown to students):
-0:00 Recap (plenary) · 0:10 Dimensional modelling, star and snowflake (input + discussion) · 0:45 Hierarchies and SCD (input) · 1:05 Break · 1:15 OLAP cube and operations (input + mini exercise) · 1:40 Lab (pairs) · 2:45 Wrap-up · ~10 min buffer.
+0:00 Recap (plenary) · 0:10 Facts, dimensions, star and snowflake (input + discussion) · 0:35 Hierarchies (input) · 0:45 Break · 0:55 OLAP cube and operations (input + mini exercise) · 1:25 Lab (pairs) · 2:45 Wrap-up · ~10 min buffer.
 :::
 
 ---
@@ -80,7 +81,7 @@ Additivity matters: revenue can be summed over all dimensions; an account balanc
 
 ---
 
-# Four Steps of Dimensional Design
+# Four Steps of Dimensional Design {.optional}
 
 1. **Select the business process** — e.g. sales, orders, shipments
 2. **Declare the grain** — what exactly does one fact row represent?
@@ -96,7 +97,7 @@ Kimball and Ross (2013).
 :::
 
 ::: notes
-Kimball and Ross call declaring the grain the most important step. Example: grain "one row per order line" allows analysis by product; grain "one row per order" does not. Atomic (finest) grain is the safest choice because it can always be rolled up.
+Self-study — designing dimensional models is taught in Data Engineering (W4DSKI_401); here students only need to read a model and know its grain. Kimball and Ross call declaring the grain the most important step. Example: grain "one row per order line" allows analysis by product; grain "one row per order" does not. Atomic (finest) grain is the safest choice because it can always be rolled up.
 :::
 
 ---
@@ -179,7 +180,7 @@ A date dimension is one of the most important dimensions; real warehouses add at
 
 ---
 
-# Slowly Changing Dimensions
+# Slowly Changing Dimensions {.optional}
 
 A customer moves from Mannheim to Hamburg. What happens to last year's sales by city?
 
@@ -194,7 +195,7 @@ Kimball and Ross (2013).
 :::
 
 ::: notes
-Type 2 is the most common technique when history matters; it needs surrogate keys because the same customer now has several rows. Kimball and Ross describe further types (0, 4–7) — not exam-relevant here. Ask: which type would a tax office need, which a marketing dashboard?
+Self-study (design topic of Data Engineering). For analysts the key point: check whether a dimension keeps history before comparing periods. Type 2 is the most common technique when history matters; it needs surrogate keys because the same customer now has several rows. Kimball and Ross describe further types (0, 4–7) — not exam-relevant here. Ask: which type would a tax office need, which a marketing dashboard?
 :::
 
 ---
@@ -358,7 +359,7 @@ Collect answers. Key message: the dimensional model makes queries simpler, but t
 - Dimensional models separate **facts** (measures at a declared grain) from **dimensions** (context)
 - The **star schema** uses one denormalised table per dimension; the **snowflake** normalises them
 - **Hierarchies** in dimensions enable drill-down and roll-up
-- **Slowly changing dimensions** decide whether history is overwritten (type 1) or preserved (type 2)
+- Check the **grain** of a fact table and whether dimensions keep **history** before you interpret results
 - **OLAP operations** — roll-up, drill-down, slice, dice, pivot — map to GROUP BY, WHERE and PIVOT in SQL
 
 ---
