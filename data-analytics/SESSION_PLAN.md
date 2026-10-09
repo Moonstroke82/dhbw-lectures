@@ -4,16 +4,16 @@
 
 **Focus (module handbook):** apply algorithms to specific use cases, rather than teach how they work. So every session starts from a business use case and asks: *which method, how to adapt it, and is it suitable?*
 
-**What students bring from other DSKI modules** (module handbook DSKI Mannheim, checked 2026-10-09). Students take the track *Data Engineering and Analytics* (W4DSKI_401–404); the track *Intelligence Engineering* (W4DSKI_410–413) runs in parallel and is not part of their studies.
+**What students bring from other DSKI modules** (module handbook DSKI Mannheim and *Rahmenstudienplan*, checked 2026-10-09). Students choose one of two elective tracks after year 2 and take all its modules: our students are in *Data Engineering and Analytics* (W4DSKI_401–404), not in *Intelligence Engineering* (W4DSKI_410–413).
 
-| Prior or parallel module | Content students already know | Consequence for this course |
+| Module (semester) | Content | Consequence for this course |
 |---|---|---|
-| W4DSKI_101 Foundations of Data Science and AI | Supervised/unsupervised learning, training and test data, over- and underfitting, regression, decision trees, clustering, association rules | No ML basics; at most a short recap |
-| W4DSKI_201 AI and Machine Learning | Cross-validation, logistic regression, kNN, regularisation, ensembles, SVM, neural networks, PCA, k-means, hierarchical clustering, isolation forest, with lab | No method sessions; ML is reduced to use-case framing and one use-case lab |
-| W4DSKI_204 Cloud Computing and Big Data | Data lake, lambda/kappa architecture, Hadoop and Spark, with lab | No Spark architecture introduction; one session on analytics with Spark |
-| W4DSKI_401 Data Engineering (same track, year 3) | Data warehouse modelling (star, snowflake), design principles, ETL, data lake | This course *uses* the warehouse (queries, OLAP, interpretation); building it belongs to 401 — design details are optional slides here |
-| W4DSKI_206 Stochastics | Estimation, confidence intervals, hypothesis tests, experimental design | Basis for the session on experiments and A/B testing |
-| W4DSKI_BM305 Implementing DS and AI in companies (year 3) | Predictive modelling for business tasks, visualising model performance, DS and business strategy | Coordinate with its lecturer; semester of BM305 and 401 still to be confirmed |
+| W4DSKI_101 Foundations of Data Science and AI (sem. 1) | Supervised/unsupervised learning, training and test data, over- and underfitting, regression, decision trees, clustering, association rules | No ML basics; at most a short recap |
+| W4DSKI_201 AI and Machine Learning (sem. 4) | Cross-validation, logistic regression, kNN, regularisation, ensembles, SVM, neural networks, PCA, k-means, hierarchical clustering, isolation forest, with lab | No method sessions; ML is reduced to use-case framing and one use-case lab |
+| W4DSKI_204 Cloud Computing and Big Data (sem. 4) | Data lake, lambda/kappa architecture, Hadoop and Spark, with lab | No Spark architecture introduction; one session on analytics with Spark |
+| W4DSKI_401 Data Engineering (sem. 5, **parallel**) | Data warehouse modelling (star, snowflake), design principles, ETL, data lake | Runs at the same time, so students cannot be assumed to know it yet. This course stays self-contained: it teaches the dimensional modelling it needs, with the analyst's focus (reading, querying and interpreting a warehouse) |
+| W4DSKI_206 Stochastics (sem. 3–4) | Estimation, confidence intervals, hypothesis tests, experimental design | Basis for the session on experiments and A/B testing |
+| W4DSKI_BM305 Implementing DS and AI in companies (sem. 6, **after** this course) | Predictive modelling for business tasks, visualising model performance, DS and business strategy | No overlap in semester 5; session 7 is a foundation BM305 can build on |
 
 Not covered elsewhere — and therefore the core of this course: analytical SQL and OLAP, visualisation and analytics portals, experiments, and **temporal data and time series forecasting**. Tuning and ML pipelines are taught only in the other track (W4DSKI_411), so they appear in applied form in the ML use-case lab.
 
@@ -28,8 +28,8 @@ Legend for learning-outcome links: **SC** subject competence · **MC** methodolo
 | # | Session | Contents | Lab / activity | LO |
 |---|---|---|---|---|
 | 1 | **Introduction to data analytics and project pitches** | Course overview and portfolio; development of data analysis from reporting and BI to advanced analytics and AI; descriptive, diagnostic, predictive, prescriptive analytics; application areas; partner companies present the semester-6 projects; team formation | Map use cases to analytics types; choose a project team | SC, PSC |
-| 2 | **Data warehouse architectures** | The analyst's view of the warehouse: OLTP vs. OLAP; reference architecture (what data is in which layer, and how far to trust it); Inmon vs. Kimball and lakehouse as a short recap of Data Engineering | Explore a sample warehouse in DuckDB: what data is where? | SC |
-| 3 | **Dimensional data and OLAP** | Reading a dimensional model: facts, measures, grain, dimensions, hierarchies; OLAP cube and operations (slice, dice, drill-down, roll-up, pivot); design steps and slowly changing dimensions as optional self-study (taught in Data Engineering) | Answer business questions with OLAP operations on a star schema | SC, MC |
+| 2 | **Data warehouse architectures** | OLTP vs. OLAP; DWH reference architecture from the analyst's view (what data is in which layer, and how far to trust it); Inmon vs. Kimball; DWH in the lakehouse era | Explore a sample warehouse in DuckDB: what data is where? | SC |
+| 3 | **Dimensional data and OLAP** | Star and snowflake schema; facts, measures, grain, dimensions, hierarchies; slowly changing dimensions; OLAP cube and operations (slice, dice, drill-down, roll-up, pivot) | Build a star schema and answer business questions with OLAP operations | SC, MC |
 | 4 | **Analytical SQL** | Window functions, `ROLLUP`/`CUBE`/`GROUPING SETS`, CTEs; typical analyses: rankings, running totals, cohorts, funnels; interpreting the results | SQL lab on the sample warehouse | MC |
 | 5 | **Data visualisation** | Purpose-driven chart choice; perception and visual encoding; misleading charts; storytelling with data; KPI design | Redesign bad charts; visualise lab results | SC, MC |
 | 6 | **Analytics portals** | Structure and infrastructure of analytics portals: BI tools, semantic layer, self-service BI, dashboards, embedded analytics, access and governance | Build a small dashboard on the warehouse (Streamlit) | SC, MC, OC |
@@ -84,4 +84,4 @@ The case study deliberately does **not** use partner-company data (confidentiali
 
 ## Changes
 
-- 2026-10-09: ML part reduced from four sessions to two (framing + use-case lab) and big data from two sessions to one, because students already know ML methods (W4DSKI_101, 201) and Spark (204). Freed time: experiments and A/B testing (new), a fourth time series session, and a case study workshop. Data warehouse design moved to optional slides (taught in W4DSKI_401).
+- 2026-10-09: ML part reduced from four sessions to two (framing + use-case lab) and big data from two sessions to one, because students already know ML methods (W4DSKI_101, 201) and Spark (204). Freed time: experiments and A/B testing (new), a fourth time series session, and a case study workshop. Data warehouse sessions stay self-contained, because Data Engineering (W4DSKI_401) runs in parallel in semester 5 and topics are not split between lecturers (Simon, 2026-10-09).
