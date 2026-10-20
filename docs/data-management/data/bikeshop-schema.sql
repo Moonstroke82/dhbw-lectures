@@ -12,7 +12,7 @@
 -- or with the SQLite command-line tool:  sqlite3 bikeshop.db < bikeshop-schema.sql
 --
 -- Running the script again deletes all tables (and their data) and creates them anew.
--- Sample data follows in session 8 (INSERT, UPDATE, DELETE).
+-- Sample data: bikeshop-data.sql (session 8).
 
 PRAGMA foreign_keys = ON;
 
