@@ -73,3 +73,54 @@ Other private values (e.g. partner company names) use a placeholder `{{private:k
 - **Citations:** every slide based on a source has a `::: source` block in APA 7 short form, and the full reference goes on the `{.references}` slide. Diagrams drawn from a textbook figure say "Adapted from Author (Year, p. X)"; own diagrams say "Own illustration based on …".
 - **Fit:** the build picks the largest font size (24 pt down to 14 pt) at which the content fits, and prints a warning if it does not fit at all — then split the slide.
 - **Preview:** `python tools/build.py <file> --preview` exports every slide as PNG via PowerPoint into `build/preview/` for a visual check.
+
+# Worksheet Markdown format
+
+One worksheet per session: `<course>/worksheets/session-NN.md`. Worksheets are for students to practise the session's content on their own or in the lab, and to prepare for the exam or portfolio. They complement the exercise slides: they repeat the core in-class exercise only where useful and add further practice tasks of increasing difficulty.
+
+The build turns each worksheet into two pages:
+
+- **Student version** (no solutions) → `docs/<course>/worksheet-NN.html`, linked from the course page next to the slides; printable as A4 via the browser
+- **Lecturer version** (with solutions) → `build/<course>/worksheet-NN-solutions.html` (not published)
+
+```markdown
+---
+course: Data Management
+session: 4
+title: Semantic Data Modelling II
+subtitle: Practice tasks for weak entity types, recursive relationships and specialisation
+program: DHBW · Digital Business Management (Business IT) · Semester 2
+---
+
+Intro paragraph: what the worksheet covers and what students need (e.g. paper, Jupyter, a dataset).
+
+## Task title                       <- numbered task (1, 2, 3 ... added automatically)
+
+Task text, lists, tables, code blocks, `::: callout`, `::: cards`, `::: columns`, images as on slides.
+
+### Sub-heading                     <- optional structure within a task
+
+## Optional challenge {.optional}   <- marked as optional
+
+::: answer lines=6
+Optional prompt shown inside the box, e.g. "Owner: ___  Partial key: ___"
+:::                                 <- ruled box to write in (student version only)
+
+::: hint
+A hint students can unfold on the web (hidden when printed).
+:::
+
+::: solution
+Model answer (lecturer version only). Never visible on the public page — but the Markdown
+source is public in the repository, so solutions here are not secret.
+:::
+
+## References {.references}        <- unnumbered, full APA 7 references
+```
+
+## Rules for worksheets
+
+- **Same rules as slides:** English, no timings, sources in APA 7 (short form in the text, full reference in the `{.references}` section), private placeholders only via `{{private:key|Fallback}}`.
+- **Every task has a solution** block, written so that a student tutor could mark the task with it.
+- **Difficulty rises** within a sheet: recall and understanding first, then application, then one transfer or exam-style task. Mark extra tasks beyond the core as `{.optional}`.
+- **Exam style** for courses with a written exam: at least one task per sheet in the form and length of an exam question.

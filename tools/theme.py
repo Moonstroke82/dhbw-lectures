@@ -33,6 +33,10 @@ if sys.platform == "darwin":  # Menlo is wider than Consolas, so code still fits
     MEASURE_REGULAR = "/System/Library/Fonts/Supplemental/Arial.ttf"
     MEASURE_BOLD = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
     MEASURE_MONO = "/System/Library/Fonts/Menlo.ttc"
+elif sys.platform.startswith("linux"):  # Liberation Sans is metric-compatible with Arial
+    MEASURE_REGULAR = "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf"
+    MEASURE_BOLD = "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf"
+    MEASURE_MONO = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
 else:
     MEASURE_REGULAR = "C:/Windows/Fonts/arial.ttf"
     MEASURE_BOLD = "C:/Windows/Fonts/arialbd.ttf"

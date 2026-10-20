@@ -112,7 +112,7 @@ def landing(courses, available):
         groups += f'<section class="program"><h2>{esc(program)}</h2><div class="courses">{cards(members, available)}</div></section>'
     return (head("DHBW Lectures", 0) + nav(courses, 0) +
             f"""<section class="hero landing"><div class="wrap"><p class="eyebrow">DHBW</p>
-<h1>Lecture slides</h1><p class="lead">Slides, exercises and references for the courses. Open a course to see the full session roadmap.</p></div></section>
+<h1>Lecture slides</h1><p class="lead">Slides, worksheets, exercises and references for the courses. Open a course to see the full session roadmap.</p></div></section>
 <main class="wrap">{groups}</main>""" + HOWTO + footer())
 
 
@@ -138,7 +138,7 @@ def n_sessions(c):
     return sum(1 for p in c["plan"] for s in p[2] if s["num"])
 
 
-def course_page(slug, c, courses, available):
+def course_page(slug, c, courses, available, worksheets):
     chips = "".join(f'<span class="chip">{esc(t)}</span>' for t in c.get("chips") or (
         f"Semester {c['semester']}", f"{c['hours']} hours", f"{n_sessions(c)} sessions", c["assessment"]))
     outcomes = "".join(f'<li><span class="ck">{ICONS["check"]}</span>{esc(o)}</li>' for o in c["outcomes"])
@@ -148,12 +148,21 @@ def course_page(slug, c, courses, available):
         for s in sessions:
             num = s["num"].zfill(2) if s["num"] else ""
             live = num and num in available.get(slug, [])
+            sheet = num and num in worksheets.get(slug, [])
             label = s["label"]
+            if live and sheet:  # two targets: the card is not one link, the slides link stretches over it
+                links = (f'<a class="open stretch" href="session-{num}.html">Open slides →</a>'
+                         f'<a class="open sheet" href="worksheet-{num}.html">Worksheet →</a>')
+            else:
+                links = "<span class=open>Open slides →</span>" if live else "<span class=pending>Coming soon</span>"
             inner = (f'<span class="num">{esc(label)}</span><div><h4>{esc(s["title"])}</h4>'
-                     f'<p>{md_inline(s["desc"])}</p>'
-                     f'{"<span class=open>Open slides →</span>" if live else "<span class=pending>Coming soon</span>"}</div>')
-            items += (f'<a class="session live" href="session-{num}.html">{inner}</a>' if live
-                      else f'<div class="session">{inner}</div>')
+                     f'<p>{md_inline(s["desc"])}</p>{links}</div>')
+            if live and sheet:
+                items += f'<div class="session live">{inner}</div>'
+            elif live:
+                items += f'<a class="session live" href="session-{num}.html">{inner}</a>'
+            else:
+                items += f'<div class="session">{inner}</div>'
         parts += f'<div class="part"><h3><span>{esc(code)}</span>{esc(title)}</h3><div class="sessions">{items}</div></div>'
     return (head(c["title"], 1) + nav(courses, 1, slug) +
             f"""<section class="hero small"><div class="wrap"><span class="hero-icon">{ICONS[c['icon']]}</span>
@@ -233,6 +242,10 @@ code {{ background:var(--light); padding:1px 5px; border-radius:4px; }}
 .session h4 {{ margin:0 0 4px; color:var(--primary); font-size:17px; line-height:1.3; }}
 .session p {{ margin:0 0 8px; color:var(--muted); font-size:14px; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }}
 .open {{ color:var(--accent); font-weight:700; font-size:14px; }}
+.session.live {{ position:relative; }}
+a.open {{ text-decoration:none; margin-right:18px; }} a.open:hover {{ text-decoration:underline; }}
+a.open.stretch::after {{ content:""; position:absolute; inset:0; }}
+a.open.sheet {{ position:relative; z-index:1; }}
 .pending {{ color:var(--muted); font-size:13px; font-style:italic; }}
 footer {{ background:#2b2b2b; color:rgba(255,255,255,.85); padding:32px 0; font-size:15px; }}
 footer p {{ margin:4px 0; }} footer .small {{ font-size:13px; opacity:.8; }} footer a {{ color:#fff; }}
@@ -248,9 +261,11 @@ def write(root, docs, course_slugs):
         courses.append((slug, c))
     available = {slug: [p.stem.split("-")[1] for p in sorted((root / slug / "slides").glob("session-*.md"))]
                  for slug, _ in courses if (root / slug / "slides").exists()}
+    worksheets = {slug: [p.stem.split("-")[1] for p in sorted((root / slug / "worksheets").glob("session-*.md"))]
+                  for slug, _ in courses if (root / slug / "worksheets").exists()}
     (docs / "assets").mkdir(parents=True, exist_ok=True)
     (docs / "assets" / "site.css").write_text(CSS, encoding="utf-8")
     (docs / "index.html").write_text(landing(courses, available), encoding="utf-8")
     for slug, c in courses:
         (docs / slug).mkdir(parents=True, exist_ok=True)
-        (docs / slug / "index.html").write_text(course_page(slug, c, courses, available), encoding="utf-8")
+        (docs / slug / "index.html").write_text(course_page(slug, c, courses, available, worksheets), encoding="utf-8")

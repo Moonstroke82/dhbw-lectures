@@ -194,8 +194,11 @@ def _fenced_block(name, inner):
                 label, _, desc = m.group(3).partition(":")
                 layers.append({"label": label.strip(), "desc": desc.strip()})
         return {"type": "layers", "layers": layers}
-    if name in ("callout", "notes", "source"):
+    if name in ("callout", "notes", "source", "solution", "hint"):  # solution, hint: worksheets only
         return {"type": name, "blocks": parse_blocks(inner), "raw": "\n".join(inner).strip()}
+    if name.split()[0] == "answer":  # worksheets: space to write, e.g. "::: answer lines=6"
+        attrs = dict(a.split("=", 1) for a in name.split()[1:] if "=" in a)
+        return {"type": "answer", "lines": int(attrs.get("lines", 4)), "blocks": parse_blocks(inner)}
     raise ValueError(f"unknown block ::: {name}")
 
 
