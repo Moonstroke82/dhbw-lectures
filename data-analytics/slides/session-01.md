@@ -269,7 +269,7 @@ Own compilation based on Baars and Kemper (2021) and Chen et al. (2012).
 :::
 
 ::: notes
-Many of these use cases come back in the labs: churn (session 8), price prediction (9), segmentation and basket analysis (10), demand forecasting (13–14).
+Many of these use cases come back in the labs: churn, segmentation and anomaly detection (sessions 7–8), experiments (9), demand forecasting (12–14).
 :::
 
 ---
