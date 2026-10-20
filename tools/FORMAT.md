@@ -124,3 +124,4 @@ source is public in the repository, so solutions here are not secret.
 - **Every task has a solution** block, written so that a student tutor could mark the task with it.
 - **Difficulty rises** within a sheet: recall and understanding first, then application, then one transfer or exam-style task. Mark extra tasks beyond the core as `{.optional}`.
 - **Exam style** for courses with a written exam: at least one task per sheet in the form and length of an exam question.
+- **Training only:** worksheets and their solutions are public practice material. Real exam questions and final tests are never written into this repository.
