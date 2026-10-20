@@ -97,6 +97,7 @@ Intro paragraph: what the worksheet covers and what students need (e.g. paper, J
 ## Task title                       <- numbered task (1, 2, 3 ... added automatically)
 
 Task text, lists, tables, code blocks, `::: callout`, `::: cards`, `::: columns`, images as on slides.
+Links to local files, e.g. [orders.csv](data/orders.csv), are copied next to the built page.
 
 ### Sub-heading                     <- optional structure within a task
 

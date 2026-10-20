@@ -15,6 +15,7 @@ from render_html import inline
 from slidemd import PRIVATE_RE, parse_blocks
 
 HEAD_RE = re.compile(r"^(#{2,3})\s+(.*?)\s*(\{([^}]*)\})?\s*$")
+LINK_RE = re.compile(r"(?<!!)\[[^\]]*\]\((?!https?:|mailto:|#)([^)\s]+)\)")
 
 
 def esc(s):
@@ -124,6 +125,13 @@ def render(src, out_path, solutions=False, private=None):
                 dst.parent.mkdir(exist_ok=True)
                 shutil.copy2(p, dst)
                 img_map[b["src"]] = f"img/{p.name}"
+    # local files linked from the worksheet (e.g. data/orders.csv) are copied next to the page
+    for rel in set(LINK_RE.findall(Path(src).read_text(encoding="utf-8"))):
+        f = Path(src).parent / rel
+        if f.is_file():
+            dst = out_path.parent / rel
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(f, dst)
     body, n_task = [], 0
     for s in sections:
         inner = blocks_html(s["blocks"], solutions, img_map)
