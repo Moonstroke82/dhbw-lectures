@@ -447,7 +447,7 @@ Expected results (DuckDB 1.5.5, sf 0.1): 1 nations range from Saudi Arabia 112.8
 # References {.references}
 
 - Anscombe, F. J. (1973). Graphs in statistical analysis. *The American Statistician, 27*(1), 17–21.
-- Baars, H., & Kemper, H.-G. (2021). *Business Intelligence & Analytics: Grundlagen und praktische Anwendungen* (4th ed.). Springer Vieweg. https://doi.org/10.1007/978-3-8348-2344-1
+- Baars, H., & Kemper, H.-G. (2021). *Business Intelligence & Analytics – Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung* (4th ed.). Springer Vieweg. https://doi.org/10.1007/978-3-8348-2344-1
 - Cleveland, W. S., & McGill, R. (1984). Graphical perception: Theory, experimentation, and application to the development of graphical methods. *Journal of the American Statistical Association, 79*(387), 531–554.
 - Knaflic, C. N. (2015). *Storytelling with data: A data visualization guide for business professionals*. Wiley.
 - Munzner, T. (2014). *Visualization analysis and design*. CRC Press.

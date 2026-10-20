@@ -6,7 +6,7 @@ subtitle: Practice tasks on weak entity types, M:N and recursive relationships, 
 program: DHBW · Digital Business Management (Business IT) · Semester 2
 ---
 
-This worksheet lets you practise the concepts of session 4 on your own or with your project team. Use Chen notation unless a task says otherwise. Paper and pencil are enough; if you prefer a tool, draw.io (diagrams.net) has shapes for both Chen and crow's-foot notation.
+This worksheet lets you practise the concepts of session 4 on your own or with your project team. Use Chen notation (Chen, 1976) unless a task says otherwise; the terms follow the session slides (based on Elmasri & Navathe, 2016; Staud, 2005). Paper and pencil are enough; if you prefer a tool, draw.io (diagrams.net) has shapes for both Chen and crow's-foot notation.
 
 ## Weak or Strong?
 

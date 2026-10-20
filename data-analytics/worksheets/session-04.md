@@ -251,7 +251,7 @@ Expected (DuckDB 1.5, sf 0.1): 8,640 active customers in 1997; **25.8 %** of cus
 
 ## References {.references}
 
-- DuckDB Foundation. (n.d.). *Window functions*. DuckDB documentation. Retrieved October 20, 2026, from https://duckdb.org/docs/sql/functions/window_functions
+- DuckDB Foundation. (n.d.). *Window functions*. DuckDB documentation. Retrieved October 20, 2026, from https://duckdb.org/docs/current/sql/functions/window_functions.html
 - Gray, J., Chaudhuri, S., Bosworth, A., Layman, A., Reichart, D., Venkatrao, M., Pellow, F., & Pirahesh, H. (1997). Data cube: A relational aggregation operator generalizing group-by, cross-tab, and sub-totals. *Data Mining and Knowledge Discovery, 1*(1), 29–53. https://doi.org/10.1023/A:1009726021843
 - Tanimura, C. (2021). *SQL for data analysis: Advanced techniques for transforming data into insights*. O'Reilly Media.
 - Transaction Processing Performance Council. (n.d.). *TPC-H*. Retrieved October 20, 2026, from https://www.tpc.org/tpch/

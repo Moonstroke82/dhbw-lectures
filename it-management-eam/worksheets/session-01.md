@@ -95,7 +95,7 @@ Marking: the quadrant is less important than a justification that uses both dime
 
 ## Does IT Matter?
 
-A mid-sized **insurance company** discusses its IT budget. The CFO quotes Carr (2003): "IT is a commodity; we should spend less and follow others." The head of claims says that a fast online claims process is the main reason customers stay.
+A mid-sized **insurance company** discusses its IT budget. The CFO, referring to Carr (2003), says: "IT is a commodity; we should spend less and follow others." The head of claims says that a fast online claims process is the main reason customers stay.
 
 1. Summarise Carr's argument in two sentences.
 2. Give two arguments **for** and two **against** the CFO's view in this specific company.

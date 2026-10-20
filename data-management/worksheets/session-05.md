@@ -6,7 +6,7 @@ subtitle: Practice tasks on relations, keys, integrity constraints and mapping E
 program: DHBW · Digital Business Management (Business IT) · Semester 2
 ---
 
-This worksheet lets you practise the concepts of session 5 on your own or with your project team. Use the notation from the slides: write relation names in capitals, the **primary key in bold** (on paper: underline it) and foreign keys in *italics* with an arrow to the referenced relation, e.g. BIKE(**frame_no**, brand, *customer_no* → CUSTOMER). Paper and pencil are enough. Tasks 5 and 6 continue the car-sharing and sports club cases from worksheet 4.
+This worksheet lets you practise the concepts of session 5 on your own or with your project team. Use the notation from the slides: write relation names in capitals, the **primary key in bold** (on paper: underline it) and foreign keys in *italics* with an arrow to the referenced relation, e.g. BIKE(**frame_no**, brand, *customer_no* → CUSTOMER). The concepts and mapping rules follow the session slides (based on Codd, 1970; Elmasri & Navathe, 2016, Chapter 9; Gadatsch, 2019). Paper and pencil are enough. Tasks 5 and 6 continue the car-sharing and sports club cases from worksheet 4.
 
 ## Read a Relation
 
