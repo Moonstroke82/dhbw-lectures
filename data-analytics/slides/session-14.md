@@ -283,7 +283,7 @@ Based on Syntetos et al. (2005), Syntetos and Boylan (2005) and Hyndman and Atha
 :::
 
 ::: notes
-Syntetos, Boylan and Croston (2005) derive the cut-offs ADI = 1.32 and CV² = 0.49 by comparing which method (Croston, SBA or SES) has the lower theoretical error; the categories are a guide for choosing a method, not a law. Our series: monthly scripts of ATC2 group J06 (immune sera and immunoglobulins) in the PBS data, concessional co-payments, 1991–2003: 102 of 150 months zero, mean 0.43 per month, at most 3. Hyndman and Athanasopoulos use the J06 total in Section 13.2. In 2004–2008 demand disappears almost completely (last script April 2005) — obsolescence, a topic of its own (next slide notes). Link to session 12 exercise 2: the spare-parts case with MAPE.
+Syntetos et al. (2005) derive the cut-offs ADI = 1.32 and CV² = 0.49 by comparing which method (Croston, SBA or SES) has the lower theoretical error; the categories are a guide for choosing a method, not a law. Our series: monthly scripts of ATC2 group J06 (immune sera and immunoglobulins) in the PBS data, concessional co-payments, 1991–2003: 102 of 150 months zero, mean 0.43 per month, at most 3. Hyndman and Athanasopoulos use the J06 total in Section 13.2. In 2004–2008 demand disappears almost completely (last script April 2005) — obsolescence, a topic of its own (next slide notes). Link to session 12 exercise 2: the spare-parts case with MAPE.
 :::
 
 ---

@@ -333,7 +333,7 @@ Teams 12 min, then 3 min: two volunteer teams read their titles aloud; the room 
 ::: columns
 **Project A: {{private:partner_a|Partner Company A}}**
 
-**Topic:** {{private:partner_a_topic|Presented by the partner company in class}}
+**Topic:** {{private:partner_a_topic|Presented by the partner company in session 1}}
 
 - Project brief: status and open points
 - Data access: requested, granted, open?
@@ -341,7 +341,7 @@ Teams 12 min, then 3 min: two volunteer teams read their titles aloud; the room 
 |||
 **Project B: {{private:partner_b|Partner Company B}}**
 
-**Topic:** {{private:partner_b_topic|Presented by the partner company in class}}
+**Topic:** {{private:partner_b_topic|Presented by the partner company in session 1}}
 
 - Project brief: status and open points
 - Data access: requested, granted, open?
@@ -353,7 +353,7 @@ Partner information stays **confidential**: no names, data or screenshots in pub
 :::
 
 ::: notes
-Short status check only — the group case study uses public data and is separate from the partner projects. Each team says in two sentences where the project brief stands and what it needs before the semester-6 kickoff. Company names and topics are filled in only in the offline PPTX (from tools/local.json); the public web version shows the placeholders. Do not write any status or findings into this file — notes are public; record them in the private STATUS.md of the project module.
+Short status check only — the group case study uses public data and is separate from the partner projects. Each team says in two sentences where the project brief stands and what it needs before the semester-6 kickoff. Company names and topics are filled in only in the offline PPTX (from tools/local.json); the public web version shows the placeholders. Do not write any status or findings into this file — notes are public; record them in the lecturer's private notes for the project module.
 :::
 
 ---

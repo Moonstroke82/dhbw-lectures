@@ -338,7 +338,7 @@ From the star schema to a small analytics portal
 
 ---
 
-# Streamlit in Five Minutes
+# Streamlit at a Glance
 
 - An app is a **Python script**; `streamlit run app.py` opens it in the browser
 - On every interaction the script **reruns from top to bottom**; widgets return the current value

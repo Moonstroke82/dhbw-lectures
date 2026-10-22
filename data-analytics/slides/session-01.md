@@ -370,7 +370,7 @@ Information from the partner companies is **confidential**. Do not share it outs
 :::
 
 ::: notes
-Procedure: students write their first and second choice; balance the teams if needed. Record team lists offline (STATUS.md of the project module, which is not published).
+Procedure: students write their first and second choice; balance the teams if needed. Record team lists offline in the lecturer's private notes for the project module (not in this repository).
 :::
 
 ---
@@ -464,7 +464,7 @@ On macOS use python3 instead of python. We start Jupyter via python -m because p
 
 # References: Module Literature {.references}
 
-- Baars, H., & Kemper, H.-G. (2021). *Business Intelligence & Analytics: Grundlagen und praktische Anwendungen* (4th ed.). Springer Vieweg. https://doi.org/10.1007/978-3-8348-2344-1
+- Baars, H., & Kemper, H.-G. (2021). *Business Intelligence & Analytics – Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung* (4th ed.). Springer Vieweg. https://doi.org/10.1007/978-3-8348-2344-1
 - Berthold, M. R., Borgelt, C., Höppner, F., Klawonn, F., & Silipo, R. (2020). *Guide to intelligent data science: How to intelligently make use of real data* (2nd ed.). Springer. https://doi.org/10.1007/978-3-030-45574-3
 - Dulhare, U. N., Ahmad, K., & Bin Ahmad, K. A. (Eds.). (2020). *Machine learning and big data: Concepts, algorithms, tools and applications*. Wiley-Scrivener.
 - Ghavami, P. (2020). *Big data analytics methods: Analytics techniques in data mining, deep learning and natural language processing* (2nd ed.). De Gruyter. https://doi.org/10.1515/9781547401567

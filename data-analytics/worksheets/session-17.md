@@ -149,7 +149,7 @@ Marking (12 points): 1 grain, KPIs and access 2; 2 forecast design 2, censoring 
 
 ## Portfolio-Style Task: Review a Case Study Presentation
 
-A fictional group presents its case study on **public hourly air-quality data** (nitrogen dioxide, NO₂, from 400 measuring stations, 2015–2024). These are their slide titles and the key content:
+A fictional team presents its case study on **public hourly air-quality data** (nitrogen dioxide, NO₂, from 400 measuring stations, 2015–2024). These are their slide titles and the key content:
 
 | Slide | Title | Content |
 |---|---|---|
@@ -163,7 +163,7 @@ A fictional group presents its case study on **public hourly air-quality data** 
 | 8 | Conclusion | "Our model is very accurate and should be used by all cities." |
 
 1. Find at least **six** problems. For each, name the concept from the course and the consequence.
-2. Rewrite the titles of slides 3, 4 and 8 as **action titles** that the group could defend with honest evidence (use placeholders such as "[MAE]" where a number is missing).
+2. Rewrite the titles of slides 3, 4 and 8 as **action titles** that the team could defend with honest evidence (use placeholders such as "[MAE]" where a number is missing).
 3. Fill in the **peer feedback sheet** of session 17 for this talk: for three criteria of your choice, one "works well" and one "next step" each — plus one question.
 
 ::: answer lines=18

@@ -269,7 +269,7 @@ The module description asks students to "assess the suitability" of methods (met
 
 # Peer Feedback on a Notebook {.exercise}
 
-Swap notebooks with another pair. Read for 10 minutes, then give feedback using the checklist.
+Swap notebooks with another pair. Read the notebook first, then give feedback using the checklist.
 
 - **Two strengths:** what works well — be specific (which cell, which decision)
 - **Three suggestions:** the most important improvements, each with a concrete next step
@@ -297,7 +297,7 @@ Preparing the semester-6 projects
 
 # First Findings: What Each Team Shares
 
-Each team presents in a few minutes, following the project brief from session 1:
+Each team presents briefly, following the project brief from session 1:
 
 1. **Business goal** and how success will be measured — as far as known
 2. **Stakeholders** you have spoken to, and what they need
@@ -310,7 +310,7 @@ Information from the partner companies is **confidential**: no names, no data, n
 :::
 
 ::: notes
-The five points are the structure of the project brief introduced in session 1 (due at the end of semester 5; not graded in this module). Today's round is a progress check, not an assessment. The partner companies are referred to only by placeholders in the public material. Ask the other team for one question per presentation; note open points for the lecturer's next contact with the companies (in the private STATUS.md of the project module, not here).
+The five points are the structure of the project brief introduced in session 1 (due at the end of semester 5; not graded in this module). Today's round is a progress check, not an assessment. The partner companies are referred to only by placeholders in the public material. Ask the other team for one question per presentation; note open points for the lecturer's next contact with the companies (in the lecturer's private notes for the project module, not here).
 :::
 
 ---

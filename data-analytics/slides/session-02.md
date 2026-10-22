@@ -352,7 +352,7 @@ Collect 2–3 answers per question. Lead to the key message: interpreting wareho
 # References {.references}
 
 - Armbrust, M., Ghodsi, A., Xin, R., & Zaharia, M. (2021). Lakehouse: A new generation of open platforms that unify data warehousing and advanced analytics. In *Proceedings of the 11th Conference on Innovative Data Systems Research (CIDR)*. https://www.cidrdb.org/cidr2021/papers/cidr2021_paper17.pdf
-- Baars, H., & Kemper, H.-G. (2021). *Business Intelligence & Analytics: Grundlagen und praktische Anwendungen* (4th ed.). Springer Vieweg. https://doi.org/10.1007/978-3-8348-2344-1
+- Baars, H., & Kemper, H.-G. (2021). *Business Intelligence & Analytics – Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung* (4th ed.). Springer Vieweg. https://doi.org/10.1007/978-3-8348-2344-1
 - Chaudhuri, S., & Dayal, U. (1997). An overview of data warehousing and OLAP technology. *ACM SIGMOD Record, 26*(1), 65–74. https://doi.org/10.1145/248603.248616
 - Inmon, W. H. (2005). *Building the data warehouse* (4th ed.). Wiley.
 - Kimball, R., & Ross, M. (2013). *The data warehouse toolkit: The definitive guide to dimensional modeling* (3rd ed.). Wiley.

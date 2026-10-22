@@ -466,7 +466,7 @@ Own compilation based on Zaharia et al. (2016), McSherry et al. (2015), Raasveld
 :::
 
 ::: notes
-Zaharia et al. (2016): fault tolerance through lineage (lost partitions are recomputed), one engine for batch, SQL, streaming and ML. Armbrust et al. (2021, session 2): lakehouses keep data in open formats on cloud storage, and engines such as Spark run on it — often the decision is made by the platform, not by data size. Practical pattern: prototype on a sample or a few yearly files with DuckDB, run the production pipeline where the data lives. The same SQL largely works in both. Many companies with "big data" have a few large fact tables and many small ones — check the size of the tables you actually query. COST: McSherry, Isard and Murray (2015) define it as the "Configuration that Outperforms a Single Thread" and report that many data-parallel systems from recent systems conferences had a very high COST, sometimes hundreds of cores, and some were slower than a single thread in every configuration reported. The point is not that Spark is bad, but that scalability alone is not a goal: measure against a strong single-machine baseline — as with forecasting and ML baselines. DuckDB was designed as an embedded analytical database for analysis on one machine (Raasveldt & Mühleisen, 2019). Discussion: what in your company would need more than one machine?
+Zaharia et al. (2016): fault tolerance through lineage (lost partitions are recomputed), one engine for batch, SQL, streaming and ML. Armbrust et al. (2021, session 2): lakehouses keep data in open formats on cloud storage, and engines such as Spark run on it — often the decision is made by the platform, not by data size. Practical pattern: prototype on a sample or a few yearly files with DuckDB, run the production pipeline where the data lives. The same SQL largely works in both. Many companies with "big data" have a few large fact tables and many small ones — check the size of the tables you actually query. COST: McSherry et al. (2015) define it as the "Configuration that Outperforms a Single Thread" and report that many data-parallel systems from recent systems conferences had a very high COST, sometimes hundreds of cores, and some were slower than a single thread in every configuration reported. The point is not that Spark is bad, but that scalability alone is not a goal: measure against a strong single-machine baseline — as with forecasting and ML baselines. DuckDB was designed as an embedded analytical database for analysis on one machine (Raasveldt & Mühleisen, 2019). Discussion: what in your company would need more than one machine?
 :::
 
 ---
@@ -479,7 +479,7 @@ Choose DuckDB/pandas on one machine or Spark, and name the deciding requirement.
 2. An online shop computes recommendations every night from **40 TB** of clickstream data in its cloud data lake.
 3. A team trains a churn model on **2 million** customer rows; the data comes from the warehouse.
 4. A utility monitors **smart-meter readings** from 3 million households, arriving every 15 minutes, for anomalies.
-5. Your case study group wants to analyse the **31 million** Price Paid rows.
+5. Your case study team wants to analyse the **31 million** Price Paid rows.
 
 ::: notes
 Pairs 5 min, plenary 3 min. Expected answers:
@@ -487,7 +487,7 @@ Pairs 5 min, plenary 3 min. Expected answers:
 2 Spark (or another distributed engine): volume beyond one machine, data already in the lake, nightly pipeline that must survive machine failures.
 3 One machine: 2 million rows fit easily; scikit-learn plus SQL in the warehouse; Spark only if the company platform requires it.
 4 Streaming at scale: Spark Structured Streaming (or Flink/Kafka Streams); 3 million × 96 readings a day ≈ 288 million rows per day, continuously — volume and velocity.
-5 Both are defensible: DuckDB is faster here (see the timing slide); Spark is the right choice if the group's goal is to show a big data framework — then say so and measure both. The case study asks for a justified choice, not for Spark at any price.
+5 Both are defensible: DuckDB is faster here (see the timing slide); Spark is the right choice if the team's goal is to show a big data framework — then say so and measure both. The case study asks for a justified choice, not for Spark at any price.
 :::
 
 ---
@@ -571,7 +571,7 @@ Expected results (tested): 1 — 2015: 918,957 A / 92,825 B; 2022: 909,941 / 167
 - Apache Software Foundation. (n.d.-e). *Spark SQL, DataFrames and Datasets guide* (Spark 4.2.0 documentation). Retrieved October 22, 2026, from https://spark.apache.org/docs/latest/sql-programming-guide.html
 - Apache Software Foundation. (n.d.-f). *ML pipelines* (Spark 4.2.0 documentation). Retrieved October 22, 2026, from https://spark.apache.org/docs/latest/ml-pipeline.html
 - Armbrust, M., Ghodsi, A., Xin, R., & Zaharia, M. (2021). Lakehouse: A new generation of open platforms that unify data warehousing and advanced analytics. In *Proceedings of the 11th Conference on Innovative Data Systems Research (CIDR)*. https://www.cidrdb.org/cidr2021/papers/cidr2021_paper17.pdf
-- Armbrust, M., Xin, R. S., Lian, C., Huai, Y., Liu, D., Bradley, J. K., Meng, X., Kaftan, T., Franklin, M. J., Ghodsi, A., & Zaharia, M. (2015). Spark SQL: Relational data processing in Spark. In *Proceedings of the 2015 ACM SIGMOD International Conference on Management of Data*. ACM. https://doi.org/10.1145/2723372.2742797
+- Armbrust, M., Xin, R. S., Lian, C., Huai, Y., Liu, D., Bradley, J. K., Meng, X., Kaftan, T., Franklin, M. J., Ghodsi, A., & Zaharia, M. (2015). Spark SQL: Relational data processing in Spark. In *Proceedings of the 2015 ACM SIGMOD International Conference on Management of Data* (pp. 1383–1394). ACM. https://doi.org/10.1145/2723372.2742797
 - Chapman, P., Clinton, J., Kerber, R., Khabaza, T., Reinartz, T., Shearer, C., & Wirth, R. (2000). *CRISP-DM 1.0: Step-by-step data mining guide*. SPSS.
 - HM Land Registry. (n.d.-a). *Price Paid Data* [Data set]. GOV.UK. Retrieved October 22, 2026, from https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads
 - HM Land Registry. (n.d.-b). *How to access HM Land Registry Price Paid Data*. GOV.UK. Retrieved October 22, 2026, from https://www.gov.uk/about-the-price-paid-data

@@ -9,9 +9,9 @@ program: DHBW Mannheim · Data Science and Artificial Intelligence · Semester 5
 # Portfolio Presentations and Wrap-Up {.title}
 
 ::: notes
-Final session, 2 h block, no new content. Time plan (planned for four groups): welcome, recap and running order 5 min · presentation and feedback criteria 5 min · presentations, block 1 (groups 1–2) 31 min · break 10 min · presentations, block 2 (groups 3–4) 31 min · course wrap-up incl. exercise 15 min · outlook to semester 6 12 min · course feedback 6 min · ~5 min buffer.
-Per group: about 10 min talk incl. demo, 4 min questions, 1–2 min for the audience to finish the feedback sheet. With five groups, add a third block of 15 min: move the wrap-up exercise to worksheet 17 (task 4 covers the same idea) and shorten the outlook to the two partner slides. Never cut the questions after a talk — they are part of the assessment and the most valuable part for the audience.
-Before class: fill in the running order (offline copy or whiteboard), test the projector with each group's laptop or collect the slides on one machine, print or share the feedback sheet, and have the official rubric of the case study at hand (published separately on the course platform, not in this deck).
+Final session, 2 h block, no new content. Time plan (planned for four teams): welcome, recap and running order 5 min · presentation and feedback criteria 5 min · presentations, block 1 (teams 1–2) 31 min · break 10 min · presentations, block 2 (teams 3–4) 31 min · course wrap-up incl. exercise 15 min · outlook to semester 6 12 min · course feedback 6 min · ~5 min buffer.
+Per team: about 10 min talk incl. demo, 4 min questions, 1–2 min for the audience to finish the feedback sheet. With five teams, add a third block of 15 min: move the wrap-up exercise to worksheet 17 (task 4 covers the same idea) and shorten the outlook to the two partner slides. Never cut the questions after a talk — they are part of the assessment and the most valuable part for the audience.
+Before class: fill in the running order (offline copy or whiteboard), test the projector with each team's laptop or collect the slides on one machine, print or share the feedback sheet, and have the official rubric of the case study at hand (published separately on the course platform, not in this deck).
 :::
 
 ---
@@ -35,16 +35,16 @@ If a partner company contact joins for the outlook, move the outlook directly af
 
 # Recap: From the Workshop to Today
 
-- In the **case study workshop** your group reviewed approach, results and dashboard, got feedback from another group and storyboarded today's talk in action titles
+- In the **case study workshop** your team reviewed approach, results and dashboard, got feedback from another team and storyboarded today's talk in action titles
 - Open points from the consultations should now be **closed — or named as limits**
-- Today: each group presents its **end-to-end case**; everyone else gives structured feedback
+- Today: each team presents its **end-to-end case**; everyone else gives structured feedback
 
 ::: callout
 **Your preparation:** a notebook that runs top to bottom on a fresh kernel, the workshop feedback worked in, one rehearsal with a timer — and a fallback for the demo.
 :::
 
 ::: notes
-Ask one person per group: "What was the most important change after the workshop feedback?" — one sentence each, no discussion. This warms up the room and shows that feedback was used. Remind groups that the notebook and the presentation are assessed together (group case study, 40 % of the portfolio); the hand-in date for the notebook is the one in the portfolio brief.
+Ask one person per team: "What was the most important change after the workshop feedback?" — one sentence each, no discussion. This warms up the room and shows that feedback was used. Remind teams that the notebook and the presentation are assessed together (group case study, 40 % of the portfolio); the hand-in date for the notebook is the one in the portfolio brief.
 :::
 
 ---
@@ -57,19 +57,19 @@ End-to-end analytics on public data
 
 # Running Order
 
-| Slot | Group | Case study | Feedback first from |
+| Slot | Team | Case study | Feedback first from |
 |---|---|---|---|
-| 1 | Group 1 | [title of the case study] | Group 2 |
-| 2 | Group 2 | [title of the case study] | Group 3 |
-| 3 | Group 3 | [title of the case study] | Group 4 |
-| 4 | Group 4 | [title of the case study] | Group 1 |
-| (5) | (Group 5) | [title of the case study] | (Group 1) |
+| 1 | Team 1 | [title of the case study] | Team 2 |
+| 2 | Team 2 | [title of the case study] | Team 3 |
+| 3 | Team 3 | [title of the case study] | Team 4 |
+| 4 | Team 4 | [title of the case study] | Team 1 |
+| (5) | (Team 5) | [title of the case study] | (Team 1) |
 
 - Each talk is followed by **questions** from the audience and the lecturer
-- The group named in the last column opens the questions and hands in its feedback sheet first
+- The team named in the last column opens the questions and hands in its feedback sheet first
 
 ::: notes
-Fill in group names and titles in the offline copy or on the whiteboard; do not write student names into this file (the Markdown is public). Order: draw lots at the start, or use the order agreed in the workshop. Keep strict time per talk with a visible signal (one minute left), but do not cut questions. The rotating "feedback first" group makes sure every talk gets at least one prepared question.
+Fill in team names and titles in the offline copy or on the whiteboard; do not write student names into this file (the Markdown is public). Order: draw lots at the start, or use the order agreed in the workshop. Keep strict time per talk with a visible signal (one minute left), but do not cut questions. The rotating "feedback first" team makes sure every talk gets at least one prepared question.
 :::
 
 ---
@@ -92,7 +92,7 @@ Own compilation based on Knaflic (2015), Chapman et al. (2000) and Provost and F
 :::
 
 ::: notes
-Guidance, not the official rubric (published separately). The six points mirror the course: big idea and action titles (session 5, Knaflic's lessons — the standard announced there for today), framing and baseline (session 7), honest evaluation (sessions 8, 12), uncertainty (sessions 9, 13), tool choice with a measurement (session 15: "choose the smallest tool that meets the requirements"), and the suitability assessment that ends every notebook (session 10). The case study must include a big data framework or a dashboard (portfolio brief); point 5 asks groups to justify which one.
+Guidance, not the official rubric (published separately). The six points mirror the course: big idea and action titles (session 5, Knaflic's lessons — the standard announced there for today), framing and baseline (session 7), honest evaluation (sessions 8, 12), uncertainty (sessions 9, 13), tool choice with a measurement (session 15: "choose the smallest tool that meets the requirements"), and the suitability assessment that ends every notebook (session 10). The case study must include a big data framework or a dashboard (portfolio brief); point 5 asks teams to justify which one.
 :::
 
 ---
@@ -110,14 +110,14 @@ For each talk, note one point per row — specific, with a slide or a number.
 | Tool choice or dashboard justified | | |
 | Story: action titles, honest charts | | |
 
-**One question** you would ask the group: ______
+**One question** you would ask the team: ______
 
 ::: source
 Based on Hattie and Timperley (2007) and Knaflic (2015).
 :::
 
 ::: notes
-Hand the sheet out on paper or as a shared form. Feedback is formative: the sheets go to the presenting group after the session and are not part of the grade. Hattie and Timperley: feedback works when it says where the work is going, how it is going and where to go next, and when it addresses the task and the process rather than the person — hence "works well" and "next step" per criterion and no overall score. Same spirit as the format "two strengths, three suggestions, one question" from session 10. Collect the sheets per group at the end and hand them over; check briefly that no comment is personal.
+Hand the sheet out on paper or as a shared form. Feedback is formative: the sheets go to the presenting team after the session and are not part of the grade. Hattie and Timperley: feedback works when it says where the work is going, how it is going and where to go next, and when it addresses the task and the process rather than the person — hence "works well" and "next step" per criterion and no overall score. Same spirit as the format "two strengths, three suggestions, one question" from session 10. Collect the sheets per team at the end and hand them over; check briefly that no comment is personal.
 :::
 
 ---
@@ -266,7 +266,7 @@ The project plan suggests Scrum with sprints (module W4DSKI_404). The Scrum Guid
 - First steps for the kickoff: charter draft, sub-teams, contact person
 
 ::: notes
-Team A states in two minutes where it stands. Company name and topic are filled in only in the offline PPTX (from tools/local.json); the public web version shows a placeholder. Do not write any project details into this file — notes are public. The open agreements (data access, NDA, intellectual property of results, where code is hosted) must be settled with the company before the kickoff; note them in the private STATUS.md of the project module.
+Team A states in two minutes where it stands. Company name and topic are filled in only in the offline PPTX (from tools/local.json); the public web version shows a placeholder. Do not write any project details into this file — notes are public. The open agreements (data access, NDA, intellectual property of results, where code is hosted) must be settled with the company before the kickoff; note them in the lecturer's private notes for the project module.
 :::
 
 ---
@@ -298,7 +298,7 @@ Your answers change the next run of this course: the session plan is revised aft
 :::
 
 ::: notes
-Collect cards or use the online form; the official DHBW course evaluation runs separately and does not replace this. Ask especially about timing (input vs. lab share, the 3 h blocks), the worksheets, the datasets (TPC-H, vic_elec, Price Paid Data) and the portfolio workload. Record the results in the private STATUS.md of the course. Thank the class — and the groups for their presentations.
+Collect cards or use the online form; the official DHBW course evaluation runs separately and does not replace this. Ask especially about timing (input vs. lab share, the 3 h blocks), the worksheets, the datasets (TPC-H, vic_elec, Price Paid Data) and the portfolio workload. Record the results in the lecturer's private notes for the course. Thank the class — and the teams for their presentations.
 :::
 
 ---
