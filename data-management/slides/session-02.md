@@ -192,7 +192,7 @@ Good moment to practise source criticism: the 5 % figure is a second-hand estima
 
 # Exercise: Classify the Data {.exercise}
 
-Work in pairs. Is the data structured, semi-structured or unstructured? Where would you store it?
+Is the data structured, semi-structured or unstructured? Where would you store it?
 
 1. A CSV export of all invoices from the accounting system
 2. Weather data from a public web API in JSON format
@@ -204,7 +204,7 @@ Work in pairs. Is the data structured, semi-structured or unstructured? Where wo
 8. An XML e-invoice (e.g. XRechnung)
 
 ::: notes
-About 20 min + discussion. Answers: 1 structured · 2 semi-structured · 3 unstructured (becomes structured after OCR and extraction) · 4 structured · 5 unstructured text, often with structured parts (stars, date) · 6 semi-structured (fixed line pattern, but varying content) · 7 unstructured (with structured metadata: date, location, camera) · 8 semi-structured.
+About 20 min in pairs + discussion. Answers: 1 structured · 2 semi-structured · 3 unstructured (becomes structured after OCR and extraction) · 4 structured · 5 unstructured text, often with structured parts (stars, date) · 6 semi-structured (fixed line pattern, but varying content) · 7 unstructured (with structured metadata: date, location, camera) · 8 semi-structured.
 Key insight: many real datasets are mixed. Ask for the storage choice — prepares sessions 11 (NoSQL) and 18 (data lake).
 :::
 

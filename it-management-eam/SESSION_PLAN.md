@@ -46,3 +46,4 @@ Legend for learning-outcome links: **SC** subject competence · **MC** methodolo
 
 - There is no separate buffer block, so the core/optional split matters most here: if discussions run long, optional content moves to self-study.
 - Sources for each session (module literature plus primary sources such as ITIL 4, COBIT 2019, TOGAF Standard, ArchiMate specification, Henderson & Venkatraman 1993) will be checked and cited on the slides when each session is built.
+- **ITIL version (decided 2026-10-20):** sessions 5–6 teach ITIL 4 for now. PeopleCert is introducing ITIL (Version 5); update both sessions to the new version once it is established, before the first run in 2028.

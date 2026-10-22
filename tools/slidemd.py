@@ -75,7 +75,7 @@ IMG_RE = re.compile(r"^!\[(.*?)\]\((.*?)\)\s*(\{([^}]*)\})?\s*$")
 
 def _is_block_start(line):
     s = line.strip()
-    return (s.startswith(":::") or s.startswith("```") or s.startswith("|")
+    return (s.startswith(":::") or s.startswith("```") or s.startswith("|") or s.startswith(">")
             or LIST_RE.match(line) or IMG_RE.match(s) or s.startswith("### "))
 
 
@@ -101,6 +101,17 @@ def _split_table_row(line):
     return [c.strip() for c in s.split("|")]
 
 
+def _collect_item_code(lines, i, opener, item):
+    """Collect a ``` block that belongs to a list item; opener is the fence line. Returns next i."""
+    lang, code, i = opener[3:].strip(), [], i + 1
+    while i < len(lines) and not lines[i].strip().startswith("```"):
+        code.append(lines[i])
+        i += 1
+    ind = min((len(c) - len(c.lstrip()) for c in code if c.strip()), default=0)
+    item["more"].append({"type": "code", "lang": lang, "text": "\n".join(c[ind:] for c in code)})
+    return i + 1
+
+
 def parse_blocks(lines):
     blocks, i = [], 0
     while i < len(lines):
@@ -121,6 +132,13 @@ def parse_blocks(lines):
                 i += 1
             blocks.append({"type": "code", "lang": lang, "text": "\n".join(code)})
             i += 1
+            continue
+        if s.startswith(">"):
+            quote = []
+            while i < len(lines) and lines[i].strip().startswith(">"):
+                quote.append(lines[i].strip()[1:].lstrip())
+                i += 1
+            blocks.append({"type": "callout", "blocks": parse_blocks(quote), "raw": "\n".join(quote)})
             continue
         if s.startswith("|"):
             rows = []
@@ -149,9 +167,22 @@ def parse_blocks(lines):
                     level = len(lm.group(1).replace("\t", "  ")) // 2
                     ordered = lm.group(2)[0].isdigit()
                     items.append({"level": level, "ordered": ordered, "text": lm.group(3),
-                                  "num": int(lm.group(2)[:-1]) if ordered else None})
+                                  "num": int(lm.group(2)[:-1]) if ordered else None, "more": []})
+                    if lm.group(3).startswith("```"):
+                        items[-1]["text"] = ""
+                        i = _collect_item_code(lines, i, lm.group(3), items[-1])
+                        continue
+                elif lines[i].strip().startswith("```") and lines[i].startswith("  ") and items:
+                    i = _collect_item_code(lines, i, lines[i].strip(), items[-1])
+                    continue
                 elif lines[i].strip() and lines[i].startswith("  ") and items:
-                    items[-1]["text"] += " " + lines[i].strip()
+                    more = items[-1]["more"]
+                    if more and more[-1]["type"] == "para":
+                        more[-1]["text"] += " " + lines[i].strip()
+                    elif more:
+                        more.append({"type": "para", "text": lines[i].strip()})
+                    else:
+                        items[-1]["text"] += " " + lines[i].strip()
                 else:
                     break
                 i += 1
@@ -194,8 +225,11 @@ def _fenced_block(name, inner):
                 label, _, desc = m.group(3).partition(":")
                 layers.append({"label": label.strip(), "desc": desc.strip()})
         return {"type": "layers", "layers": layers}
-    if name in ("callout", "notes", "source"):
+    if name in ("callout", "notes", "source", "solution", "hint"):  # solution, hint: worksheets only
         return {"type": name, "blocks": parse_blocks(inner), "raw": "\n".join(inner).strip()}
+    if name.split()[0] == "answer":  # worksheets: space to write, e.g. "::: answer lines=6"
+        attrs = dict(a.split("=", 1) for a in name.split()[1:] if "=" in a)
+        return {"type": "answer", "lines": int(attrs.get("lines", 4)), "blocks": parse_blocks(inner)}
     raise ValueError(f"unknown block ::: {name}")
 
 

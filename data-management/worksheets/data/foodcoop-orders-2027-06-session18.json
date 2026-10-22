@@ -1,0 +1,25 @@
+{
+  "export": {"system": "coop-shop 2.0", "created": "2027-06-30T22:00:00+02:00", "currency": "EUR"},
+  "orders": [
+    {"order_id": "2027-06-0001", "order_date": "01.06.2027", "member_no": "F01", "pickup_point": "Ladenburg",
+     "lines": [{"product": "Potatoes", "farm": "Hofgut Neckarblick", "unit_price": 2.80, "quantity": 3, "unit": "kg"},
+               {"product": "Strawberries", "farm": "Obsthof Bergstraße", "unit_price": 4.20, "quantity": 2, "unit": "box"}],
+     "status": "paid"},
+    {"order_id": "2027-06-0002", "order_date": "01.06.2027", "member_no": "F02", "pickup_point": "Edingen",
+     "lines": [{"product": "Honey", "farm": "Imkerei Kraichgau", "unit_price": 7.50, "quantity": 2, "unit": "jar"},
+               {"product": "Milk", "farm": "Ziegenhof Odenwald", "unit_price": 1.30, "quantity": 4, "unit": "l"}],
+     "status": "paid"},
+    {"order_id": "2027-06-0003", "order_date": "08.06.2027", "member_no": "F04", "pickup_point": "Ladenburg",
+     "lines": [{"product": "Goat cheese", "farm": "Ziegenhof Odenwald", "unit_price": 6.90, "quantity": 1, "unit": "piece"},
+               {"product": "Strawberries", "farm": "Obsthof Bergstraße", "unit_price": 4.20, "quantity": 1, "unit": "box"},
+               {"product": "Carrots", "farm": "Hofgut Neckarblick", "unit_price": 1.90, "quantity": 2, "unit": "kg"}],
+     "status": "paid"},
+    {"order_id": "2027-06-0004", "order_date": "15.06.2027", "member_no": "F03", "pickup_point": "Edingen",
+     "lines": [{"product": "Apple juice", "farm": "Obsthof Bergstraße", "unit_price": 3.50, "quantity": 6, "unit": "bottle"}],
+     "status": "cancelled"},
+    {"order_id": "2027-06-0005", "order_date": "22.06.2027", "member_no": "F05", "pickup_point": "Ladenburg",
+     "lines": [{"product": "Potatoes", "farm": "Hofgut Neckarblick", "unit_price": 2.80, "quantity": 5, "unit": "kg"},
+               {"product": "Yoghurt", "farm": "Ziegenhof Odenwald", "unit_price": 2.10, "quantity": 2, "unit": "jar"}],
+     "status": "paid"}
+  ]
+}

@@ -1,8 +1,10 @@
-"""Build lecture slides: Markdown -> PPTX (build/) + HTML (docs/, GitHub Pages).
+"""Build lecture slides: Markdown -> PPTX (build/) + HTML (docs/, GitHub Pages),
+and worksheets: Markdown -> HTML for students (docs/) + HTML with solutions (build/).
 
 Usage (from the Lectures folder):
-    python tools/build.py                 build all sessions
+    python tools/build.py                 build all sessions and worksheets
     python tools/build.py data-management/slides/session-01.md
+    python tools/build.py data-management/worksheets/session-01.md
     python tools/build.py --preview ...   also export PPTX slides as PNG via PowerPoint (Windows)
     python tools/build.py --notes ...     include speaker notes in the HTML (not for publishing)
 """
@@ -17,6 +19,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 import render_html  # noqa: E402
 import render_pptx  # noqa: E402
 import website  # noqa: E402
+import worksheet  # noqa: E402
 from slidemd import load_deck  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -61,10 +64,21 @@ def build(src, args):
     return course, name, deck
 
 
+def build_worksheet(src):
+    course = src.parent.parent.name
+    local = ROOT / "tools" / "local.json"
+    private = json.loads(local.read_text(encoding="utf-8")) if local.exists() else {}
+    name = src.stem.replace("session", "worksheet")
+    worksheet.render(src, ROOT / "build" / course / f"{name}-solutions.html", solutions=True, private=private)
+    _, n = worksheet.render(src, ROOT / "docs" / course / f"{name}.html")  # public: no solutions, fallback placeholders
+    print(f"built {course}/{name}: {n} tasks -> docs/{course}/{name}.html, build/{course}/{name}-solutions.html")
+
+
 def write_indexes(built):
     docs = ROOT / "docs"
     (docs / "assets").mkdir(parents=True, exist_ok=True)
     (docs / "assets" / "slides.css").write_text(render_html.css(), encoding="utf-8")
+    (docs / "assets" / "worksheet.css").write_text(worksheet.css(), encoding="utf-8")
     (docs / ".nojekyll").write_text("", encoding="utf-8")
     old = docs / "assets" / "index.css"
     if old.exists():
@@ -78,8 +92,12 @@ def main():
     ap.add_argument("--preview", action="store_true")
     ap.add_argument("--notes", action="store_true")
     args = ap.parse_args()
-    files = [Path(f).resolve() for f in args.files] or sorted(ROOT.glob("*/slides/session-*.md"))
-    built = [build(f, args) for f in files]
+    files = [Path(f).resolve() for f in args.files] or (sorted(ROOT.glob("*/slides/session-*.md"))
+                                                         + sorted(ROOT.glob("*/worksheets/session-*.md")))
+    built = [build(f, args) for f in files if f.parent.name == "slides"]
+    for f in files:
+        if f.parent.name == "worksheets":
+            build_worksheet(f)
     write_indexes(built)
 
 

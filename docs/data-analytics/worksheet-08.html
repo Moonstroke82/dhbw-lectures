@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Analytics – Worksheet 8: ML Use-Case Lab</title>
+<link rel="stylesheet" href="../assets/worksheet.css">
+</head>
+<body>
+<nav class="top"><a href="index.html">&larr; All sessions</a> · <a href="session-08.html">Slides</a> · <a href="javascript:window.print()">Print / PDF</a></nav>
+<main>
+<header><p class="course">Data Analytics · Session 8</p>
+<h1>Worksheet: ML Use-Case Lab</h1>
+<p class="sub">Practice tasks on pipelines, time-aware tuning, segmentation, anomaly detection and communicating results — one per track, plus a portfolio-style task</p>
+<p class="meta">DHBW Mannheim · Data Science and Artificial Intelligence · Semester 5</p>
+<div class="namefield"><span>Name / team:</span><span>Date:</span></div></header>
+<div class="intro"><p>This worksheet lets you practise the content of session 8 on your own or in the lab. Tasks 1, 2 and 6 need only paper and pencil. Tasks 3–5 use Python with DuckDB, pandas and scikit-learn (Pedregosa et al., 2011) and <code>tpch.duckdb</code> with the star schema from session 3 (<code>fact_sales</code>, <code>dim_customer</code>, <code>dim_part</code>), built from the TPC-H data (Transaction Processing Performance Council, n.d.); task 5 also uses the base tables <code>orders</code> and <code>lineitem</code>. There is one practice task per track — <strong>3</strong> churn, <strong>4</strong> segmentation, <strong>5</strong> anomaly detection — each in a different setting from the lab, so you can also try the tracks you did not choose. Task 7 is a portfolio-style task for notebook 2. Use <code>random_state=42</code> (or the seed given) wherever randomness is involved, so your numbers match the solutions. The terms follow the slides: pipeline and ColumnTransformer, <code>step__parameter</code>, snapshot folds, top-<em>k</em> by capacity, planted anomalies, and the five-part result summary.</p></div><section class="task "><h2><span class="no">1</span>Pipeline or Leakage?</h2><p>Each snippet comes from a churn notebook with a feature table <code>df</code> (one row per customer and cut-off), the label <code>churned</code> and a column <code>cutoff</code>. For each snippet, decide whether it is <strong>correct</strong> or contains a <strong>problem</strong> (leakage, wrong evaluation or a bug). Explain in one or two sentences and give a fix.</p><pre><code># (a)
+X_scaled = StandardScaler().fit_transform(df[num])
+search = GridSearchCV(LogisticRegression(), {&quot;C&quot;: [0.1, 1]},
+                      cv=snapshot_folds(df.cutoff))
+search.fit(X_scaled, df.churned)
+
+# (b)
+pipe = Pipeline([(&quot;prep&quot;, prep), (&quot;model&quot;, LogisticRegression(max_iter=1000))])
+search = GridSearchCV(pipe, {&quot;C&quot;: [0.1, 1, 10]}, cv=snapshot_folds(df.cutoff))
+
+# (c)
+region_rate = df.groupby(&quot;region&quot;).churned.mean()       # churn rate per region
+df[&quot;region_churn_rate&quot;] = df.region.map(region_rate)
+search.fit(df[num + [&quot;region_churn_rate&quot;]], df.churned)
+
+# (d)
+prep = ColumnTransformer([(&quot;num&quot;, SimpleImputer(strategy=&quot;median&quot;), num),
+                          (&quot;cat&quot;, OneHotEncoder(handle_unknown=&quot;ignore&quot;), cat)])
+pipe = Pipeline([(&quot;prep&quot;, prep),
+                 (&quot;model&quot;, HistGradientBoostingClassifier(random_state=42))])
+
+# (e)
+search.fit(train[num + cat], train.churned)
+print(search.score(test[num + cat], test.churned))
+search2 = GridSearchCV(pipe, {&quot;model__C&quot;: [0.003, 0.01, 0.03]},
+                       cv=snapshot_folds(train.cutoff))
+both = pd.concat([train, test])
+search2.fit(both[num + cat], both.churned)</code></pre><div class="answer" style="--lines:10"></div><details class="hint"><summary>Hint</summary><p>Ask for each line: which rows does this <code>fit</code> (or <code>mean</code>) see — only the training rows of the current fold, or also the validation or test rows?</p></details></section><section class="task "><h2><span class="no">2</span>Which Validation Fits?</h2><p>For each situation, choose the validation scheme and justify it in one sentence: random (stratified) K-fold, <code>GroupKFold</code>, <code>TimeSeriesSplit</code>, snapshot folds (train on earlier cut-offs, validate on the next), or &quot;no cross-validation score — something else&quot;.</p><ol><li>A bank predicts loan default from application data. Each customer has exactly one application; the data cover one month.</li><li>A telecom predicts churn from monthly customer snapshots for 2022–2024 (the same customer appears up to 36 times).</li><li>A hospital predicts readmission from patient visits; many patients have several visits, and time plays no role in the question.</li><li>A utility forecasts tomorrow&#x27;s hourly electricity demand from the past three years.</li><li>Marketing wants between 3 and 8 customer segments and asks you to tune <em>k</em>.</li><li>An auditor wants an isolation forest for payment records; no payment is labelled as fraud.</li></ol><div class="answer" style="--lines:10"></div></section><section class="task "><h2><span class="no">3</span>Track A: A Three-Month Churn Horizon</h2><p>The head of sales asks: &quot;Six months is too slow. Can we predict who will not order in the next <strong>three</strong> months?&quot; Reuse <code>FEATURES_SQL</code> from the slide &quot;Starter A (1/3)&quot; and the pipeline <code>pipe</code>, <code>num</code>, <code>cat</code> and <code>snapshot_folds</code> from the slides &quot;Starter A (2/3)&quot; and &quot;Starter A (3/3)&quot;.</p><pre><code>SQL3 = FEATURES_SQL.replace(&quot;$cutoff + INTERVAL 6 MONTH&quot;,
+                            &quot;$cutoff + INTERVAL 3 MONTH&quot;)
+cutoffs = [date(1996, 1, 1), date(1996, 4, 1), date(1996, 7, 1),
+           date(1996, 10, 1), date(1997, 1, 1), date(1997, 4, 1)]
+train = pd.concat([con.execute(SQL3, {&quot;cutoff&quot;: c}).df() for c in cutoffs],
+                  ignore_index=True)
+test = con.execute(SQL3, {&quot;cutoff&quot;: date(1997, 7, 1)}).df()</code></pre><ol><li>Report the churn rate per training snapshot and in the test set. Compare with the 6-month definition (34.5 %). What does this mean for the target?</li><li>Write a scorer for the <strong>top-decile lift</strong> with <code>make_scorer</code> and tune <code>model__C</code> (0.01, 0.1, 1) and <code>model__class_weight</code> (None, &quot;balanced&quot;) with <code>GridSearchCV</code>, the snapshot folds and <strong>two</strong> metrics (AUC and top-decile lift), refitting on the lift. Which setting wins, and does <code>class_weight</code> matter?</li><li>On the test cut-off, compare the model with the rule &quot;fewest purchase days first&quot; (AUC and top-decile lift).</li><li>Marketing would use the e-mail voucher from worksheet 7 (TP +1,000, FP −500, break-even probability 33.3 %). How many customers should get it? What is your advice to the head of sales?</li></ol><div class="answer" style="--lines:12"></div><details class="hint"><summary>Hint</summary><p><code>make_scorer(f, response_method=&quot;predict_proba&quot;)</code> passes the predicted probabilities to <code>f(y_true, y_score)</code>. With a dictionary of metrics, <code>GridSearchCV(..., scoring={&quot;auc&quot;: &quot;roc_auc&quot;, &quot;lift10&quot;: lift10}, refit=&quot;lift10&quot;)</code> reports both and refits on the lift.</p></details></section><section class="task "><h2><span class="no">4</span>Track B: Segments by What Customers Buy</h2><p>In the lab, segments were built from <strong>how</strong> customers buy (recency, frequency, basket size, promo share). Marketing now wants segments by <strong>what</strong> they buy: the share of each customer&#x27;s revenue per part family (the first word of <code>part_type</code>: ECONOMY, LARGE, MEDIUM, PROMO, SMALL, STANDARD) before 1 July 1997.</p><pre><code>mix = con.sql(&quot;&quot;&quot;
+  PIVOT (SELECT f.customer_key, f.revenue,
+                split_part(p.part_type, &#x27; &#x27;, 1) AS family
+         FROM fact_sales f JOIN dim_part p USING (part_key)
+         WHERE f.date_key &lt; DATE &#x27;1997-07-01&#x27;)
+  ON family USING sum(revenue)
+  GROUP BY customer_key ORDER BY customer_key&quot;&quot;&quot;).df().fillna(0)
+fam = [c for c in mix.columns if c != &quot;customer_key&quot;]
+shares = mix[fam].div(mix[fam].sum(axis=1), axis=0)</code></pre><ol><li>Build a pipeline <code>StandardScaler</code> → <code>KMeans(n_init=10, random_state=42)</code> and compute the silhouette for <em>k</em> = 2 … 6.</li><li><strong>Null baseline:</strong> shuffle each column independently (<code>rng = np.random.default_rng(42)</code>; <code>shares.apply(lambda col: rng.permutation(col.values))</code>) and compute the silhouettes again. What does the comparison tell you?</li><li>Profile the clusters for <em>k</em> = 3 (mean shares and size).</li><li>Check stability: ARI between the fit with <code>random_state=42</code> and fits with <code>random_state</code> 1–5, and between the full fit and fits on five random halves (use the same <code>rng</code>).</li><li>What do you tell marketing?</li></ol><div class="answer" style="--lines:12"></div><details class="hint"><summary>Hint</summary><p>The shuffled data keep every column&#x27;s distribution but destroy any relationship between the columns. If real clusters existed, the real data should score clearly better than the shuffled data.</p></details></section><section class="task "><h2><span class="no">5</span>Track C: Unusual Orders</h2><p>The audit team now checks whole <strong>orders</strong> instead of order lines and can review <strong>120 orders</strong> of 1997. Build the order features from the base tables and plant three kinds of known anomalies in a copy:</p><pre><code>orders = con.sql(&quot;&quot;&quot;
+  SELECT o_orderkey,
+         count(*)                      AS n_lines,
+         sum(l_quantity)::DOUBLE       AS total_qty,
+         max(l_shipdate) - o_orderdate AS ship_days,
+         o_totalprice / sum(l_extendedprice * (1 - l_discount) * (1 + l_tax))
+                                       AS total_ratio
+  FROM orders JOIN lineitem ON l_orderkey = o_orderkey
+  WHERE year(o_orderdate) = 1997
+  GROUP BY o_orderkey, o_orderdate, o_totalprice
+  ORDER BY o_orderkey&quot;&quot;&quot;).df()
+
+rng = np.random.default_rng(42)          # plant 120 known anomalies in a copy
+aud = orders.copy(); aud[&quot;kind&quot;] = &quot;normal&quot;
+idx = rng.choice(len(aud), 120, replace=False)
+a, b, c = idx[:40], idx[40:80], idx[80:]
+aud.loc[a, &quot;total_ratio&quot;] = rng.uniform(1.1, 1.3, 40)    # header total wrong
+aud.loc[b, &quot;n_lines&quot;] = 7                                # many lines ...
+aud.loc[b, &quot;total_qty&quot;] = rng.integers(7, 21, 40).astype(float)  # tiny qty
+aud.loc[c, &quot;ship_days&quot;] = rng.integers(150, 251, 40)     # very late shipping
+aud.loc[a, &quot;kind&quot;] = &quot;header&quot;
+aud.loc[b, &quot;kind&quot;] = &quot;joint&quot;
+aud.loc[c, &quot;kind&quot;] = &quot;late&quot;</code></pre><ol><li>Describe the normal orders: ranges of the four features. Which value does <code>total_ratio</code> have for normal orders, and why?</li><li>With all four features, compare the z rule (largest absolute z-score) and an isolation forest with default settings (<code>n_estimators=200, random_state=42</code>) on the top 120. How many orders does <code>contamination=&quot;auto&quot;</code> flag?</li><li>Two anomaly types can be described exactly. Write a <strong>rule</strong> for each and count its hits and false alarms.</li><li>On the orders that the rules do not flag, compare the z rule with isolation forests on <code>n_lines</code>, <code>total_qty</code>, <code>ship_days</code> (<code>max_samples</code> 256, 1024, 4096), top 40 each. Why does the z rule find none of the joint anomalies?</li><li>Propose an audit procedure for the 120 orders.</li></ol><div class="answer" style="--lines:14"></div><details class="hint"><summary>Hint</summary><p>TPC-H stores the order total in the order header. Compare the largest normal <code>ship_days</code> with the planted values — and look at the z-scores of a joint anomaly feature by feature.</p></details></section><section class="task "><h2><span class="no">6</span>Rewrite the Summary</h2><p>A pair hands in this result summary for the anomaly track of the lab (numbers from the session slides). List at least <strong>five</strong> problems and rewrite the summary in the five-part structure from the session (answer first, evidence against the baseline, meaning for the decision, limits, next step), in at most 120 words.</p><div class="callout"><p>&quot;We used a state-of-the-art isolation forest (Liu et al., 2008) on all 90,435 order lines of 1997. It detected 37,444 anomalies, which shows that data quality is a big problem. After hyperparameter tuning (max_samples = 4096), the model is 93.3 % accurate. The z-score rule reached 97.8 %, but z-scores are only a statistical trick and not machine learning. We recommend deploying the isolation forest.&quot;</p></div><div class="answer" style="--lines:12"></div></section><section class="task "><h2><span class="no">7</span>Portfolio-Style Task: Notebook 2 End to End</h2><p>Complete portfolio notebook 2 for <strong>one</strong> track — on the TPC-H warehouse or on a public dataset of comparable depth. Build on worksheet 7, task 7 (framing, feature table, baseline, leakage audit, cost assumptions) and add:</p><ul><li>a scikit-learn <strong>pipeline</strong> that contains all preprocessing steps,</li><li><strong>tuning</strong> with <code>GridSearchCV</code> or <code>RandomizedSearchCV</code> and a validation design that fits your data (snapshot folds for churn; stability checks for segments; planted anomalies or expert review for anomaly detection),</li><li>an <strong>evaluation</strong> on a later period or held-out data, against the baseline, with a business metric (lift and profit, usable and stable segments, hits in the top <em>k</em>),</li><li>an <strong>interpretation</strong> (permutation importance, profiles or a review list) in business terms,</li><li>a <strong>result summary</strong> in the five-part structure and a <strong>suitability assessment</strong> (is ML worth it here?),</li><li>reproducibility: runs top to bottom on a fresh <code>tpch.duckdb</code>, prints library versions, fixes every <code>random_state</code>.</li></ul><div class="answer" style="--lines:8"></div></section><section class="refs"><h2>References</h2><ul><li>Kaufman, S., Rosset, S., Perlich, C., &amp; Stitelman, O. (2012). Leakage in data mining: Formulation, detection, and avoidance. <em>ACM Transactions on Knowledge Discovery from Data, 6</em>(4), Article 15. https://doi.org/10.1145/2382577.2382579</li><li>Liu, F. T., Ting, K. M., &amp; Zhou, Z.-H. (2008). Isolation forest. In <em>2008 Eighth IEEE International Conference on Data Mining</em> (pp. 413–422). IEEE. https://doi.org/10.1109/ICDM.2008.17</li><li>Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M., &amp; Duchesnay, É. (2011). Scikit-learn: Machine learning in Python. <em>Journal of Machine Learning Research, 12</em>(85), 2825–2830. https://jmlr.org/papers/v12/pedregosa11a.html</li><li>Provost, F., &amp; Fawcett, T. (2013). <em>Data science for business: What you need to know about data mining and data-analytic thinking</em>. O&#x27;Reilly Media.</li><li>scikit-learn developers. (n.d.-a). <em>Clustering</em> (scikit-learn 1.9.1 documentation, Section 2.3). Retrieved October 20, 2026, from https://scikit-learn.org/stable/modules/clustering.html</li><li>scikit-learn developers. (n.d.-b). <em>Cross-validation: Evaluating estimator performance</em> (scikit-learn 1.9.1 documentation, Section 3.1). Retrieved October 20, 2026, from https://scikit-learn.org/stable/modules/cross_validation.html</li><li>scikit-learn developers. (n.d.-c). <em>Pipelines and composite estimators</em> (scikit-learn 1.9.1 documentation, Section 8.1). Retrieved October 20, 2026, from https://scikit-learn.org/stable/modules/compose.html</li><li>Transaction Processing Performance Council. (n.d.). <em>TPC-H</em>. Retrieved October 20, 2026, from https://www.tpc.org/tpch/</li></ul></section>
+</main>
+</body>
+</html>

@@ -1,0 +1,5 @@
+order_no,order_date,client,client_city,items,unit_prices,driver,van
+O-1001,2027-06-01,K-12 Rhein Software GmbH,Mannheim,D-03 Falafel wrap x40; D-11 Fruit salad x40,4.50; 3.20,Sami Yilmaz,MA-NC 101
+O-1002,2027-06-01,K-07 Kanzlei Vogt,Heidelberg,D-05 Spinach quiche x12,5.80,Ella Fischer,MA-NC 102
+O-1003,2027-06-03,K-12 Rhein Software GmbH,Mannheim,D-05 Spinach quiche x25; D-11 Fruit salad x25; D-20 Coffee pot x5,5.80; 3.20; 12.00,Sami Yilmaz,MA-NC 101
+O-1004,2027-06-04,K-19 Stadtbibliothek Mannheim,Mannheim,D-03 Falafel wrap x30,4.50,Ella Fischer,MA-NC 102
