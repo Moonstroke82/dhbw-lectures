@@ -44,7 +44,7 @@ Time and format guide (not shown to students):
 :::
 
 ::: notes
-Preparation from session 12: worksheet 12 and milestone 3 done, peer review feedback, one bad-data example. Name the one or two changes agreed in the feedback round of session 12 (see the private STATUS.md) before starting. Links to earlier sessions that this session picks up: NULL and three-valued logic (session 8), orphans found with a LEFT JOIN (session 9 and worksheet 9), "a missing price is not a free bike" (session 10), schemaless documents accept "datum" instead of "date" (session 11), the update anomaly (session 6).
+Preparation from session 12: worksheet 12 and milestone 3 done, peer review feedback, one bad-data example. Name the one or two changes agreed in the feedback round of session 12 (see your own course notes) before starting. Links to earlier sessions that this session picks up: NULL and three-valued logic (session 8), orphans found with a LEFT JOIN (session 9 and worksheet 9), "a missing price is not a free bike" (session 10), schemaless documents accept "datum" instead of "date" (session 11), the update anomaly (session 6).
 :::
 
 ---

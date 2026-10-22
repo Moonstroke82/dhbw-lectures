@@ -164,7 +164,7 @@ Hattie and Timperley (2007) describe effective feedback as answering three quest
 3. Together: which **design decision** did several teams struggle with? Which **lesson learned** came up most often?
 
 ::: notes
-About 10 min after the last talk. Keep it short and positive; detailed feedback is on the sheets. Collect the patterns from question 3 on the whiteboard — they are also good material for the Q&A (often: grain of the star schema, NULL handling in outer joins, cleaning decisions that were really business decisions, missing licence notes). Record them in the private STATUS.md for the next run of the course.
+About 10 min after the last talk. Keep it short and positive; detailed feedback is on the sheets. Collect the patterns from question 3 on the whiteboard — they are also good material for the Q&A (often: grain of the star schema, NULL handling in outer joins, cleaning decisions that were really business decisions, missing licence notes). Record them in your own course notes for the next run of the course.
 :::
 
 ---
@@ -477,7 +477,7 @@ Own summary of sessions 1–20 of this course; Hattie and Timperley (2007).
 :::
 
 ::: notes
-Point to the course website for all decks and worksheets. Ask for the official course evaluation if the university runs one, and invite short written feedback on the course (what to keep, what to change) for the 2028 run — record it in the private STATUS.md together with the timing feedback for the decks. Do not give additional hints about exam content.
+Point to the course website for all decks and worksheets. Ask for the official course evaluation if the university runs one, and invite short written feedback on the course (what to keep, what to change) for the 2028 run — record it in your own course notes together with the timing feedback for the decks. Do not give additional hints about exam content.
 :::
 
 ---

@@ -317,7 +317,7 @@ Observed: with the saved response copied to `cache/weather_49.41_8.69_2026-09-28
 ## References {.references}
 
 - Creative Commons. (n.d.). *Attribution 4.0 International (CC BY 4.0)*. Retrieved October 21, 2026, from https://creativecommons.org/licenses/by/4.0/
-- de Maeyer, J. (n.d.). *Bright Sky: JSON API for DWD's open weather data* (Version 2.2.12) [API documentation]. Retrieved October 21, 2026, from https://brightsky.dev/docs/
+- de Maeyer, J. (n.d.). *Bright Sky: JSON API for DWD's open weather data* [API documentation]. Retrieved October 22, 2026, from https://brightsky.dev/docs/
 - Deutscher Wetterdienst. (2024). *Terms of use for data on the CDC-OpenData area*. https://opendata.dwd.de/climate_environment/CDC/Terms_of_use.pdf
 - Fielding, R. T. (2000). *Architectural styles and the design of network-based software architectures* [Doctoral dissertation, University of California, Irvine]. https://ics.uci.edu/~fielding/pubs/dissertation/top.htm
 - Fielding, R., Nottingham, M., & Reschke, J. (Eds.). (2022). *HTTP semantics* (RFC 9110). RFC Editor. https://doi.org/10.17487/RFC9110

@@ -213,11 +213,11 @@ Processing is lawful only if **at least one** applies:
 - Consent is **not** the default: if a contract or a law covers the processing, use that basis
 
 ::: source
-Regulation (EU) 2016/679 (2016, Art. 6(1), Recital 47).
+Regulation (EU) 2016/679 (2016, Art. 6(1), Recital 47); invoice example for Germany: Abgabenordnung (n.d.).
 :::
 
 ::: notes
-Art. 6(1)(a)–(f). Legitimate interests need a balancing test: the interest of the shop against the reasonable expectations of the person (Recital 47, which also mentions fraud prevention and direct marketing as possible legitimate interests). Public authorities cannot use (f) for their tasks. Common misconception: "we always need consent" — no; asking for consent where a contract applies is misleading, because the person cannot really refuse. For e-mail advertising, Germany adds § 7 UWG on top: in general prior express consent, with a narrow exception for existing customers (own similar products, the customer was told they can object at any time) — that is unfair competition law, not the GDPR.
+Art. 6(1)(a)–(f). Legitimate interests need a balancing test: the interest of the shop against the reasonable expectations of the person (Recital 47, which also mentions fraud prevention and direct marketing as possible legitimate interests). Public authorities cannot use (f) for their tasks. Common misconception: "we always need consent" — no; asking for consent where a contract applies is misleading, because the person cannot really refuse. For e-mail advertising, Germany adds § 7 UWG on top (Gesetz gegen den unlauteren Wettbewerb, n.d.): in general prior express consent, with a narrow exception for existing customers (own similar products, the customer was told they can object at any time) — that is unfair competition law, not the GDPR.
 :::
 
 ---

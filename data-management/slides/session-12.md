@@ -117,7 +117,7 @@ Granularity is the thread: a join returns one row per matching pair, GROUP BY on
 
 # Self-Check: One Question per Session {.exercise}
 
-Answer briefly in pairs — without your notes.
+Answer briefly — without your notes.
 
 1. **S3–4:** A bike belongs to at most one customer; some bikes are in stock. Cardinality and participation?
 2. **S5:** How is the M:N relationship "mechanic works on repair job" mapped?
@@ -349,7 +349,7 @@ What would help your team most until milestone 4?
 - We cluster the notes together and agree on **one or two changes** for the next sessions
 
 ::: notes
-About 15 min: 5 min writing, 10 min clustering and discussion. Alternative for an online group: an anonymous poll with the same four questions. Close the loop: name the one or two changes in the next session and record the feedback in the private STATUS.md. Ask explicitly about the depth of the decks (25–30 slides) and the time for hands-on — this is the timing feedback needed to plan the remaining decks.
+About 15 min: 5 min writing, 10 min clustering and discussion. Alternative for an online group: an anonymous poll with the same four questions. Close the loop: name the one or two changes in the next session and record the feedback in your own course notes. Ask explicitly about the depth of the decks (25–30 slides) and the time for hands-on — this is the timing feedback needed to plan the remaining decks.
 :::
 
 ---

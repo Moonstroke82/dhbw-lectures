@@ -193,7 +193,7 @@ The coworking space has opened a second location. Since then, members complain, 
    - Copying from a spreadsheet into the app is a small **migration** each month, with format problems.
 2. Costs (examples):
    - Double invoices to members → **direct, operational** (visible: complaints, corrections, possibly refunds).
-   - Two hours a week of reception time for checking and correcting → **hidden, operational**: nobody books it as a data quality cost; it looks like normal reception work (Redman's "hidden data factory").
+   - Two hours a week of reception time for checking and correcting → **hidden, operational**: nobody books it as a data quality cost; it looks like normal reception work (the "hidden data factory", Redman, 2016).
    - Renting extra desks based on outdated utilisation numbers → **hidden** or **direct, strategic** (a long-term decision on poor data; hidden as long as nobody links the wrong decision to the data).
    - Members' annoyance and lost trust, cancelled memberships → **hidden, strategic**.
    The justification of a hidden cost must say that management is not aware of it as a cost of poor data.

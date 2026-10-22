@@ -134,14 +134,12 @@ Check e-book availability in the DHBW library before the first lecture and adjus
 
 # Warm-up: Where Do You Meet Data? {.exercise}
 
-**Think – pair – share**
-
 1. **Think:** List five situations from the last 24 hours in which data about you was created or used.
-2. **Pair:** Compare with your neighbour. Who collected the data? What was it used for?
+2. **Compare:** Who collected the data? What was it used for?
 3. **Share:** Which example surprised you most? Which one creates value — and for whom?
 
 ::: notes
-Timing guide: 15 min in total — think 3 min, pair 5 min, share 7 min.
+Format: think – pair – share (step 2 with the neighbour). Timing guide: 15 min in total — think 3 min, pair 5 min, share 7 min.
 Typical answers: smartphone location, payments, public transport ticket, streaming recommendations, smart watch, employer systems (time tracking, SAP), university systems. Collect 4–5 examples on the whiteboard and keep them: they are reused when the terms are introduced (which examples are BI, analytics, data science?).
 :::
 
@@ -185,7 +183,7 @@ In a study of 179 large publicly traded US firms, companies that make decisions 
 - Important: this is a statistical association, measured after controlling for IT investment — not a guarantee for every company
 
 ::: source
-Brynjolfsson, Hitt and Kim (2011).
+Brynjolfsson et al. (2011).
 :::
 
 ::: notes
@@ -291,7 +289,7 @@ Do not explain each area now — this is a map for the whole course. Point out t
 - Key question: *What happened — and where do we stand?*
 
 ::: source
-Chen, Chiang and Storey (2012).
+Chen et al. (2012).
 :::
 
 ::: notes
@@ -414,8 +412,6 @@ Answers: 1 BI / descriptive analytics · 2 Data management (data governance, dat
 
 # Group Exercise: A Data-Driven Business Case {.exercise}
 
-**Teams of 4–5 · short pitch per team at the end**
-
 Choose a company — ideally one of your training companies — and answer:
 
 1. Which **business question** should data help to answer?
@@ -429,7 +425,7 @@ Do not share confidential information about your company. Generalise where neces
 :::
 
 ::: notes
-Timing guide: about 35 min team work + 3 min pitch per team (50 min in total).
+Format: teams of 4–5, short pitch per team at the end. Timing guide: about 35 min team work + 3 min pitch per team (50 min in total).
 Walk around and help teams sharpen their business question — it should be specific ("reduce late deliveries in region South"), not generic ("use AI"). Keep track of good cases: they can become design project cases in session 4. If time is short, let only 3–4 teams pitch and collect the rest in writing.
 :::
 
@@ -472,7 +468,7 @@ Self-study reading for interested students. Good preparation for session 19 (leg
 :::
 
 ::: notes
-Setup guide still to be written (part of the session 2 build).
+The setup guide is the "Tool Setup" part of the session 2 deck (on the course page); point students to it before session 2.
 :::
 
 ---
