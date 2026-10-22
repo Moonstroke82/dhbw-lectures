@@ -424,7 +424,7 @@ Own wording based on CMMI Institute (n.d.).
 :::
 
 ::: notes
-CMMI (Capability Maturity Model Integration) goes back to the Capability Maturity Model for software of the Software Engineering Institute at Carnegie Mellon University (1991); since 2016 it belongs to ISACA through the CMMI Institute. The CMMI Institute today lists a level 0 (incomplete); older literature shows five levels 1–5 — accept both. The typical jump is from 1 to 2 (project discipline) and from 2 to 3 (organisation-wide standards); levels 2 and 3 are the ones most companies aim for. Ask: on which level is the software development of your training company?
+CMMI (Capability Maturity Model Integration) goes back to the Capability Maturity Model for software of the Software Engineering Institute at Carnegie Mellon University, first published in 1991; since 2016 it belongs to ISACA through the CMMI Institute. The CMMI Institute today lists a level 0 (incomplete); older literature shows five levels 1–5 — accept both. The typical jump is from 1 to 2 (project discipline) and from 2 to 3 (organisation-wide standards); levels 2 and 3 are the ones most companies aim for. Ask: on which level is the software development of your training company?
 :::
 
 ---

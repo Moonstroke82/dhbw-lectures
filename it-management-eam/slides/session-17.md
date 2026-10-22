@@ -555,14 +555,14 @@ About 30 min group work + 15 min plenary (two groups present, the others compare
 - The **EAM tool landscape**: what tools do, and how to choose one
 - **SAP LeanIX** walkthrough: fact sheets, relations, reports
 - **Synthesis**: how IT management (Part A) and EAM (Part B) fit together
-- **Exam Q&A** (1 h): question types and worked practice examples
+- **Exam Q&A**: question types and worked practice examples
 
 ::: callout
 **Preparation:** find out whether your training company uses an **EAM tool** (e.g. LeanIX, Alfabet, ADOIT, Bizzdesign) and what it is used for. Bring **three questions** about topics from sessions 1–17 that you would like to revise.
 :::
 
 ::: notes
-The preparation task connects today's modelling (repository, meta-model, views) to the tools of session 18 — many of them support ArchiMate or generate similar views from fact sheets. The questions feed the exam Q&A; collect them at the start of session 18 or ask students to post them beforehand. Remind students that the Q&A covers question types and practice examples, not the actual exam.
+The preparation task connects today's modelling (repository, meta-model, views) to the tools of session 18 — many of them support ArchiMate or generate similar views from fact sheets. The questions feed the exam Q&A (1 h in session 18); collect them at the start of session 18 or ask students to post them beforehand. Remind students that the Q&A covers question types and practice examples, not the actual exam.
 :::
 
 ---
@@ -572,6 +572,7 @@ The preparation task connects today's modelling (repository, meta-model, views) 
 - Hanschke, I. (2023). *Strategisches Management der IT-Landschaft: Ein praktischer Leitfaden für das Enterprise Architecture Management* (4th ed.). Hanser.
 - ISO/IEC/IEEE. (2022). *Software, systems and enterprise — Architecture description* (ISO/IEC/IEEE Standard No. 42010:2022). International Organization for Standardization.
 - Keller, W. (2017). *IT-Unternehmensarchitektur: Von der Geschäftsstrategie zur optimalen IT-Unterstützung* (3rd ed.). dpunkt.verlag.
+- Kotusev, S. (2019). Enterprise architecture and enterprise architecture artifacts: Questioning the old concept in light of new findings. *Journal of Information Technology, 34*(2), 102–128. https://doi.org/10.1177/0268396218816273
 - Lankhorst, M. (2017). *Enterprise architecture at work: Modelling, communication and analysis* (4th ed.). Springer. https://doi.org/10.1007/978-3-662-53933-0
 - Sowa, J. F., & Zachman, J. A. (1992). Extending and formalizing the framework for information systems architecture. *IBM Systems Journal, 31*(3), 590–616. https://doi.org/10.1147/sj.313.0590
 - The Open Group. (2022). *The TOGAF Standard, 10th Edition: Introduction and core concepts* (Document No. C220). Van Haren Publishing.

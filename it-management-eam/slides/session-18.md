@@ -258,7 +258,7 @@ Link to session 11: a maintenance concept needs owners, update triggers and qual
 ![Own schematic drawing of four report types fed by one repository of fact sheets and relations, with example data of Rhein-Neckar Mobil Group. Landscape report: capabilities sales and ticketing, payment and revenue, operations with the applications that support them, fare back-end and revenue sharing database marked for phase-out. Matrix report: capabilities as rows and business units bus and rail, car sharing, maintenance as columns, with the applications in the cells. Portfolio report: functional fit against technical fit with the TIME quadrants; car-sharing app invest, fare back-end migrate, workshop system tolerate, old intranet eliminate. Roadmap report: life-cycle bars for fare back-end, new fare platform and ERP bus and rail from 2027 to 2030. Not product screenshots](img/eamtool-reports.png){width=70%}
 
 ::: source
-Own illustration based on SAP LeanIX (n.d.-g, n.d.-d, n.d.-h); own example data.
+Own illustration based on SAP LeanIX (n.d.-d, n.d.-g, n.d.-h); own example data.
 :::
 
 ::: notes
@@ -278,7 +278,7 @@ The key idea: reports are generated from the fact sheets and their relations; no
 | What do the applications of a capability cost per year? | Cost report | Running cost |
 
 ::: source
-Own compilation based on SAP LeanIX (n.d.-g, n.d.-d, n.d.-h); own example questions.
+Own compilation based on SAP LeanIX (n.d.-d, n.d.-g, n.d.-h); own example questions.
 :::
 
 ::: notes
@@ -579,7 +579,7 @@ Thank you for your contributions and your examples from practice throughout the 
 :::
 
 ::: notes
-There is no next session. Close the course: thank the students, ask for feedback on the course (format of the case exercises, worksheets, depth of the EAM part, tool walkthrough) and note it in STATUS.md for the next run. Remind them that the worksheets and their solutions are practice material and that the exam is not published anywhere in the course material.
+There is no next session. Close the course: thank the students, ask for feedback on the course (format of the case exercises, worksheets, depth of the EAM part, tool walkthrough) and note it for the next run. Remind them that the worksheets and their solutions are practice material and that the exam is not published anywhere in the course material.
 :::
 
 ---

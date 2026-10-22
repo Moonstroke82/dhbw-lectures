@@ -257,6 +257,6 @@ Marking hint: one point per block with two suitable questions, one point each fo
 - Farwick, M., Agreiter, B., Breu, R., Ryll, S., Voges, K., & Hanschke, I. (2011). Requirements for automated enterprise architecture model maintenance: A requirements analysis based on a literature review and an exploratory survey. In *Proceedings of the 13th International Conference on Enterprise Information Systems (ICEIS 2011)* (Vol. 4, pp. 325–337). SciTePress. https://doi.org/10.5220/0003429203250337
 - Hanschke, I. (2023). *Strategisches Management der IT-Landschaft: Ein praktischer Leitfaden für das Enterprise Architecture Management* (4th ed.). Hanser.
 - Roth, S., Hauder, M., Farwick, M., Breu, R., & Matthes, F. (2013). Enterprise architecture documentation: Current practices and future directions. In *Proceedings of the 11th International Conference on Wirtschaftsinformatik (WI 2013)* (pp. 911–925). https://aisel.aisnet.org/wi2013/58
-- Wang, R. Y., & Strong, D. M. (1996). Beyond accuracy: What data quality means to data consumers. *Journal of Management Information Systems, 12*(4), 5–33.
+- Wang, R. Y., & Strong, D. M. (1996). Beyond accuracy: What data quality means to data consumers. *Journal of Management Information Systems, 12*(4), 5–33. https://doi.org/10.1080/07421222.1996.11518099
 
 Company names and figures in the tasks are fictitious training examples.

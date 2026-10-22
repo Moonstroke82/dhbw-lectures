@@ -190,7 +190,7 @@ ISO/IEC (2024); ISACA (2018).
 :::
 
 ::: notes
-COBIT 2019 domains: EDM (5 objectives), APO (14), BAI (11), DSS (6), MEA (4) = 40. COBIT is widely used by auditors (ISACA is the association of IT auditors) — students will meet it in audits and in the IT risk and compliance session (7). Before teaching (first run 2028), check whether a newer COBIT version has been released (see STATUS open items).
+COBIT 2019 domains: EDM (5 objectives), APO (14), BAI (11), DSS (6), MEA (4) = 40. COBIT is widely used by auditors (ISACA is the association of IT auditors) — students will meet it in audits and in the IT risk and compliance session (7). Before teaching (first run 2028), check whether a newer COBIT version has been released.
 :::
 
 ---

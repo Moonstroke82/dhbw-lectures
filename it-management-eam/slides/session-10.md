@@ -182,7 +182,7 @@ Own illustration based on Ross et al. (2006).
 :::
 
 ::: notes
-Ross, Weill and Robertson (2006) argue that the enterprise architecture should follow from the operating model, not from individual projects. Integration = units share data (e.g. one customer view); standardisation = units do the same processes in the same way. Examples: diversification — a conglomerate with independent units; coordination — a bank with one customer view across different products; replication — a franchise or hotel chain where each site works the same way; unification — an airline or a company with one global ERP and shared data. Ask: which operating model does Rhein-Neckar Mobil Group have today (three units, three ERPs, own IT: close to diversification), and which does the joint mobility app require (shared customer and ticket data: coordination)? This is part of today's case.
+Ross et al. (2006) argue that the enterprise architecture should follow from the operating model, not from individual projects. Integration = units share data (e.g. one customer view); standardisation = units do the same processes in the same way. Examples: diversification — a conglomerate with independent units; coordination — a bank with one customer view across different products; replication — a franchise or hotel chain where each site works the same way; unification — an airline or a company with one global ERP and shared data. Ask: which operating model does Rhein-Neckar Mobil Group have today (three units, three ERPs, own IT: close to diversification), and which does the joint mobility app require (shared customer and ticket data: coordination)? This is part of today's case.
 :::
 
 ---
