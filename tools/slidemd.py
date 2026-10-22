@@ -75,7 +75,7 @@ IMG_RE = re.compile(r"^!\[(.*?)\]\((.*?)\)\s*(\{([^}]*)\})?\s*$")
 
 def _is_block_start(line):
     s = line.strip()
-    return (s.startswith(":::") or s.startswith("```") or s.startswith("|")
+    return (s.startswith(":::") or s.startswith("```") or s.startswith("|") or s.startswith(">")
             or LIST_RE.match(line) or IMG_RE.match(s) or s.startswith("### "))
 
 
@@ -132,6 +132,13 @@ def parse_blocks(lines):
                 i += 1
             blocks.append({"type": "code", "lang": lang, "text": "\n".join(code)})
             i += 1
+            continue
+        if s.startswith(">"):
+            quote = []
+            while i < len(lines) and lines[i].strip().startswith(">"):
+                quote.append(lines[i].strip()[1:].lstrip())
+                i += 1
+            blocks.append({"type": "callout", "blocks": parse_blocks(quote), "raw": "\n".join(quote)})
             continue
         if s.startswith("|"):
             rows = []
