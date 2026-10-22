@@ -107,7 +107,7 @@ def list_html(items):
             stack.append(tag)
         else:
             out.append("</li>")
-        out.append(f"<li>{inline(it['text'])}")
+        out.append(f"<li>{inline(it['text'])}" + blocks_html(it.get("more", []), False, {}))
     while stack:
         out.append(f"</li></{stack.pop()}>")
     return "".join(out)

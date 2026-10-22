@@ -98,6 +98,7 @@ Intro paragraph: what the worksheet covers and what students need (e.g. paper, J
 
 Task text, lists, tables, code blocks, `::: callout`, `::: cards`, `::: columns`, images as on slides.
 Links to local files, e.g. [orders.csv](data/orders.csv), are copied next to the built page.
+A code block can sit inside a list item: start it on the item line (`1. ```sql`) or indent it under the item; indented text after it continues the item.
 
 ### Sub-heading                     <- optional structure within a task
 

@@ -101,6 +101,17 @@ def _split_table_row(line):
     return [c.strip() for c in s.split("|")]
 
 
+def _collect_item_code(lines, i, opener, item):
+    """Collect a ``` block that belongs to a list item; opener is the fence line. Returns next i."""
+    lang, code, i = opener[3:].strip(), [], i + 1
+    while i < len(lines) and not lines[i].strip().startswith("```"):
+        code.append(lines[i])
+        i += 1
+    ind = min((len(c) - len(c.lstrip()) for c in code if c.strip()), default=0)
+    item["more"].append({"type": "code", "lang": lang, "text": "\n".join(c[ind:] for c in code)})
+    return i + 1
+
+
 def parse_blocks(lines):
     blocks, i = [], 0
     while i < len(lines):
@@ -149,9 +160,22 @@ def parse_blocks(lines):
                     level = len(lm.group(1).replace("\t", "  ")) // 2
                     ordered = lm.group(2)[0].isdigit()
                     items.append({"level": level, "ordered": ordered, "text": lm.group(3),
-                                  "num": int(lm.group(2)[:-1]) if ordered else None})
+                                  "num": int(lm.group(2)[:-1]) if ordered else None, "more": []})
+                    if lm.group(3).startswith("```"):
+                        items[-1]["text"] = ""
+                        i = _collect_item_code(lines, i, lm.group(3), items[-1])
+                        continue
+                elif lines[i].strip().startswith("```") and lines[i].startswith("  ") and items:
+                    i = _collect_item_code(lines, i, lines[i].strip(), items[-1])
+                    continue
                 elif lines[i].strip() and lines[i].startswith("  ") and items:
-                    items[-1]["text"] += " " + lines[i].strip()
+                    more = items[-1]["more"]
+                    if more and more[-1]["type"] == "para":
+                        more[-1]["text"] += " " + lines[i].strip()
+                    elif more:
+                        more.append({"type": "para", "text": lines[i].strip()})
+                    else:
+                        items[-1]["text"] += " " + lines[i].strip()
                 else:
                     break
                 i += 1
