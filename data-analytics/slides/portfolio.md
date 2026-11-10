@@ -19,8 +19,8 @@ Rule of thumb for all three notebooks: kickoff in a fixed session, hand-in two w
 | Component | Work form | Weight |
 |---|---|---|
 | Three lab notebooks: (1) warehouse and analytical SQL · (2) machine learning use case · (3) time series forecast | Pairs | 45 % (15 % each) |
-| Group case study: end-to-end analytics case on a public dataset, with a dashboard or a big data framework | Groups | 40 % |
-| Lastenheft and Pflichtenheft for your partner project | Groups | 15 % |
+| Group case study: end-to-end analytics case on a public dataset, with a dashboard or a big data framework | Project group | 40 % |
+| Lastenheft and Pflichtenheft for your partner project | Project group | 15 % |
 
 ::: callout
 Every task has a **dedicated kickoff** in class and a **fixed hand-in**. Notebooks: hand-in **two weeks after the kickoff**.
@@ -28,6 +28,27 @@ Every task has a **dedicated kickoff** in class and a **fixed hand-in**. Noteboo
 
 ::: notes
 The 45/40/15 split is the one agreed on 2026-10-07; the 15 % of the dropped research brief go to the Lastenheft and Pflichtenheft. Equal weights of the three notebooks (15 % each) — confirm before showing. The DHBW study and examination regulations on portfolios still apply (late hand-ins, illness, plagiarism); point students to them rather than inventing rules on the slide.
+:::
+
+---
+
+# Four Groups, Two Group Tasks
+
+Each group works on **both** group tasks: the Lastenheft and Pflichtenheft for the partner, and the case study.
+
+| Group | Members |
+|---|---|
+| Project 1 | {{private:group_1|Group list on the course platform}} |
+| Project 2 | {{private:group_2|Group list on the course platform}} |
+| Project 3 | {{private:group_3|Group list on the course platform}} |
+| Project 4 | {{private:group_4|Group list on the course platform}} |
+
+::: callout
+Same group, **different data**: the case study uses a public dataset, never partner data.
+:::
+
+::: notes
+Names come from tools/local.json (gitignored) and appear only in the offline PPTX; the public web version shows the fallback text. Never write student names or e-mail addresses into this file. The lab notebooks are done in pairs, ideally within the same group.
 :::
 
 ---
@@ -170,7 +191,7 @@ Own compilation based on Chapman et al. (2000).
 :::
 
 ::: notes
-Group size: announce at the kickoff (the module handbook allows larger groups). The kickoff in session 6 is deliberate: groups have more than half of the semester and are not squeezed into the exam period. Datasets must be public with a licence that allows the use; groups load them by URL or script. Tool choice is part of the assessment: "DuckDB was enough — here is the measurement" is as good as a justified Spark pipeline.
+Groups: the four project groups formed in session 1 (the module handbook allows larger groups). The kickoff in session 6 is deliberate: groups have more than half of the semester and are not squeezed into the exam period. Datasets must be public with a licence that allows the use; groups load them by URL or script. Tool choice is part of the assessment: "DuckDB was enough — here is the measurement" is as good as a justified Spark pipeline.
 :::
 
 ---
@@ -179,7 +200,7 @@ Group size: announce at the kickoff (the module handbook allows larger groups). 
 
 | When | Milestone |
 |---|---|
-| Session 6 | **Kickoff:** form groups, collect dataset ideas |
+| Session 6 | **Kickoff:** in your project group, collect dataset ideas |
 | Session 6 + 2 weeks | **Proposal** (one page): question, decision, dataset, planned dashboard or big data part |
 | Session 10 | **Consultation** on the proposal and first results |
 | Session 15 | Spark material for the big data option |
@@ -269,7 +290,7 @@ The solution concept uses what students learn in this module: warehouse and anal
 
 | When | Milestone |
 |---|---|
-| Session 1 (today) | **Kickoff:** partner pitches, groups formed, first questions |
+| Session 1 (today) | **Kickoff:** partner pitch, four project groups, first questions |
 | Sessions 2–9 | Interviews with the partner; draft the Lastenheft |
 | Session 10 | **Hand-in Lastenheft** (confirmed by the partner), presented with the first findings |
 | Session 10 + 2 weeks | **Hand-in Pflichtenheft** |
@@ -288,13 +309,14 @@ The Pflichtenheft hand-in lies in the middle of the semester, well before the ex
 # Key Takeaways
 
 - **Three notebooks** in pairs: kickoff in sessions **4, 8 and 14**, hand-in **two weeks** later
+- **Four project groups** do both group tasks: case study and Lastenheft and Pflichtenheft
 - **Group case study:** kickoff in session **6**, proposal two weeks later, presentation in session **17**
 - **Lastenheft and Pflichtenheft:** kickoff **today**, Lastenheft in session **10**, Pflichtenheft two weeks later
 - Every notebook ends with an **assessment of method suitability**
 - Exact dates and the rubrics are on the **course platform**
 
 ::: notes
-Open the floor for questions. Typical questions: Can we choose our own pairs? (yes, keep the same pair for all three notebooks if possible) · Can the case study group be the same as the partner-project group? (decide beforehand; the datasets must differ in any case) · What if a pair splits up? (talk to the lecturer early).
+Open the floor for questions. Typical questions: Can we choose our own pairs? (yes, keep the same pair for all three notebooks if possible) · Is the case study group the same as the project group? (yes; the datasets must differ — public data only) · What if a pair splits up? (talk to the lecturer early).
 :::
 
 ---
