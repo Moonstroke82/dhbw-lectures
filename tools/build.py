@@ -93,6 +93,7 @@ def main():
     ap.add_argument("--notes", action="store_true")
     args = ap.parse_args()
     files = [Path(f).resolve() for f in args.files] or (sorted(ROOT.glob("*/slides/session-*.md"))
+                                                         + sorted(ROOT.glob("*/slides/portfolio.md"))
                                                          + sorted(ROOT.glob("*/worksheets/session-*.md")))
     built = [build(f, args) for f in files if f.parent.name == "slides"]
     for f in files:
