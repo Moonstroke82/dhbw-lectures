@@ -9,7 +9,7 @@ program: DHBW Mannheim · Data Science and Artificial Intelligence · Semester 5
 # Introduction to Data Analytics {.title}
 
 ::: notes
-Welcome. Short introduction of yourself and of the two partner companies (they are present for their pitches later today).
+Welcome. Short introduction of yourself and of the partner company (present for its pitch later today).
 Time plan for today (3 h): course intro 25 min · development of analytics 30 min · break 10 min · types and application areas 30 min · partner project pitches 45 min · team formation 20 min · wrap-up and setup check 10 min · ~10 min buffer.
 Agree the exact pitch slot with the companies beforehand; the pitches can also come first if their schedule requires it.
 :::
@@ -115,14 +115,14 @@ Ask students to bring a laptop from session 2 on. Setup instructions are at the 
 |---|---|---|
 | Lab notebooks | Three notebooks in pairs: data warehouse and analytical SQL · machine learning use case · time series forecast — each with a short assessment of method suitability | 45 % |
 | Group case study | End-to-end analytics case on a public dataset in larger groups, incl. a big data framework or dashboard; notebook and presentation | 40 % |
-| Individual research brief | Short paper on a topic not covered in class, researched on your own | 15 % |
+| Partner project analysis | Aligned to-do on the project to be realised in semester 6 | 15 % |
 
 ::: callout
 The case study uses **public data**, not data from the partner companies. The partner projects are assessed separately in semester 6.
 :::
 
 ::: notes
-Portfolio agreed 2026-10-07. Detailed briefs, deadlines and grading rubrics will be published separately. Explain why partner data is excluded: confidentiality, and no double assessment of the same work in two modules.
+Portfolio agreed 2026-10-07; the individual research brief was replaced on 2026-11-10 by the partner project analysis (Lastenheft and Pflichtenheft, in the project groups). Kickoffs, hand-ins and briefs: separate deck portfolio.md. Exact dates and rubrics on the course platform. Explain why partner data is excluded: confidentiality, and no double assessment of the same work in two modules.
 :::
 
 ---
@@ -296,8 +296,8 @@ Project Data Engineering and Analytics
 
 # The Semester-6 Project at a Glance
 
-- **Two partner companies, two real projects** in data engineering and analytics
-- The course splits into **two project teams**
+- **One partner company, real projects** in data engineering and analytics
+- The course splits into **project teams**
 - **Semester 5:** get to know the project, the stakeholders and the data — alongside this module
 - **Semester 6:** implementation; plenary meetings only for kickoff, mid-term and final presentation
 - Assessment: **project** (result, project management, presentations, individual contribution)
@@ -312,38 +312,6 @@ Hours in semester 6: about 10 h of plenary meetings; the remaining ~40 h are tea
 
 ---
 
-# Project A: {{private:partner_a|Partner Company A}}
-
-**Topic:** {{private:partner_a_topic|Presented by the partner company in class}}
-
-- Who are we, and what do we do?
-- What is the business problem?
-- What data is available?
-- What should the result be?
-- Who are your contacts?
-
-::: notes
-Hand over to the first partner company. The company names and topics are filled in only in the offline PPTX (from tools/local.json); the public web version shows a placeholder.
-Remind students to note open questions for the Q&A.
-:::
-
----
-
-# Project B: {{private:partner_b|Partner Company B}}
-
-**Topic:** {{private:partner_b_topic|Presented by the partner company in class}}
-
-- Who are we, and what do we do?
-- What is the business problem?
-- What data is available?
-- What should the result be?
-- Who are your contacts?
-
-::: notes
-Hand over to the second partner company. Same structure as project A so the two pitches are comparable.
-:::
-
----
 
 # Questions to Ask the Partners {.exercise}
 
