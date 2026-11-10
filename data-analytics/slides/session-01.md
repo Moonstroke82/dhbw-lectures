@@ -115,10 +115,10 @@ Ask students to bring a laptop from session 2 on. Setup instructions are at the 
 |---|---|---|
 | Lab notebooks | Three notebooks in pairs: data warehouse and analytical SQL · machine learning use case · time series forecast — each with a short assessment of method suitability | 45 % |
 | Group case study | End-to-end analytics case on a public dataset in larger groups, incl. a big data framework or dashboard; notebook and presentation | 40 % |
-| Partner project analysis | Aligned to-do on the project to be realised in semester 6 | 15 % |
+| Partner project analysis (Lastenheft and Pflichtenheft) | Aligned to-do on the project to be realised in semester 6, in your project group | 15 % |
 
 ::: callout
-The case study uses **public data**, not data from the partner companies. The partner projects are assessed separately in semester 6.
+The case study uses **public data**, not data from the partner company. The partner projects are assessed separately in semester 6.
 :::
 
 ::: notes
@@ -329,32 +329,40 @@ Use this slide during the Q&A after each pitch if students hesitate to ask quest
 
 # Team Formation
 
-- Choose the project you want to work on
-- Both teams should be roughly the **same size** and have a **mix of skills**
-- Inside each team, plan **sub-teams** later, e.g. data engineering, analytics, project management
+- Our partner company offers **four projects** — one per project group
+- **Four project groups**, formed today: each group works on one project
+- The same group also does the **group case study** of this module
+- Inside each group, plan **roles** later, e.g. data engineering, analytics, project management
 
 ::: callout
-Information from the partner companies is **confidential**. Do not share it outside the team, and never put company data or code in public repositories.
+Information from the partner company is **confidential**. Do not share it outside your group, and never put company data or code in public repositories.
 :::
 
 ::: notes
-Procedure: students write their first and second choice; balance the teams if needed. Record team lists offline in the lecturer's private notes for the project module (not in this repository).
+The groups and their projects were agreed in class; the group list is on slide 3 of the portfolio deck (offline PPTX only). Record team lists offline in the lecturer's private notes for the project module (not in this repository).
 :::
 
 ---
 
 # Preparation in Semester 5
 
-By the end of semester 5, each team prepares a short **project brief**:
+Each project group writes the **partner project analysis** (15 % of the portfolio):
 
-1. Business goals and success criteria
-2. Stakeholders and their interests
-3. Current process (as-is)
-4. First data inventory: sources, volume, quality, access
-5. Open questions, risks and first ideas for the solution
+1. **Lastenheft** — the partner's requirements: goals, users, data, constraints; confirmed by the partner
+2. **Pflichtenheft** — your answer: how you will realise the project in semester 6
+
+| Milestone | When |
+|---|---|
+| Kickoff | Today |
+| Hand-in Lastenheft | Session 10 |
+| Hand-in Pflichtenheft | Session 10 + 2 weeks |
+
+::: callout
+Details: see the **portfolio** deck. You start semester 6 with an agreed plan.
+:::
 
 ::: notes
-The project brief is not graded in this module; it prepares the kickoff in semester 6. Agree a submission date with the teams.
+Replaces the ungraded project brief of the earlier plan. Contents and milestones are explained in the portfolio deck (Lastenheft and Pflichtenheft section). Agree a contact person and an interview schedule with the partner today.
 :::
 
 ---

@@ -1,14 +1,14 @@
 ---
 course: Data Analytics
 title: Portfolio Tasks
-subtitle: Three lab notebooks · group case study · Lastenheft and Pflichtenheft · kickoffs and hand-ins
+subtitle: Three lab notebooks · group case study · partner project analysis · kickoffs and hand-ins
 program: DHBW Mannheim · Data Science and Artificial Intelligence · Semester 5
 ---
 
 # Portfolio Tasks {.title}
 
 ::: notes
-Separate deck, shown after the course overview in session 1. It replaces the assessment slide of the session 1 deck: the individual research brief is dropped and replaced by a Lastenheft and Pflichtenheft for the partner project, written in groups.
+Separate deck, shown after the course overview in session 1. It replaces the assessment slide of the session 1 deck: the individual research brief is dropped and replaced by the partner project analysis (Lastenheft and Pflichtenheft), written in the four project groups. The partner company offers four projects, one per group.
 Rule of thumb for all three notebooks: kickoff in a fixed session, hand-in two weeks later. Replace "+ 2 weeks" with calendar dates once the timetable is final, and publish the same dates on the course platform.
 :::
 
@@ -20,21 +20,21 @@ Rule of thumb for all three notebooks: kickoff in a fixed session, hand-in two w
 |---|---|---|
 | Three lab notebooks: (1) warehouse and analytical SQL · (2) machine learning use case · (3) time series forecast | Pairs | 45 % (15 % each) |
 | Group case study: end-to-end analytics case on a public dataset, with a dashboard or a big data framework | Project group | 40 % |
-| Lastenheft and Pflichtenheft for your partner project | Project group | 15 % |
+| Partner project analysis (Lastenheft and Pflichtenheft) for your partner project | Project group | 15 % |
 
 ::: callout
 Every task has a **dedicated kickoff** in class and a **fixed hand-in**. Notebooks: hand-in **two weeks after the kickoff**.
 :::
 
 ::: notes
-The 45/40/15 split is the one agreed on 2026-10-07; the 15 % of the dropped research brief go to the Lastenheft and Pflichtenheft. Equal weights of the three notebooks (15 % each) — confirm before showing. The DHBW study and examination regulations on portfolios still apply (late hand-ins, illness, plagiarism); point students to them rather than inventing rules on the slide.
+The 45/40/15 split is the one agreed on 2026-10-07; the 15 % of the dropped research brief go to the partner project analysis. Equal weights of the three notebooks (15 % each) — confirm before showing. The DHBW study and examination regulations on portfolios still apply (late hand-ins, illness, plagiarism); point students to them rather than inventing rules on the slide.
 :::
 
 ---
 
 # Four Groups, Two Group Tasks
 
-Each group works on **both** group tasks: the Lastenheft and Pflichtenheft for the partner, and the case study.
+The partner company offers **four projects**, one per group. Each group works on **both** group tasks: the partner project analysis and the case study.
 
 | Group | Members |
 |---|---|
@@ -57,7 +57,7 @@ Names come from tools/local.json (gitignored) and appear only in the offline PPT
 
 | Session | Kickoff | Hand-in |
 |---|---|---|
-| 1 · Introduction (today) | **Lastenheft and Pflichtenheft** | |
+| 1 · Introduction (today) | **Partner project analysis** | |
 | 4 · Analytical SQL | **Notebook 1** | |
 | 6 · Analytics portals | **Group case study** | Notebook 1 (session 4 + 2 weeks) |
 | 8 · ML use-case lab | **Notebook 2** | Case study proposal (session 6 + 2 weeks) |
@@ -213,9 +213,9 @@ The proposal is checked (go / adjust within a week), not graded. It forces an ea
 
 ---
 
-# Lastenheft and Pflichtenheft {.section}
+# Partner Project Analysis {.section}
 
-Getting your partner project ready for semester 6
+Lastenheft and Pflichtenheft · getting your partner project ready for semester 6
 
 ---
 
@@ -286,7 +286,7 @@ The solution concept uses what students learn in this module: warehouse and anal
 
 ---
 
-# Lastenheft and Pflichtenheft: Milestones
+# Partner Project Analysis: Milestones
 
 | When | Milestone |
 |---|---|
@@ -309,9 +309,9 @@ The Pflichtenheft hand-in lies in the middle of the semester, well before the ex
 # Key Takeaways
 
 - **Three notebooks** in pairs: kickoff in sessions **4, 8 and 14**, hand-in **two weeks** later
-- **Four project groups** do both group tasks: case study and Lastenheft and Pflichtenheft
+- **Four project groups**, one partner project each, do both group tasks: partner project analysis and case study
 - **Group case study:** kickoff in session **6**, proposal two weeks later, presentation in session **17**
-- **Lastenheft and Pflichtenheft:** kickoff **today**, Lastenheft in session **10**, Pflichtenheft two weeks later
+- **Partner project analysis:** kickoff **today**, Lastenheft in session **10**, Pflichtenheft two weeks later
 - Every notebook ends with an **assessment of method suitability**
 - Exact dates and the rubrics are on the **course platform**
 
