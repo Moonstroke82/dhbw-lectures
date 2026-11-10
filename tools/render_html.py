@@ -8,7 +8,7 @@ import shutil
 from pathlib import Path
 
 import theme
-from slidemd import inline_runs
+from slidemd import deck_label, inline_runs
 
 REVEAL = "https://cdn.jsdelivr.net/npm/reveal.js@5.1.0"
 
@@ -85,7 +85,7 @@ def render_slide(sl, deck, n, include_notes, img_map):
         lines = [m.get(k, "") for k in ("subtitle", "program")]  # no lecturer name on the public web version
         sub = "".join(f'<p class="{"sub" if i == 0 else "meta"}">{inline(l)}</p>' for i, l in enumerate(lines) if l)
         inner = (f'<div class="titleslide"><p class="course">{esc(m.get("course", ""))}</p>'
-                 f'<h1>Session {esc(m.get("session", ""))}: {inline(m.get("title", ""))}</h1>'
+                 f'<h1>{inline(deck_label(m))}</h1>'
                  f'<div class="bar"></div>{sub}</div>')
     elif "section" in sl.classes:
         paras = "".join(f"<p>{inline(b['text'])}</p>" for b in sl.blocks if b["type"] == "para")
@@ -116,7 +116,7 @@ def render_slide(sl, deck, n, include_notes, img_map):
                                               f'<div class="desc" style="font-size:{el["size"]}px">{inline(el["desc"])}</div>'))
             elif k == "image":
                 parts.append(box(el, "img", f'<img src="{img_map[el["src"]]}" alt="{esc(el["alt"])}">'))
-        foot = f'{esc(m.get("course", ""))} · Session {esc(m.get("session", ""))}: {inline(m.get("title", ""))}'
+        foot = f'{esc(m.get("course", ""))} · {inline(deck_label(m))}'
         parts.append(f'<div class="footer">{foot}</div><div class="pageno">{n}</div>')
         inner = "".join(parts)
     notes = f'<aside class="notes">{esc(sl.notes)}</aside>' if include_notes and sl.notes else ""
@@ -135,7 +135,7 @@ def render(deck, out_path, include_notes=False):
                 shutil.copy2(src, dst)
                 img_map[el["src"]] = f"img/{src.name}"
     m = deck.meta
-    title = f'{m.get("course", "")} – Session {m.get("session", "")}: {m.get("title", "")}'
+    title = f'{m.get("course", "")} – {deck_label(m)}'
     slides = "\n".join(render_slide(sl, deck, n, include_notes, img_map) for n, sl in enumerate(deck.slides, 1))
     plugins = "[RevealNotes]" if include_notes else "[]"
     notes_js = f'<script src="{REVEAL}/plugin/notes/notes.js"></script>' if include_notes else ""

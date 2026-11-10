@@ -41,6 +41,13 @@ INLINE_RE = re.compile(
 )
 
 
+def deck_label(meta):
+    """'Session N: Title' for session decks; just the title for decks without a session number."""
+    title = meta.get("title", "")
+    session = meta.get("session", "")
+    return f"Session {session}: {title}" if session != "" else title
+
+
 def inline_runs(text, base=None):
     """Split inline Markdown into runs: (text, {'b','i','code','link'})."""
     base = dict(base or {})

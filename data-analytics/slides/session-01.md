@@ -9,7 +9,7 @@ program: DHBW Mannheim · Data Science and Artificial Intelligence · Semester 5
 # Introduction to Data Analytics {.title}
 
 ::: notes
-Welcome. Short introduction of yourself and of the two partner companies (they are present for their pitches later today).
+Welcome. Short introduction of yourself and of the partner company (present for its pitch later today).
 Time plan for today (3 h): course intro 25 min · development of analytics 30 min · break 10 min · types and application areas 30 min · partner project pitches 45 min · team formation 20 min · wrap-up and setup check 10 min · ~10 min buffer.
 Agree the exact pitch slot with the companies beforehand; the pitches can also come first if their schedule requires it.
 :::
@@ -115,14 +115,14 @@ Ask students to bring a laptop from session 2 on. Setup instructions are at the 
 |---|---|---|
 | Lab notebooks | Three notebooks in pairs: data warehouse and analytical SQL · machine learning use case · time series forecast — each with a short assessment of method suitability | 45 % |
 | Group case study | End-to-end analytics case on a public dataset in larger groups, incl. a big data framework or dashboard; notebook and presentation | 40 % |
-| Individual research brief | Short paper on a topic not covered in class, researched on your own | 15 % |
+| Partner project analysis (Lastenheft and Pflichtenheft) | Aligned to-do on the project to be realised in semester 6, in your project group | 15 % |
 
 ::: callout
-The case study uses **public data**, not data from the partner companies. The partner projects are assessed separately in semester 6.
+The case study uses **public data**, not data from the partner company. The partner projects are assessed separately in semester 6.
 :::
 
 ::: notes
-Portfolio agreed 2026-10-07. Detailed briefs, deadlines and grading rubrics will be published separately. Explain why partner data is excluded: confidentiality, and no double assessment of the same work in two modules.
+Portfolio agreed 2026-10-07; the individual research brief was replaced on 2026-11-10 by the partner project analysis (Lastenheft and Pflichtenheft, in the project groups). Kickoffs, hand-ins and briefs: separate deck portfolio.md. Exact dates and rubrics on the course platform. Explain why partner data is excluded: confidentiality, and no double assessment of the same work in two modules.
 :::
 
 ---
@@ -296,8 +296,8 @@ Project Data Engineering and Analytics
 
 # The Semester-6 Project at a Glance
 
-- **Two partner companies, two real projects** in data engineering and analytics
-- The course splits into **two project teams**
+- **One partner company, real projects** in data engineering and analytics
+- The course splits into **project teams**
 - **Semester 5:** get to know the project, the stakeholders and the data — alongside this module
 - **Semester 6:** implementation; plenary meetings only for kickoff, mid-term and final presentation
 - Assessment: **project** (result, project management, presentations, individual contribution)
@@ -312,38 +312,6 @@ Hours in semester 6: about 10 h of plenary meetings; the remaining ~40 h are tea
 
 ---
 
-# Project A: {{private:partner_a|Partner Company A}}
-
-**Topic:** {{private:partner_a_topic|Presented by the partner company in class}}
-
-- Who are we, and what do we do?
-- What is the business problem?
-- What data is available?
-- What should the result be?
-- Who are your contacts?
-
-::: notes
-Hand over to the first partner company. The company names and topics are filled in only in the offline PPTX (from tools/local.json); the public web version shows a placeholder.
-Remind students to note open questions for the Q&A.
-:::
-
----
-
-# Project B: {{private:partner_b|Partner Company B}}
-
-**Topic:** {{private:partner_b_topic|Presented by the partner company in class}}
-
-- Who are we, and what do we do?
-- What is the business problem?
-- What data is available?
-- What should the result be?
-- Who are your contacts?
-
-::: notes
-Hand over to the second partner company. Same structure as project A so the two pitches are comparable.
-:::
-
----
 
 # Questions to Ask the Partners {.exercise}
 
@@ -361,32 +329,40 @@ Use this slide during the Q&A after each pitch if students hesitate to ask quest
 
 # Team Formation
 
-- Choose the project you want to work on
-- Both teams should be roughly the **same size** and have a **mix of skills**
-- Inside each team, plan **sub-teams** later, e.g. data engineering, analytics, project management
+- Our partner company offers **four projects** — one per project group
+- **Four project groups**, formed today: each group works on one project
+- The same group also does the **group case study** of this module
+- Inside each group, plan **roles** later, e.g. data engineering, analytics, project management
 
 ::: callout
-Information from the partner companies is **confidential**. Do not share it outside the team, and never put company data or code in public repositories.
+Information from the partner company is **confidential**. Do not share it outside your group, and never put company data or code in public repositories.
 :::
 
 ::: notes
-Procedure: students write their first and second choice; balance the teams if needed. Record team lists offline in the lecturer's private notes for the project module (not in this repository).
+The groups and their projects were agreed in class; the group list is on slide 3 of the portfolio deck (offline PPTX only). Record team lists offline in the lecturer's private notes for the project module (not in this repository).
 :::
 
 ---
 
 # Preparation in Semester 5
 
-By the end of semester 5, each team prepares a short **project brief**:
+Each project group writes the **partner project analysis** (15 % of the portfolio):
 
-1. Business goals and success criteria
-2. Stakeholders and their interests
-3. Current process (as-is)
-4. First data inventory: sources, volume, quality, access
-5. Open questions, risks and first ideas for the solution
+1. **Lastenheft** — the partner's requirements: goals, users, data, constraints; confirmed by the partner
+2. **Pflichtenheft** — your answer: how you will realise the project in semester 6
+
+| Milestone | When |
+|---|---|
+| Kickoff | Today |
+| Hand-in Lastenheft | Session 10 |
+| Hand-in Pflichtenheft | Session 10 + 2 weeks |
+
+::: callout
+Details: see the **portfolio** deck. You start semester 6 with an agreed plan.
+:::
 
 ::: notes
-The project brief is not graded in this module; it prepares the kickoff in semester 6. Agree a submission date with the teams.
+Replaces the ungraded project brief of the earlier plan. Contents and milestones are explained in the portfolio deck (Lastenheft and Pflichtenheft section). Agree a contact person and an interview schedule with the partner today.
 :::
 
 ---

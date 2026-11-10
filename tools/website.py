@@ -138,7 +138,7 @@ def n_sessions(c):
     return sum(1 for p in c["plan"] for s in p[2] if s["num"])
 
 
-def course_page(slug, c, courses, available, worksheets):
+def course_page(slug, c, courses, available, worksheets, portfolio=False):
     chips = "".join(f'<span class="chip">{esc(t)}</span>' for t in c.get("chips") or (
         f"Semester {c['semester']}", f"{c['hours']} hours", f"{n_sessions(c)} sessions", c["assessment"]))
     outcomes = "".join(f'<li><span class="ck">{ICONS["check"]}</span>{esc(o)}</li>' for o in c["outcomes"])
@@ -169,7 +169,18 @@ def course_page(slug, c, courses, available, worksheets):
 <p class="eyebrow">DHBW · {esc(c['program'])}</p><h1>{esc(c['title'])}</h1>
 <p class="lead">{esc(c['tagline'])}</p><div class="chips">{chips}</div></div></section>
 <main class="wrap"><section class="outcomes"><h2>What you will learn</h2><ul>{outcomes}</ul></section>
-<section class="roadmap"><h2>{esc(c.get('roadmap_title', 'Session roadmap'))}</h2>{parts}</section></main>""" + HOWTO + footer())
+{portfolio_section(portfolio)}<section class="roadmap"><h2>{esc(c.get('roadmap_title', 'Session roadmap'))}</h2>{parts}</section></main>""" + HOWTO + footer())
+
+
+def portfolio_section(portfolio):
+    """Link card to slides/portfolio.md (assessment tasks, kickoffs and hand-ins), if the course has one."""
+    if not portfolio:
+        return ""
+    return ('<section class="roadmap"><h2>Portfolio</h2><div class="sessions">'
+            '<a class="session live" href="portfolio.html"><span class="num">P</span><div>'
+            '<h4>Portfolio tasks</h4><p>Lab notebooks, group case study and partner project analysis: '
+            'what to do, when each task starts and when to hand in.</p>'
+            '<span class=open>Open slides →</span></div></a></div></section>')
 
 
 CSS = f""":root {{ --primary:#{C['primary']}; --accent:#{C['accent']}; --optional:#{C['optional']}; --text:#{C['text']};
@@ -268,4 +279,5 @@ def write(root, docs, course_slugs):
     (docs / "index.html").write_text(landing(courses, available), encoding="utf-8")
     for slug, c in courses:
         (docs / slug).mkdir(parents=True, exist_ok=True)
-        (docs / slug / "index.html").write_text(course_page(slug, c, courses, available, worksheets), encoding="utf-8")
+        (docs / slug / "index.html").write_text(course_page(slug, c, courses, available, worksheets,
+                                                                       (root / slug / "slides" / "portfolio.md").exists()), encoding="utf-8")

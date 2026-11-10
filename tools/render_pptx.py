@@ -8,7 +8,7 @@ from pptx.util import Pt
 from lxml import etree
 
 import theme
-from slidemd import inline_runs
+from slidemd import deck_label, inline_runs
 
 C = {k: RGBColor.from_string(v) for k, v in theme.COLORS.items()}
 
@@ -155,7 +155,7 @@ def _badge(slide, label, color):
 def _footer(slide, deck, n):
     m = deck.meta
     _, tf = _box(slide, 43, theme.FOOTER_Y, 700, 14)
-    _runs(tf.paragraphs[0], f"{m.get('course', '')} · Session {m.get('session', '')}: {m.get('title', '')}",
+    _runs(tf.paragraphs[0], f"{m.get('course', '')} · {deck_label(m)}",
           theme.FOOTER_SIZE, color="muted")
     _, tf = _box(slide, theme.SLIDE_W - 43 - 60, theme.FOOTER_Y, 60, 14)
     tf.paragraphs[0].alignment = PP_ALIGN.RIGHT
@@ -170,7 +170,7 @@ def _title_slide(slide, deck):
     _runs(tf.paragraphs[0], m.get("course", ""), 20, color="white")
     _, tf = _box(slide, 60, 160, 840, 80)
     tf.vertical_anchor = MSO_ANCHOR.BOTTOM
-    _runs(tf.paragraphs[0], f"Session {m.get('session', '')}: {m.get('title', '')}", 40, color="white", bold=True)
+    _runs(tf.paragraphs[0], deck_label(m), 40, color="white", bold=True)
     lines = [m.get("subtitle", ""), m.get("program", ""), m.get("lecturer", "")]
     _, tf = _box(slide, 60, 270, 840, 120)
     for i, ln in enumerate(l for l in lines if l):
