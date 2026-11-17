@@ -9,7 +9,7 @@ program: DHBW Mannheim · Data Science and Artificial Intelligence · Semester 5
 # Analytics Portals {.title}
 
 ::: notes
-Time plan for today (3 h): recap 10 min · portals and BI tools 15 min · semantic layer and self-service BI 25 min · exercise 10 min · break 10 min · dashboards and embedded analytics 15 min · access and governance 10 min · lab 80 min · wrap-up 5 min · ~10 min buffer.
+Time plan for today (3 h): recap 10 min · portals and BI tools 15 min · semantic layer and self-service BI 25 min · exercise 10 min · break 10 min · dashboards and embedded analytics 15 min · access and governance 10 min · group case study kickoff 20 min · lab 65 min · wrap-up 5 min · ~5 min buffer.
 Students need tpch.duckdb with the star schema from session 3, their charts from session 5, and Streamlit (`pip install streamlit`; the preparation task was to run `streamlit hello`). Tested with Streamlit 1.66 and DuckDB 1.5.5. Check at the start who could not install Streamlit and pair them with someone who could.
 :::
 
@@ -22,11 +22,12 @@ Students need tpch.duckdb with the star schema from session 3, their charts from
 3. Semantic layer and self-service BI
 4. Dashboards and embedded analytics
 5. Access and governance
-6. Lab: a Streamlit dashboard on the warehouse
+6. Kickoff: group case study
+7. Lab: a Streamlit dashboard on the warehouse
 
 ::: notes
 Time and format guide (not shown to students):
-0:00 Recap (plenary) · 0:10 Portals and BI tools (input) · 0:25 Semantic layer and self-service (input + discussion) · 0:50 Exercise "who needs what?" (pairs, then plenary) · 1:00 Break · 1:10 Dashboards and embedded analytics (input) · 1:25 Access and governance (input + discussion) · 1:35 Lab (pairs) · 2:55 Wrap-up · buffer is the discussion time in the input parts.
+0:00 Recap (plenary) · 0:10 Portals and BI tools (input) · 0:25 Semantic layer and self-service (input + discussion) · 0:50 Exercise "who needs what?" (pairs, then plenary) · 1:00 Break · 1:10 Dashboards and embedded analytics (input) · 1:25 Access and governance (input + discussion) · 1:35 Case study kickoff (input 8 min, then groups 12 min) · 1:55 Lab (pairs) · 2:55 Wrap-up · buffer is the discussion time in the input parts.
 If the governance discussion runs long, keep it and shorten the lab: lab tasks 5 and 6 can be finished at home.
 :::
 
@@ -332,6 +333,84 @@ Own compilation. Connect to the KPI definition sheet from session 5 and to the s
 
 ---
 
+# Kickoff: Group Case Study {.section}
+
+End-to-end analytics on a public dataset
+
+---
+
+# Group Case Study: The Brief
+
+**Kickoff:** today · **Presentation and hand-in:** session 17 · in your **project group** · 40 % of the portfolio
+
+- Choose a **public dataset** and a **business decision** it can support
+- Go end to end: question, data, approach, results, recommendation
+- Include **one** of: a **dashboard** (today's lab) or a **big data framework** (session 15) — with a reason for the choice
+- Hand in a reproducible notebook (plus app or Spark code); present in session 17
+
+::: callout
+**No partner data.** Same group as the partner project — but public data only.
+:::
+
+::: source
+Own compilation based on Chapman et al. (2000).
+:::
+
+::: notes
+Matches the portfolio deck: the four project groups formed in session 1 also do the case study. Starting today gives the groups more than half of the semester, away from the exam period. Today's Streamlit lab is the material for the dashboard option; Spark follows in session 15. Datasets must be public with a licence that allows the use, and loaded by URL or script. Tool choice is part of the assessment: "DuckDB was enough — here is the measurement" is as good as a justified Spark pipeline.
+:::
+
+---
+
+# Group Case Study: Milestones
+
+| When | Milestone |
+|---|---|
+| Today | **Kickoff:** collect dataset ideas in your group |
+| In two weeks (session 6 + 2 weeks) | **Proposal** (one page): question, decision, dataset, planned dashboard or big data part |
+| Session 10 | **Consultation** on the proposal and first results |
+| Session 15 | Spark material for the big data option |
+| Session 16 | **Workshop:** review checklists, feedback between groups, presentation storyboard |
+| Session 17 | **Presentation** and hand-in of the notebook |
+
+::: notes
+The proposal is checked (go / adjust within a week), not graded. It forces an early decision on the dataset, the most common reason for late trouble. Put the calendar date of the proposal on the course platform.
+:::
+
+---
+
+# A Good Case Study Dataset
+
+- **Public**, with a licence that allows your use — note the source and licence
+- **Big enough** to be interesting: several dimensions, a time axis, enough rows to segment
+- **Linked to a decision** someone actually makes: pricing, staffing, stock, marketing, maintenance …
+- **Loadable by URL or script**, so the notebook runs on any machine
+- Good sources: Kaggle, open government data portals, Eurostat, city open data
+
+::: callout
+Start from the **decision**, not from the dataset: "Which stations need more bikes on weekday mornings?" beats "Analyse bike data".
+:::
+
+::: notes
+Examples that worked well in other courses: bike sharing trips, energy consumption, public transport delays, retail sales, flight delays, housing prices. Warn against datasets with only a few hundred rows (too thin for a dashboard or Spark) and against heavily pre-processed competition data without a business context.
+:::
+
+---
+
+# In Your Group Now {.exercise}
+
+1. Meet in your **project group**
+2. Collect **three dataset ideas**, each with the **decision** it could support
+3. For each idea: is it public, big enough, loadable by URL?
+4. Pick a **favourite** and a **backup**
+5. Agree who writes the **one-page proposal** — due in two weeks
+
+::: notes
+Walk around and check two things per group: is there a real decision behind the idea, and is the data actually downloadable (not only described)? Ask one or two groups to share their favourite in one sentence at the end of the block.
+:::
+
+---
+
 # Lab: A Streamlit Dashboard {.section}
 
 From the star schema to a small analytics portal
@@ -439,6 +518,7 @@ Expected results (DuckDB 1.5.5, sf 0.1): 1 every widget change reruns the whole 
 - **Self-service BI** ranges from using to creating information and information resources — more freedom needs more guard rails
 - **Dashboards** show what matters on one screen, with context; **embedded analytics** brings them into everyday applications
 - **Access and governance:** authenticate, authorise where the data is queried, and give every KPI and dashboard an owner
+- **Group case study** starts today: one-page proposal in **two weeks**, presentation in session 17
 
 ---
 
@@ -450,7 +530,7 @@ Expected results (DuckDB 1.5.5, sf 0.1): 1 every widget change reruns the whole 
 - Judging a model by business cost
 
 ::: callout
-**Preparation:** think of one decision at the TPC-H wholesaler that a prediction could improve — which customers, orders or products would it be about?
+**Preparation:** think of one decision at the TPC-H wholesaler that a prediction could improve — which customers, orders or products would it be about? In your group: start the **case study proposal**. Check the **notebook 1** hand-in date on the course platform.
 :::
 
 ---
@@ -460,6 +540,7 @@ Expected results (DuckDB 1.5.5, sf 0.1): 1 every widget change reruns the whole 
 - Alpar, P., & Schulz, M. (2016). Self-service business intelligence. *Business & Information Systems Engineering, 58*(2), 151–155. https://doi.org/10.1007/s12599-016-0424-6
 - Baars, H., & Kemper, H.-G. (2021). *Business Intelligence & Analytics – Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung* (4th ed.). Springer Vieweg. https://doi.org/10.1007/978-3-8348-2344-1
 - Cambot, J.-M., & Liautaud, B. (1996). *Relational database access system using semantically dynamic objects* (U.S. Patent No. 5,555,403). U.S. Patent and Trademark Office. https://patents.google.com/patent/US5555403
+- Chapman, P., Clinton, J., Kerber, R., Khabaza, T., Reinartz, T., Shearer, C., & Wirth, R. (2000). *CRISP-DM 1.0: Step-by-step data mining guide*. SPSS.
 - Chaudhuri, S., Dayal, U., & Narasayya, V. (2011). An overview of business intelligence technology. *Communications of the ACM, 54*(8), 88–98. https://doi.org/10.1145/1978542.1978562
 - dbt Labs. (n.d.). *dbt Semantic Layer*. Retrieved October 20, 2026, from https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl
 - DuckDB Foundation. (n.d.). *Python DB API*. Retrieved October 20, 2026, from https://duckdb.org/docs/current/clients/python/dbapi.html
