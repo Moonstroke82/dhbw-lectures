@@ -64,7 +64,7 @@ Legend for learning-outcome links: **SC** subject competence · **MC** methodolo
 
 | Component | Form | Weight |
 |---|---|---|
-| Lab notebooks | Three notebooks in pairs: (1) DWH / OLAP / analytical SQL, (2) ML use case, (3) time series forecast; each with a short written assessment of method suitability | 45 % |
+| Lab notebooks | Three notebooks in groups of three: (1) DWH / OLAP / analytical SQL, (2) ML use case, (3) time series forecast; each with a short written assessment of method suitability | 45 % |
 | Group case study | End-to-end analytics case on a public dataset in larger groups (handbook allows this), incl. a big data framework or dashboard; notebook + presentation in session 17 | 40 % |
 | Individual research brief | Short paper on a topic not covered in class (e.g. a new method or tool), researched independently | 15 % |
 

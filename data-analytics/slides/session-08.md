@@ -10,7 +10,7 @@ program: DHBW Mannheim · Data Science and Artificial Intelligence · Semester 5
 
 ::: notes
 Time plan for today (3 h): recap 5 min · lab brief and tracks 10 min · pipelines, tuning and time-aware validation with the churn starter 25 min · break 10 min · segmentation and anomaly detection starters 15 min · interpreting and communicating 10 min · good notebook and assessment 5 min · lab 85 min · wrap-up 5 min · ~10 min buffer.
-Today is mostly lab: keep the input short and let pairs start early. Students need tpch.duckdb with the star schema from session 3 (fact_sales, dim_customer, dim_date, dim_part) and scikit-learn (installed in the session 1 setup; the preparation task was `import sklearn`). Track C anomaly variant on order level uses the base tables (worksheet). All numbers on the slides were run with DuckDB 1.5.5 (tpch extension, sf 0.1), scikit-learn 1.9.1, pandas 3.0 and NumPy 2.5, random_state = 42 everywhere. Check at the start who has no working scikit-learn and pair them with someone who has.
+Today is mostly lab: keep the input short and let the groups start early. Students need tpch.duckdb with the star schema from session 3 (fact_sales, dim_customer, dim_date, dim_part) and scikit-learn (installed in the session 1 setup; the preparation task was `import sklearn`). Track C anomaly variant on order level uses the base tables (worksheet). All numbers on the slides were run with DuckDB 1.5.5 (tpch extension, sf 0.1), scikit-learn 1.9.1, pandas 3.0 and NumPy 2.5, random_state = 42 everywhere. Check at the start who has no working scikit-learn and pair them with someone who has.
 :::
 
 ---
@@ -27,7 +27,7 @@ Today is mostly lab: keep the input short and let pairs start early. Students ne
 
 ::: notes
 Time and format guide (not shown to students):
-0:00 Recap (plenary) · 0:05 Lab brief and choice of track (input, pairs confirm their track) · 0:15 Pipelines, tuning, time-aware validation (input + live demo of the churn starter) · 0:40 Break · 0:50 Starters B and C (input, short demo) · 1:05 Interpreting and communicating (input + discussion) · 1:15 Good notebook and suggested rubric (input, questions) · 1:20 Lab (pairs, consultations at the tables) · 2:45 Wrap-up: two pairs report one finding each · ~10 min buffer.
+0:00 Recap (plenary) · 0:05 Lab brief and choice of track (input, groups confirm their track) · 0:15 Pipelines, tuning, time-aware validation (input + live demo of the churn starter) · 0:40 Break · 0:50 Starters B and C (input, short demo) · 1:05 Interpreting and communicating (input + discussion) · 1:15 Good notebook and suggested rubric (input, questions) · 1:20 Lab (notebook groups, consultations at the tables) · 2:45 Wrap-up: two pairs report one finding each · ~10 min buffer.
 If the discussion of the track results runs long, keep it and shorten the rubric part: the rubric is on the slides for self-study.
 :::
 
@@ -44,7 +44,7 @@ If the discussion of the track results runs long, keep it and shorten the rubric
 :::
 
 ::: notes
-Ask two pairs which use case they chose (preparation task) and why. Remind: the session 7 model used one training cut-off and no tuning. Today we add more training snapshots, a pipeline, tuning with time-aware validation, and two more use cases. Keep the honest message from session 7: "a simple rule is enough" can be the correct result of a notebook.
+Ask two groups which use case they chose (preparation task) and why. Remind: the session 7 model used one training cut-off and no tuning. Today we add more training snapshots, a pipeline, tuning with time-aware validation, and two more use cases. Keep the honest message from session 7: "a simple rule is enough" can be the correct result of a notebook.
 :::
 
 ---
@@ -57,7 +57,7 @@ Portfolio notebook 2: one ML use case, end to end
 
 # Portfolio Notebook 2: The Brief
 
-- **Work in pairs** on **one** use case: churn prediction, customer segmentation or anomaly detection
+- **Work in groups of three** on **one** use case: churn prediction, customer segmentation or anomaly detection
 - Data: the TPC-H star schema in DuckDB — or a public dataset of your choice with the same depth
 - **Apply** methods you know from earlier modules; today adds pipelines, tuning and validation in applied form
 - Go from the business question to a **recommendation**: framing, features, baseline, model, evaluation, interpretation
@@ -72,7 +72,7 @@ Own compilation based on Chapman et al. (2000) and Provost and Fawcett (2013).
 :::
 
 ::: notes
-The portfolio table in the session plan: three lab notebooks in pairs (DWH/OLAP/SQL, ML use case, time series), each with a short written assessment of method suitability — together 45 % of the portfolio. The official brief (deadline, format, rubric) is published separately on the course platform; today's slides give the content expectations and a suggested rubric only. Session 7's worksheet task 7 is the first part of this notebook (framing, feature table, baseline, leakage audit, cost matrix).
+The portfolio table in the session plan: three lab notebooks in groups of three (DWH/OLAP/SQL, ML use case, time series), each with a short written assessment of method suitability — together 45 % of the portfolio. The official brief (deadline, format, rubric) is published separately on the course platform; today's slides give the content expectations and a suggested rubric only. Session 7's worksheet task 7 is the first part of this notebook (framing, feature table, baseline, leakage audit, cost matrix).
 :::
 
 ---
@@ -93,7 +93,7 @@ Own compilation based on Provost and Fawcett (2013) and scikit-learn developers 
 :::
 
 ::: notes
-The methods come from W4DSKI_101 and W4DSKI_201; no method teaching today. Track A is the most guided (it continues session 7 directly). Track B is the most open: there is no accuracy to optimise, so students must argue with profiles, stability and usefulness. Track C has no labels: we create known anomalies to test the detector. All three tracks are equally valued; a pair that finds that ML adds nothing over the baseline and shows it convincingly can do very well.
+The methods come from W4DSKI_101 and W4DSKI_201; no method teaching today. Track A is the most guided (it continues session 7 directly). Track B is the most open: there is no accuracy to optimise, so students must argue with profiles, stability and usefulness. Track C has no labels: we create known anomalies to test the detector. All three tracks are equally valued; a group that finds that ML adds nothing over the baseline and shows it convincingly can do very well.
 :::
 
 ---
@@ -503,7 +503,7 @@ Reproducibility counts: the notebook runs top to bottom on a fresh tpch.duckdb, 
 | Reproducibility and code quality | 5 % |
 
 ::: callout
-Notebook 2 is one of three lab notebooks (in pairs), which together make up **45 %** of the portfolio. This rubric is a **suggestion** for orientation; the official brief and rubric are published separately.
+Notebook 2 is one of three lab notebooks (in groups of three), which together make up **45 %** of the portfolio. This rubric is a **suggestion** for orientation; the official brief and rubric are published separately.
 :::
 
 ::: notes
@@ -514,7 +514,7 @@ Source of the 45 %: portfolio table in the session plan (agreed 2026-10-07). The
 
 # Lab Tasks {.exercise}
 
-Work in pairs on **your** track; all tasks go into portfolio notebook 2.
+Work in your group of three on **your** track; all tasks go into portfolio notebook 2.
 
 - **A Churn:** run the starter · add gradient boosting with `RandomizedSearchCV` · compare with the rule by lift and profit · choose the number of calls · permutation importance
 - **B Segments:** run the starter · try one other feature set or *k* · profile and name the groups · stability over halves · compare with market segments
@@ -522,7 +522,7 @@ Work in pairs on **your** track; all tasks go into portfolio notebook 2.
 - **All:** write the five-part result summary and a first suitability assessment
 
 ::: notes
-Expected results (tested, see the notes of the result slides): A — HGB best validation AUC 0.611, test AUC 0.625, top-20 % profit 266,000 vs. 257,000 for the rule; differences within noise; importance dominated by purchase_days (0.12). B — silhouette 0.19–0.22 for k = 2–8; k = 4 profiles as on the slide; ARI on halves at least 0.93; ARI with market segments 0.000. Typical alternative: adding avg quantity correlates with revenue per day (0.48) and adds little. C — defaults: 48.3 % hits; max_samples 2,048: 88.3 %; z rule 97.8 %; a self-made joint anomaly (e.g. high quantity at an unusually low price that is still in range) is what the forest can find and the z rule cannot. Consult each pair at least once; check point-in-time correctness first, then the baseline, then the model. Pairs that finish early: worksheet tasks 3–5 (other contexts).
+Expected results (tested, see the notes of the result slides): A — HGB best validation AUC 0.611, test AUC 0.625, top-20 % profit 266,000 vs. 257,000 for the rule; differences within noise; importance dominated by purchase_days (0.12). B — silhouette 0.19–0.22 for k = 2–8; k = 4 profiles as on the slide; ARI on halves at least 0.93; ARI with market segments 0.000. Typical alternative: adding avg quantity correlates with revenue per day (0.48) and adds little. C — defaults: 48.3 % hits; max_samples 2,048: 88.3 %; z rule 97.8 %; a self-made joint anomaly (e.g. high quantity at an unusually low price that is still in range) is what the forest can find and the z rule cannot. Consult each group at least once; check point-in-time correctness first, then the baseline, then the model. Groups that finish early: worksheet tasks 3–5 (other contexts).
 :::
 
 ---

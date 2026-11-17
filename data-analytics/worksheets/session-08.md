@@ -305,7 +305,7 @@ Marking (10 points): 1 (1 point); 2 (2); 3 rules with counts (2); 4 numbers and 
 
 ## Rewrite the Summary
 
-A pair hands in this result summary for the anomaly track of the lab (numbers from the session slides). List at least **five** problems and rewrite the summary in the five-part structure from the session (answer first, evidence against the baseline, meaning for the decision, limits, next step), in at most 120 words.
+A notebook group hands in this result summary for the anomaly track of the lab (numbers from the session slides). List at least **five** problems and rewrite the summary in the five-part structure from the session (answer first, evidence against the baseline, meaning for the decision, limits, next step), in at most 120 words.
 
 > "We used a state-of-the-art isolation forest (Liu et al., 2008) on all 90,435 order lines of 1997. It detected 37,444 anomalies, which shows that data quality is a big problem. After hyperparameter tuning (max_samples = 4096), the model is 93.3 % accurate. The z-score rule reached 97.8 %, but z-scores are only a statistical trick and not machine learning. We recommend deploying the isolation forest."
 

@@ -9,7 +9,7 @@ program: DHBW Mannheim · Data Science and Artificial Intelligence · Semester 5
 # Analytical SQL {.title}
 
 ::: notes
-Time plan for today (3 h): recap 10 min · CTEs 10 min · window functions 35 min · break 10 min · ROLLUP/CUBE/GROUPING SETS 20 min · typical analyses: cohorts and funnels 15 min · lab 70 min · wrap-up 5 min · ~5 min buffer.
+Time plan for today (3 h): recap 10 min · CTEs 10 min · window functions 35 min · break 10 min · ROLLUP/CUBE/GROUPING SETS 20 min · typical analyses: cohorts and funnels 15 min · notebook 1 kickoff 10 min · lab 60 min · wrap-up 5 min · ~5 min buffer.
 Students need tpch.duckdb with the star schema from session 3. Anyone who lost it runs the session 3 lab cells first.
 :::
 
@@ -22,11 +22,12 @@ Students need tpch.duckdb with the star schema from session 3. Anyone who lost i
 3. Window functions: rankings, running totals, comparisons over time
 4. `ROLLUP`, `CUBE` and `GROUPING SETS`: subtotals in one query
 5. Typical analyses: cohorts and funnels
-6. Lab: analytical SQL on the star schema
+6. Kickoff: portfolio notebook 1
+7. Lab: analytical SQL on the star schema
 
 ::: notes
 Time and format guide (not shown to students):
-0:00 Recap (plenary) · 0:10 CTEs (input + live demo) · 0:20 Window functions (input + live demo) · 0:55 Break · 1:05 ROLLUP/CUBE (input + demo) · 1:25 Cohorts and funnels (input) · 1:40 Lab (pairs) · 2:50 Wrap-up.
+0:00 Recap (plenary) · 0:10 CTEs (input + live demo) · 0:20 Window functions (input + live demo) · 0:55 Break · 1:05 ROLLUP/CUBE (input + demo) · 1:25 Cohorts and funnels (input) · 1:40 Notebook 1 kickoff (input, groups of three confirmed) · 1:50 Lab (notebook groups) · 2:50 Wrap-up.
 Live-code the examples in DuckDB instead of only showing slides — the result tables make the concepts concrete.
 :::
 
@@ -265,6 +266,59 @@ TPC-H has no event data, so the lab uses a tiny generated event table for funnel
 
 ---
 
+# Kickoff: Portfolio Notebook 1 {.section}
+
+Warehouse, OLAP and analytical SQL · hand-in in two weeks
+
+---
+
+# Portfolio Notebook 1: The Brief
+
+**Kickoff:** today · **Hand-in:** in two weeks (session 4 + 2 weeks) · **in groups of three** · 15 % of the portfolio
+
+- **Data:** the TPC-H star schema in DuckDB from session 3
+- Answer **business questions** for the wholesaler with OLAP operations and analytical SQL: rankings, shares, period comparisons, subtotals, cohorts or funnels
+- State the **grain** of each fact table and **define every measure**: formula, filters, time reference
+- Check **completeness**: incomplete periods excluded or marked
+- **Interpret** every result table, and end with a short **assessment of method suitability**
+
+::: callout
+Today's lab is the **first part** of your notebook: keep your queries and interpretations.
+:::
+
+::: source
+Own compilation based on Kimball and Ross (2013).
+:::
+
+::: notes
+Matches the portfolio deck (notebook 1: kickoff session 4, hand-in two weeks later). Put the calendar date and the upload link on the course platform and say the date out loud. Groups of three: ideally within the same project group, and the same group for all three notebooks. The full brief with the three set questions and the rubric is on the course platform. Charts from session 5 are welcome but not required — session 5 falls inside the two weeks. TPC-H is synthetic and almost flat: "there is no trend" is a valid, well-founded finding.
+:::
+
+---
+
+# What a Good Notebook 1 Contains
+
+| Part | Content |
+|---|---|
+| Questions | Three to five business questions, each answered in plain language |
+| Model | Star schema described; grain of each fact table stated |
+| Definitions | Every measure defined: formula, filters, time reference |
+| Analytical SQL | CTEs for readability; window functions, ROLLUP/CUBE or GROUPING SETS where they fit |
+| Checks | Date range and completeness checked; incomplete periods excluded or marked |
+| Interpretation | One or two sentences per result: what it means, how sure we are |
+| Suitability | What the data and methods can and cannot tell — five to ten sentences |
+| Hand-in | `.ipynb` and HTML export; runs top to bottom on a fresh kernel; both names at the top |
+
+::: source
+Own compilation based on Kimball and Ross (2013) and Sandve et al. (2013).
+:::
+
+::: notes
+This is the checklist of session 10 in advance — guidance, not the official rubric. Typical gap: queries without interpretation. A query result without a sentence is not an answer. Reproducibility: "Restart kernel and run all" before upload.
+:::
+
+---
+
 # Lab: Analytical SQL {.section}
 
 Star schema from session 3
@@ -273,7 +327,7 @@ Star schema from session 3
 
 # Lab Tasks {.exercise}
 
-Work in pairs. Write queries and a short interpretation in your notebook.
+Work in your notebook-1 group of three. Write queries and a short interpretation — this is the start of your notebook 1.
 
 1. **Ranking:** the top 3 **customers** per **market segment** by revenue in 1997
 2. **Share:** each region's share of total revenue per year (window `sum() OVER (PARTITION BY year)`)
@@ -298,6 +352,7 @@ Expected: visit 5, view 4, cart 3, purchase 2 users. Task 6: e.g. TPC-H is synth
 - **ROLLUP**, **CUBE** and **GROUPING SETS** produce subtotals and grand totals in one query
 - **Cohorts** show retention over time; **funnels** show where users drop out of a process
 - Always check **completeness and meaning** of the data before interpreting a result
+- **Portfolio notebook 1** starts today: hand-in in **two weeks**
 
 ---
 
@@ -309,7 +364,7 @@ Expected: visit 5, view 4, cart 3, purchase 2 users. Task 6: e.g. TPC-H is synth
 - Storytelling with data and KPI design
 
 ::: callout
-**Preparation:** bring one chart from your company or the news that you find good — or misleading.
+**Preparation:** bring one chart from your company or the news that you find good — or misleading. Keep working on **notebook 1**.
 :::
 
 ---
@@ -318,5 +373,7 @@ Expected: visit 5, view 4, cart 3, purchase 2 users. Task 6: e.g. TPC-H is synth
 
 - DuckDB Foundation. (n.d.). *Window functions*. DuckDB documentation. Retrieved October 20, 2026, from https://duckdb.org/docs/current/sql/functions/window_functions.html
 - Gray, J., Chaudhuri, S., Bosworth, A., Layman, A., Reichart, D., Venkatrao, M., Pellow, F., & Pirahesh, H. (1997). Data cube: A relational aggregation operator generalizing group-by, cross-tab, and sub-totals. *Data Mining and Knowledge Discovery, 1*(1), 29–53. https://doi.org/10.1023/A:1009726021843
+- Kimball, R., & Ross, M. (2013). *The data warehouse toolkit: The definitive guide to dimensional modeling* (3rd ed.). Wiley.
+- Sandve, G. K., Nekrutenko, A., Taylor, J., & Hovig, E. (2013). Ten simple rules for reproducible computational research. *PLoS Computational Biology, 9*(10), Article e1003285. https://doi.org/10.1371/journal.pcbi.1003285
 - Tanimura, C. (2021). *SQL for data analysis: Advanced techniques for transforming data into insights*. O'Reilly Media.
 - Transaction Processing Performance Council. (n.d.). *TPC-H*. Retrieved October 9, 2026, from https://www.tpc.org/tpch/

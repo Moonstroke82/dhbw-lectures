@@ -18,7 +18,7 @@ Rule of thumb for all three notebooks: kickoff in a fixed session, hand-in two w
 
 | Component | Work form | Weight |
 |---|---|---|
-| Three lab notebooks: (1) warehouse and analytical SQL · (2) machine learning use case · (3) time series forecast | Pairs | 45 % (15 % each) |
+| Three lab notebooks: (1) warehouse and analytical SQL · (2) machine learning use case · (3) time series forecast | Groups of three | 45 % (15 % each) |
 | Group case study: end-to-end analytics case on a public dataset, with a dashboard or a big data framework | Project group | 40 % |
 | Partner project analysis (Lastenheft and Pflichtenheft) for your partner project | Project group | 15 % |
 
@@ -48,7 +48,7 @@ Same group, **different data**: the case study uses a public dataset, never part
 :::
 
 ::: notes
-Names come from tools/local.json (gitignored) and appear only in the offline PPTX; the public web version shows the fallback text. Never write student names or e-mail addresses into this file. The lab notebooks are done in pairs, ideally within the same group.
+Names come from tools/local.json (gitignored) and appear only in the offline PPTX; the public web version shows the fallback text. Never write student names or e-mail addresses into this file. The lab notebooks are done in groups of three, ideally within the same project group.
 :::
 
 ---
@@ -91,7 +91,7 @@ The suitability assessment is what the module description asks for ("assess the 
 
 # Lab Notebooks {.section}
 
-Three notebooks in pairs · kickoff in class · hand-in two weeks later
+Three notebooks in groups of three · kickoff in class · hand-in two weeks later
 
 ---
 
@@ -308,7 +308,7 @@ The Pflichtenheft hand-in lies in the middle of the semester, well before the ex
 
 # Key Takeaways
 
-- **Three notebooks** in pairs: kickoff in sessions **4, 8 and 14**, hand-in **two weeks** later
+- **Three notebooks** in groups of three: kickoff in sessions **4, 8 and 14**, hand-in **two weeks** later
 - **Four project groups**, one partner project each, do both group tasks: partner project analysis and case study
 - **Group case study:** kickoff in session **6**, proposal two weeks later, presentation in session **17**
 - **Partner project analysis:** kickoff **today**, Lastenheft in session **10**, Pflichtenheft two weeks later
@@ -316,7 +316,7 @@ The Pflichtenheft hand-in lies in the middle of the semester, well before the ex
 - Exact dates and the rubrics are on the **course platform**
 
 ::: notes
-Open the floor for questions. Typical questions: Can we choose our own pairs? (yes, keep the same pair for all three notebooks if possible) · Is the case study group the same as the project group? (yes; the datasets must differ — public data only) · What if a pair splits up? (talk to the lecturer early).
+Open the floor for questions. Typical questions: Can we choose our own groups of three? (yes, keep the same group for all three notebooks if possible) · Is the case study group the same as the project group? (yes; the datasets must differ — public data only) · What if a notebook group splits up? (talk to the lecturer early).
 :::
 
 ---

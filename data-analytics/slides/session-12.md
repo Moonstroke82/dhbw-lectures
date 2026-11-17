@@ -26,7 +26,7 @@ Input about 70 min, hands-on about 80 min (two exercises and the lab). Same data
 
 ::: notes
 Time and format guide (not shown to students):
-0:00 Recap (plenary) · 0:05 Forecasting task and baselines (input) · 0:20 Exercise 1 (pairs, then plenary) · 0:30 Accuracy and cross-validation (input + live code) · 0:45 Exercise 2 (pairs) · 0:55 Break (start the cross-validation run) · 1:05 Exponential smoothing (input) · 1:18 ARIMA (input) · 1:33 Comparison of all methods (plenary discussion) · 1:40 Lab (pairs, consultations) · 2:40 Wrap-up: two pairs show their comparison table · ~15 min buffer.
+0:00 Recap (plenary) · 0:05 Forecasting task and baselines (input) · 0:20 Exercise 1 (pairs, then plenary) · 0:30 Accuracy and cross-validation (input + live code) · 0:45 Exercise 2 (pairs) · 0:55 Break (start the cross-validation run) · 1:05 Exponential smoothing (input) · 1:18 ARIMA (input) · 1:33 Comparison of all methods (plenary discussion) · 1:40 Lab (notebook groups, consultations) · 2:40 Wrap-up: two pairs show their comparison table · ~15 min buffer.
 If the discussion of metrics runs long, keep it: the metric decides which model "wins", and students will meet the question again in notebook 3. The ARIMA order selection can then be shortened; the lab starter contains the code.
 :::
 
@@ -44,7 +44,7 @@ If the discussion of metrics runs long, keep it: the metric decides which model 
 :::
 
 ::: notes
-Ask two pairs for one sentence from their planner memo (session 11 lab task 6). Then make the link: everything in session 11 was description; today we predict. The history-only methods of today ignore temperature and holidays on purpose — session 13 adds them. Keep the January 2014 heat wave in mind: it will be the largest error source today.
+Ask two groups for one sentence from their planner memo (session 11 lab task 6). Then make the link: everything in session 11 was description; today we predict. The history-only methods of today ignore temperature and holidays on purpose — session 13 adds them. Keep the January 2014 heat wave in mind: it will be the largest error source today.
 :::
 
 ---
@@ -493,7 +493,7 @@ Expected output (MAE / MASE): snaive 334.53 / 1.08, ets 330.38 / 1.08, sarima 27
 
 # Lab Tasks {.exercise}
 
-Work in pairs on the daily demand series (O'Hara-Wild et al., 2022); keep everything for notebook 3.
+Work in your notebook group of three on the daily demand series (O'Hara-Wild et al., 2022); keep everything for notebook 3.
 
 1. **Set up:** the 26 folds; print the first and last test day of each fold
 2. **Baselines:** mean, naive, drift, seasonal naive with lag 7 and lag 364 — table of MAE, RMSE, MAPE, MASE
@@ -503,7 +503,7 @@ Work in pairs on the daily demand series (O'Hara-Wild et al., 2022); keep everyt
 6. **Recommend:** five sentences for the energy planner — which method, how accurate, what is missing
 
 ::: notes
-Expected results (tested): 1 fold 1 tests 2–15 January 2014, fold 26 18–31 December 2014. 2 See comparison slide. 3 AIC: (M,N,M) 10,254, (A,N,A) 10,299, (A,Ad,A) 10,451, (A,A,A) 10,455; α = 1.00, γ = 0.00; Ljung–Box p < 0.001. 4 KPSS p = 0.01 on the series, > 0.10 after the lag-7 difference; SARIMA(2,0,2)(0,1,1)₇, AIC 10,099; Ljung–Box p = 0.42 (lag 14). 5 Largest errors: January–February (heat waves) and the Christmas fold. MAE per horizon is noisy with 26 folds (single heat-wave days dominate): SARIMA 140 MW at h = 1, 218 at h = 2, 361 at h = 14; seasonal naive is flatter. 6 Example: "For two-week planning, use the SARIMA model: average error about 270 MW (5.8 %), 19 % lower than repeating last week. In summer, errors triple because heat waves cannot be predicted from history; the model also misses holidays. Next step: add temperature forecasts and the holiday calendar." Pairs that finish early: worksheet 12, task 5.
+Expected results (tested): 1 fold 1 tests 2–15 January 2014, fold 26 18–31 December 2014. 2 See comparison slide. 3 AIC: (M,N,M) 10,254, (A,N,A) 10,299, (A,Ad,A) 10,451, (A,A,A) 10,455; α = 1.00, γ = 0.00; Ljung–Box p < 0.001. 4 KPSS p = 0.01 on the series, > 0.10 after the lag-7 difference; SARIMA(2,0,2)(0,1,1)₇, AIC 10,099; Ljung–Box p = 0.42 (lag 14). 5 Largest errors: January–February (heat waves) and the Christmas fold. MAE per horizon is noisy with 26 folds (single heat-wave days dominate): SARIMA 140 MW at h = 1, 218 at h = 2, 361 at h = 14; seasonal naive is flatter. 6 Example: "For two-week planning, use the SARIMA model: average error about 270 MW (5.8 %), 19 % lower than repeating last week. In summer, errors triple because heat waves cannot be predicted from history; the model also misses holidays. Next step: add temperature forecasts and the holiday calendar." Groups that finish early: worksheet 12, task 5.
 :::
 
 ---

@@ -27,7 +27,7 @@ Students need tpch.duckdb with the star schema from session 3 (fact_sales, dim_c
 
 ::: notes
 Time and format guide (not shown to students):
-0:00 Recap of the preparation task (plenary) · 0:10 ML recap (input, quick questions) · 0:20 CRISP-DM (input) · 0:35 Framing (input + quick check) · 0:55 Break · 1:05 Features, baselines, leakage (input + live demo in DuckDB) · 1:35 Business cost, lift, suitability (input + discussion) · 1:50 Lab (pairs) · 2:55 Wrap-up.
+0:00 Recap of the preparation task (plenary) · 0:10 ML recap (input, quick questions) · 0:20 CRISP-DM (input) · 0:35 Framing (input + quick check) · 0:55 Break · 1:05 Features, baselines, leakage (input + live demo in DuckDB) · 1:35 Business cost, lift, suitability (input + discussion) · 1:50 Lab (notebook groups) · 2:55 Wrap-up.
 If the framing discussion runs long, keep it: framing is the core of today. Lab part 2 tasks 5 and 6 can be finished at home; they are repeated in the worksheet in a different form.
 :::
 
@@ -442,7 +442,7 @@ C Offers — decision: which offer goes to which group; unit: customer; no targe
 
 # Lab Part 2: Tasks {.exercise}
 
-Work in pairs. Write queries and a short interpretation in your notebook.
+Work in your notebook group of three. Write queries and a short interpretation in your notebook.
 
 1. **Build:** run the feature query and check it: rows, churn rate, NULLs, value ranges
 2. **Add features:** revenue trend (last 6 vs. previous 6 months) and number of distinct parts bought

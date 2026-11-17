@@ -10,7 +10,7 @@ program: DHBW Mannheim · Data Science and Artificial Intelligence · Semester 5
 
 ::: notes
 Buffer block: no new content. Time plan for today (3 h): recap and open-question round 10 min · Parts A–B in review 20 min · self-check exercise 15 min · checklists and workshop rules 10 min · break 10 min · portfolio lab with consultations 60 min · peer feedback round 20 min · partner projects: first findings 25 min · wrap-up 5 min · ~5 min buffer.
-Input about 40 min, hands-on about 120 min. If earlier sessions overran (e.g. the session 9 lab was not finished), this block absorbs it: let pairs finish the session 9 lab in the first part of the portfolio lab and skip the optional catch-up slides. Students need their notebooks, tpch.duckdb with the star schema from session 3, and the Python setup from session 1. Nothing new is installed today.
+Input about 40 min, hands-on about 120 min. If earlier sessions overran (e.g. the session 9 lab was not finished), this block absorbs it: let groups finish the session 9 lab in the first part of the portfolio lab and skip the optional catch-up slides. Students need their notebooks, tpch.duckdb with the star schema from session 3, and the Python setup from session 1. Nothing new is installed today.
 :::
 
 ---
@@ -27,7 +27,7 @@ Input about 40 min, hands-on about 120 min. If earlier sessions overran (e.g. th
 
 ::: notes
 Time and format guide (not shown to students):
-0:00 Open-question round (plenary, collect on the whiteboard) · 0:10 Parts A–B in review (input) · 0:30 Self-check (pairs, then plenary) · 0:45 Checklists and consultation rules (input) · 0:55 Break · 1:05 Portfolio lab (pairs; consultations at the tables, 10 minutes per pair) · 2:05 Peer feedback (two pairs swap notebooks) · 2:25 Partner projects: first findings (each team about 8 min + 4 min questions) · 2:50 Wrap-up · ~5 min buffer.
+0:00 Open-question round (plenary, collect on the whiteboard) · 0:10 Parts A–B in review (input) · 0:30 Self-check (pairs, then plenary) · 0:45 Checklists and consultation rules (input) · 0:55 Break · 1:05 Portfolio lab (notebook groups; consultations at the tables, 10 minutes per group) · 2:05 Peer feedback (two groups swap notebooks) · 2:25 Partner projects: first findings (each team about 8 min + 4 min questions) · 2:50 Wrap-up · ~5 min buffer.
 Order is flexible: if the partner teams prefer to present first (e.g. because a company contact joins online), swap the partner round and the peer feedback.
 :::
 
@@ -44,7 +44,7 @@ Order is flexible: if the partner teams prefer to present first (e.g. because a 
 :::
 
 ::: notes
-Open-question round: ask each pair for its most important open question and cluster them on the whiteboard by session (2–4 SQL and warehouse, 5–6 visualisation and portal, 7–8 ML, 9 experiments). Use the clusters to decide which optional catch-up slides to show after the self-check and whom to consult first in the lab. Typical clusters from experience: point-in-time features (session 7), time-aware validation (session 8), and the difference between pooled test and unpooled interval (session 9).
+Open-question round: ask each notebook group for its most important open question and cluster them on the whiteboard by session (2–4 SQL and warehouse, 5–6 visualisation and portal, 7–8 ML, 9 experiments). Use the clusters to decide which optional catch-up slides to show after the self-check and whom to consult first in the lab. Typical clusters from experience: point-in-time features (session 7), time-aware validation (session 8), and the difference between pooled test and unpooled interval (session 9).
 :::
 
 ---
@@ -148,17 +148,17 @@ Portfolio work, consultations and feedback
 
 ::: cards
 ### Portfolio lab
-Work in pairs on notebook 1 or 2 — or finish the lab of session 9. Use the checklists on the next slides.
+Work in your notebook group on notebook 1 or 2 — or finish the lab of session 9. Use the checklists on the next slides.
 ### Consultations
-Every pair gets a slot at their table. Bring **one** concrete question and the cell where you are stuck.
+Every group gets a slot at their table. Bring **one** concrete question and the cell where you are stuck.
 ### Peer feedback
-Two pairs swap notebooks and give structured feedback against the checklist.
+Two groups swap notebooks and give structured feedback against the checklist.
 ### Partner projects
 Each team shares its **first findings** and open questions for the semester-6 project.
 :::
 
 ::: notes
-Consultation order: pairs that named a blocking problem in the open-question round first, then the others in table order. Ten minutes per pair is enough for one question; if a problem needs more, give the pair a concrete next step and come back later. Keep a short list of recurring problems; if three pairs have the same one, explain it to the whole room (the optional catch-up slides help).
+Consultation order: groups that named a blocking problem in the open-question round first, then the others in table order. Ten minutes per group is enough for one question; if a problem needs more, give the group a concrete next step and come back later. Keep a short list of recurring problems; if three groups have the same one, explain it to the whole room (the optional catch-up slides help).
 :::
 
 ---
@@ -175,7 +175,7 @@ A good question often answers itself while you write it down. If it does — eve
 :::
 
 ::: notes
-This is the classic "minimal reproducible example" format. It saves consultation time and trains a skill students need in the partner projects: asking a precise question to a stakeholder or a colleague. Encourage pairs to write the question in a Markdown cell above the problematic code.
+This is the classic "minimal reproducible example" format. It saves consultation time and trains a skill students need in the partner projects: asking a precise question to a stakeholder or a colleague. Encourage groups to write the question in a Markdown cell above the problematic code.
 :::
 
 ---
@@ -221,7 +221,7 @@ Own compilation based on Chapman et al. (2000), Kaufman et al. (2012) and Provos
 :::
 
 ::: notes
-This is the content of the "What a Good Notebook Contains" slide of session 8, turned into a checklist. Remind pairs of the suggested rubric from session 8 (orientation only) and that a negative result — "the rule is enough" — is fine if it is shown and argued well. For pairs who also tested a campaign idea: an experiment design (session 9) is a strong "next step" in the summary.
+This is the content of the "What a Good Notebook Contains" slide of session 8, turned into a checklist. Remind groups of the suggested rubric from session 8 (orientation only) and that a negative result — "the rule is enough" — is fine if it is shown and argued well. For pairs who also tested a campaign idea: an experiment design (session 9) is a strong "next step" in the summary.
 :::
 
 ---
@@ -269,14 +269,14 @@ The module description asks students to "assess the suitability" of methods (met
 
 # Peer Feedback on a Notebook {.exercise}
 
-Swap notebooks with another pair. Read the notebook first, then give feedback using the checklist.
+Swap notebooks with another group. Read the notebook first, then give feedback using the checklist.
 
 - **Two strengths:** what works well — be specific (which cell, which decision)
 - **Three suggestions:** the most important improvements, each with a concrete next step
 - **One question:** something you did not understand or would challenge
 
 ::: callout
-Feedback is about the **work**, not the people — and it is useful only if the receiving pair can act on it.
+Feedback is about the **work**, not the people — and it is useful only if the receiving group can act on it.
 :::
 
 ::: source
@@ -377,7 +377,7 @@ con.sql("INSTALL tpch; LOAD tpch; CALL dbgen(sf = 0.1)")   # session 2
 # then run the CREATE TABLE statements of session 3, lab step 1:
 # dim_customer, dim_date, fact_sales — and dim_part (lab task 1)
 for t in ["fact_sales", "dim_customer", "dim_date", "dim_part"]:
-    print(t, con.sql(f"SELECT count(*) FROM {t}").fetchone()[0])
+    print(t, con.execute(f"SELECT count(*) FROM {t}").fetchone()[0])
 ```
 
 - Expected rows: `fact_sales` 600,572 · `dim_customer` 15,000 · `dim_date` 2,406 · `dim_part` 20,000
@@ -388,7 +388,7 @@ Own example based on TPC-H data (Transaction Processing Performance Council, n.d
 :::
 
 ::: notes
-For anyone who lost the file or whose notebook fails on a fresh kernel. Row counts checked with DuckDB 1.5.5 (tpch extension, sf 0.1). If the extension download fails in the university network, hand out tpch.duckdb from the course platform. Do not re-run dbgen on an existing file: with DuckDB 1.5.5 it runs without an error but appends a second copy of the data (tested at sf 0.01: 30,000 instead of 15,000 orders), and all counts double. Delete the file first or use a new name — the row counts on the slide are the check.
+For anyone who lost the file or whose notebook fails on a fresh kernel. Row counts checked with DuckDB 1.5.5 and 2.0.0 (tpch extension, sf 0.1). DuckDB 2.0 removed fetchone() on query results (con.sql), so the loop uses con.execute. If the extension download fails in the university network, hand out tpch.duckdb from the course platform. Do not re-run dbgen on an existing file: with DuckDB 1.5.5 it runs without an error but appends a second copy of the data (tested at sf 0.01: 30,000 instead of 15,000 orders), and all counts double. Delete the file first or use a new name — the row counts on the slide are the check.
 :::
 
 ---
