@@ -26,7 +26,7 @@ Students need tpch.duckdb with the star schema from session 3 and matplotlib (in
 
 ::: notes
 Time and format guide (not shown to students):
-0:00 Recap and gallery of the brought charts (plenary) · 0:10 Chart choice (input + quick check) · 0:25 Perception and encoding (input + discussion) · 0:45 Break · 0:55 Misleading charts (input + exercise) · 1:10 Storytelling and KPIs (input) · 1:25 Lab (pairs) · 2:45 Wrap-up · ~10 min buffer.
+0:00 Recap and gallery of the brought charts (plenary) · 0:10 Chart choice (input + quick check) · 0:25 Perception and encoding (input + discussion) · 0:45 Break · 0:55 Misleading charts (input + exercise) · 1:10 Storytelling and KPIs (input) · 1:25 Lab (notebook groups) · 2:45 Wrap-up · ~10 min buffer.
 If the gallery discussion runs long, keep it: the brought charts are the best material of the day. Shorten the KPI part instead (the KPI definition sheet is optional).
 :::
 
@@ -407,7 +407,7 @@ ax.spines[["top", "right"]].set_visible(False)
 
 # Lab Tasks {.exercise}
 
-Work in pairs. Put each chart with a two-sentence interpretation in your notebook.
+Work in your notebook group of three. Put each chart with a two-sentence interpretation in your notebook.
 
 1. **Redesign:** plot revenue 1997 per **nation** as a pie chart with 25 slices — then redesign it so the top and bottom nations are visible at a glance
 2. **Time:** monthly revenue 1997 vs. 1996 as one chart; write an action title that the data supports

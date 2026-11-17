@@ -26,7 +26,7 @@ Input about 67 min, hands-on about 86 min (two exercises and the lab). The last 
 
 ::: notes
 Time and format guide (not shown to students):
-0:00 Recap (plenary) · 0:05 Many series and global models (input) · 0:19 Hierarchies and reconciliation (input) · 0:33 Exercise 1 (pairs, then plenary) · 0:41 Break · 0:51 Intermittent demand (input) · 1:01 Anomaly detection (input + discussion of the figure) · 1:11 Choosing a method (input) · 1:17 Exercise 2 (pairs) · 1:25 Notebook 3 brief and choice of track (input, pairs confirm their track) · 1:33 Lab (pairs, consultations) · 2:43 Wrap-up: two pairs, one per track, show a first result · ~12 min buffer.
+0:00 Recap (plenary) · 0:05 Many series and global models (input) · 0:19 Hierarchies and reconciliation (input) · 0:33 Exercise 1 (pairs, then plenary) · 0:41 Break · 0:51 Intermittent demand (input) · 1:01 Anomaly detection (input + discussion of the figure) · 1:11 Choosing a method (input) · 1:17 Exercise 2 (pairs) · 1:25 Notebook 3 brief and choice of track (input, groups confirm their track) · 1:33 Lab (notebook groups, consultations) · 2:43 Wrap-up: two groups, one per track, show a first result · ~12 min buffer.
 Today has more topics than the other time series sessions, each in less depth: the aim is to know when each technique is needed and where to read on, not to master all four. If the reconciliation part runs long, shorten intermittent demand — worksheet 14 covers it.
 :::
 
@@ -49,7 +49,7 @@ Today has more topics than the other time series sessions, each in less depth: t
 :::
 
 ::: notes
-Ask two pairs for their recommendation to the energy planner (session 13 lab task 6). The preparation task was to think about a company series that would need a global model: collect two or three examples (products × stores, spare parts, branches, call queues) — they come back in exercise 2. Make the link: the vic_elec work of sessions 11–13 is the basis of track A of notebook 3; today adds the "at scale" view and a second track.
+Ask two groups for their recommendation to the energy planner (session 13 lab task 6). The preparation task was to think about a company series that would need a global model: collect two or three examples (products × stores, spare parts, branches, call queues) — they come back in exercise 2. Make the link: the vic_elec work of sessions 11–13 is the basis of track A of notebook 3; today adds the "at scale" view and a second track.
 :::
 
 ---
@@ -420,7 +420,7 @@ Portfolio notebook 3
 
 # Portfolio Notebook 3: The Brief
 
-- **Work in pairs** on **one** forecasting case, from the business question to a recommendation
+- **Work in groups of three** on **one** forecasting case, from the business question to a recommendation
 - **Track A — Energy demand:** the daily vic_elec series of sessions 11–13, 14 days ahead
 - **Track B — Tourism demand:** the 304 tourism series, 8 quarters ahead, at all levels
 - Or a public dataset of comparable depth — agree on it with the lecturer
@@ -435,7 +435,7 @@ Own compilation based on Hyndman and Athanasopoulos (2021, Chapter 5) and Chapma
 :::
 
 ::: notes
-Portfolio table in the session plan: three lab notebooks in pairs (DWH/OLAP/SQL, ML use case, time series forecast), each with a short written assessment of method suitability — together 45 % of the portfolio. As for notebook 2, the official brief (deadline, format, assessment criteria) is published separately on the course platform; the slides give the content expectations only. Track A reuses the lab work of sessions 11–13 and adds an anomaly screening and a final method choice; track B is new and closer to retail practice. Both tracks are equally valued. Worksheets 11–14 contain practice tasks in the same style; they are training material, not the notebook.
+Portfolio table in the session plan: three lab notebooks in groups of three (DWH/OLAP/SQL, ML use case, time series forecast), each with a short written assessment of method suitability — together 45 % of the portfolio. As for notebook 2, the official brief (deadline, format, assessment criteria) is published separately on the course platform; the slides give the content expectations only. Track A reuses the lab work of sessions 11–13 and adds an anomaly screening and a final method choice; track B is new and closer to retail practice. Both tracks are equally valued. Worksheets 11–14 contain practice tasks in the same style; they are training material, not the notebook.
 :::
 
 ---
@@ -482,7 +482,7 @@ Own example with statsmodels (Seabold & Perktold, 2010); data from Wang et al. (
 :::
 
 ::: notes
-Row 0 of Y is the total, the last 304 rows are the bottom series in the column order of bottom. Check: S has shape (425, 304); Y[0, 72] = 26,661 (2016 Q1). get_dummies sorts the labels, so the order within a level is alphabetical — fine, because S and Y are built together. Track A pairs continue with their notebooks from sessions 11–13 and use the anomaly code from worksheet 14 (MSTL residuals with the 3 IQR rule, model residuals from the session 13 lab starter).
+Row 0 of Y is the total, the last 304 rows are the bottom series in the column order of bottom. Check: S has shape (425, 304); Y[0, 72] = 26,661 (2016 Q1). get_dummies sorts the labels, so the order within a level is alphabetical — fine, because S and Y are built together. Track A groups continue with their notebooks from sessions 11–13 and use the anomaly code from worksheet 14 (MSTL residuals with the 3 IQR rule, model residuals from the session 13 lab starter).
 :::
 
 ---
@@ -523,14 +523,14 @@ Also import LinearRegression from sklearn.linear_model. Expected results (tested
 
 # Lab Tasks {.exercise}
 
-Work in pairs on **your** track; all tasks go into portfolio notebook 3.
+Work in your group of three on **your** track; all tasks go into portfolio notebook 3.
 
 - **A Energy:** frame the planner's decision · screen the series for anomalies (MSTL and model residuals) and decide what to do with them · choose the final method on 2013, report 2014 once · intervals with coverage per season
 - **B Tourism:** run the starter · seasonal naive, ETS and the global model with MASE per level · bottom-up, OLS, WLS and MinT · one improvement (e.g. a global model with purpose and state features)
 - **All:** write the framing section and a first suitability assessment
 
 ::: notes
-Expected results (tested, see the result slides): A — MSTL flags 34 days (26 in 2013); model residuals flag 9 days in 2014; best ex ante model GBM + climatology MAE 228 MW; empirical 80 % intervals 82 % overall, 38 % in January–February. Good A notebooks decide explicitly not to remove heat-wave days (they are real demand) but to check holiday handling. B — numbers in the notes of the previous slide; MinT shrink total / bottom / all 2.181 / 0.934 / 0.987. Typical B improvement: reconcile the global model forecasts as base forecasts for the bottom level combined with ETS at the upper levels. Consult each pair at least once; check the evaluation design first (validation vs. test), then the scaling of the global model. Pairs that finish early: worksheet 14, task 5.
+Expected results (tested, see the result slides): A — MSTL flags 34 days (26 in 2013); model residuals flag 9 days in 2014; best ex ante model GBM + climatology MAE 228 MW; empirical 80 % intervals 82 % overall, 38 % in January–February. Good A notebooks decide explicitly not to remove heat-wave days (they are real demand) but to check holiday handling. B — numbers in the notes of the previous slide; MinT shrink total / bottom / all 2.181 / 0.934 / 0.987. Typical B improvement: reconcile the global model forecasts as base forecasts for the bottom level combined with ETS at the upper levels. Consult each group at least once; check the evaluation design first (validation vs. test), then the scaling of the global model. Groups that finish early: worksheet 14, task 5.
 :::
 
 ---

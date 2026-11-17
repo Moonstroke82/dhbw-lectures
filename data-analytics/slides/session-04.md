@@ -27,7 +27,7 @@ Students need tpch.duckdb with the star schema from session 3. Anyone who lost i
 
 ::: notes
 Time and format guide (not shown to students):
-0:00 Recap (plenary) · 0:10 CTEs (input + live demo) · 0:20 Window functions (input + live demo) · 0:55 Break · 1:05 ROLLUP/CUBE (input + demo) · 1:25 Cohorts and funnels (input) · 1:40 Notebook 1 kickoff (input, pairs confirmed) · 1:50 Lab (pairs) · 2:50 Wrap-up.
+0:00 Recap (plenary) · 0:10 CTEs (input + live demo) · 0:20 Window functions (input + live demo) · 0:55 Break · 1:05 ROLLUP/CUBE (input + demo) · 1:25 Cohorts and funnels (input) · 1:40 Notebook 1 kickoff (input, groups of three confirmed) · 1:50 Lab (notebook groups) · 2:50 Wrap-up.
 Live-code the examples in DuckDB instead of only showing slides — the result tables make the concepts concrete.
 :::
 

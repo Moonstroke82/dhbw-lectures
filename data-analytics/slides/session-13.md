@@ -26,7 +26,7 @@ Input about 63 min, hands-on about 83 min (two exercises and the lab). Same data
 
 ::: notes
 Time and format guide (not shown to students):
-0:00 Recap (plenary, ask for session 12 results) · 0:05 Forecasting as regression (input + live feature table) · 0:23 Exercise 1 (pairs, then plenary) · 0:31 External regressors and results (input, discussion of the bar chart) · 0:51 Break · 1:01 Prediction intervals (input) · 1:21 Exercise 2 (pairs) · 1:31 Lab (pairs, consultations) · 2:36 Wrap-up: two pairs show their interval table · ~19 min buffer.
+0:00 Recap (plenary, ask for session 12 results) · 0:05 Forecasting as regression (input + live feature table) · 0:23 Exercise 1 (pairs, then plenary) · 0:31 External regressors and results (input, discussion of the bar chart) · 0:51 Break · 1:01 Prediction intervals (input) · 1:21 Exercise 2 (pairs) · 1:31 Lab (notebook groups, consultations) · 2:36 Wrap-up: two pairs show their interval table · ~19 min buffer.
 The discussion of ex ante vs. ex post is the most important conceptual point today; if it runs long, keep it and shorten the quantile regression slide — the lab starter covers it.
 :::
 
@@ -48,7 +48,7 @@ The discussion of ex ante vs. ex post is the most important conceptual point tod
 :::
 
 ::: notes
-Ask two pairs for their recommendation sentence from session 12 (lab task 6). The preparation was to refresh gradient boosting in scikit-learn (session 8, track A): HistGradientBoostingRegressor is the regression counterpart of the classifier they tuned there. Today's models are compared with exactly the session 12 numbers: same 26 folds, same MAE definition.
+Ask two groups for their recommendation sentence from session 12 (lab task 6). The preparation was to refresh gradient boosting in scikit-learn (session 8, track A): HistGradientBoostingRegressor is the regression counterpart of the classifier they tuned there. Today's models are compared with exactly the session 12 numbers: same 26 folds, same MAE definition.
 :::
 
 ---
@@ -489,7 +489,7 @@ Expected output: MAE 245.2, lo −417, hi 367, coverage 0.824. With "temp" added
 
 # Lab Tasks {.exercise}
 
-Work in pairs on the daily demand series (O'Hara-Wild et al., 2022); keep everything for notebook 3.
+Work in your notebook group of three on the daily demand series (O'Hara-Wild et al., 2022); keep everything for notebook 3.
 
 1. **Features:** build the feature table; check for one target day that every feature is known at the origin
 2. **Ex ante model:** calendar only, then calendar + lags — compare with your session 12 table
@@ -499,7 +499,7 @@ Work in pairs on the daily demand series (O'Hara-Wild et al., 2022); keep everyt
 6. **Recommend:** five sentences for the energy planner — forecast, uncertainty, and which data to buy
 
 ::: notes
-Expected results (tested): 1 For 16 January 2014: lag14 = 2 January (3,924 MW), lag364 = 17 January 2013 (5,867 MW). 2 Calendar only MAE 268, + lags 245 (SARIMA 271). 3 GBM + climatology 228, + observed temperature 145; SARIMA + holiday 251, + holiday + observed temperature 186 (one validation fold needs the fallback, origin 12 March 2013). 4–5 See interval table: SARIMA 85.7 % (Jan–Feb 39 %), GBM quantile default 51 %, regularised 75 %, empirical 82 %. 6 Example: "Use gradient boosting with calendar and lags for two-week planning: average error about 245 MW (5.2 %), 10 % below the best history-only model; with a climatological temperature 228 MW. An 80 % range of about −420 to +370 MW around the forecast holds on 82 % of days, but in January–February only on about 40 %: heat waves remain the main risk. A perfect temperature forecast would cut the error to 145 MW — buying archived and current weather forecasts is the most valuable next step. Holidays and the Christmas period must stay in the calendar." Pairs that finish early: worksheet 13, task 5.
+Expected results (tested): 1 For 16 January 2014: lag14 = 2 January (3,924 MW), lag364 = 17 January 2013 (5,867 MW). 2 Calendar only MAE 268, + lags 245 (SARIMA 271). 3 GBM + climatology 228, + observed temperature 145; SARIMA + holiday 251, + holiday + observed temperature 186 (one validation fold needs the fallback, origin 12 March 2013). 4–5 See interval table: SARIMA 85.7 % (Jan–Feb 39 %), GBM quantile default 51 %, regularised 75 %, empirical 82 %. 6 Example: "Use gradient boosting with calendar and lags for two-week planning: average error about 245 MW (5.2 %), 10 % below the best history-only model; with a climatological temperature 228 MW. An 80 % range of about −420 to +370 MW around the forecast holds on 82 % of days, but in January–February only on about 40 %: heat waves remain the main risk. A perfect temperature forecast would cut the error to 145 MW — buying archived and current weather forecasts is the most valuable next step. Holidays and the Christmas period must stay in the calendar." Groups that finish early: worksheet 13, task 5.
 :::
 
 ---

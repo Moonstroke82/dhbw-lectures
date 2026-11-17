@@ -195,7 +195,7 @@ Marking (12 points): 1 cost matrix and threshold (3); 2 overall rate, lift and p
 
 ## Portfolio-Style Task: Review a Notebook
 
-A pair hands in the following summary of their **notebook 2** (ML use case, fictional). Review it like in the peer feedback round of session 10: use the notebook 2 checklist and the suggested rubric from session 8.
+A notebook group hands in the following summary of their **notebook 2** (ML use case, fictional). Review it like in the peer feedback round of session 10: use the notebook 2 checklist and the suggested rubric from session 8.
 
 > **Churn prediction for a mobile phone provider (public dataset, 7,000 customers, monthly snapshots from January 2023 to June 2024; 8 % churn).**
 >

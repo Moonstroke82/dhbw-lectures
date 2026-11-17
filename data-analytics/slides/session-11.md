@@ -26,7 +26,7 @@ Input about 70 min, hands-on about 83 min (two exercises and the lab). Part C st
 
 ::: notes
 Time and format guide (not shown to students):
-0:00 Recap and preparation round (plenary) · 0:05 Temporal data (input) · 0:17 Exercise 1 (pairs, then plenary) · 0:25 Time in the warehouse (input + live query) · 0:43 Exercise 2 (pairs) · 0:53 Break · 1:03 Time series components (input, figures from the lab data) · 1:25 Resampling and decomposition (input + live demo of the lab starter) · 1:38 Lab (pairs, consultations) · 2:43 Wrap-up: two pairs show their decomposition · ~12 min buffer.
+0:00 Recap and preparation round (plenary) · 0:05 Temporal data (input) · 0:17 Exercise 1 (pairs, then plenary) · 0:25 Time in the warehouse (input + live query) · 0:43 Exercise 2 (pairs) · 0:53 Break · 1:03 Time series components (input, figures from the lab data) · 1:25 Resampling and decomposition (input + live demo of the lab starter) · 1:38 Lab (notebook groups, consultations) · 2:43 Wrap-up: two pairs show their decomposition · ~12 min buffer.
 If the warehouse part raises many questions (bitemporal data is new for most), keep the discussion and shorten the live demo: the lab starter is on the slides.
 :::
 
@@ -533,7 +533,7 @@ Expected output: ACF lag 7 0.60, lag 14 0.54; ADF p = 0.010, KPSS p = 0.015 (on 
 
 # Lab Tasks {.exercise}
 
-Work in pairs on the electricity demand data (O'Hara-Wild et al., 2022).
+Work in your notebook group of three on the electricity demand data (O'Hara-Wild et al., 2022).
 
 1. **Check the data:** time range, gaps, duplicates, daylight saving days; compare the naive local timestamps with the converted ones
 2. **Resample:** half-hourly → hourly, daily, weekly, monthly — choose and justify the aggregate for each column; flag incomplete periods
@@ -543,7 +543,7 @@ Work in pairs on the electricity demand data (O'Hara-Wild et al., 2022).
 6. **Interpret:** three sentences for an energy planner — what drives demand, and what a forecast must include
 
 ::: notes
-Expected results (tested): 1 52,608 rows, 2012-01-01 00:00 to 2014-12-31 23:30 local, no missing values, no duplicate UTC timestamps; naive local time has 6 duplicates and 6 gaps. 2 Hourly: demand mean, temperature mean; daily: demand mean (or energy = sum × 0.5 h, then MWh and DST days distorted), temperature max and min; weekly 158 bins, the first (1 day) and last (3 days) incomplete; monthly 36 bins, all complete. 3 Evening peak 18:00, night minimum 04:00; Sunday 4,097 MW, holidays 4,061 MW. 4 See slide "Stationarity". 5 STL period 7, robust: strength trend 0.53, seasonal 0.55 — the yearly pattern is then inside the "trend"; MSTL: weekly 0.77, yearly 0.80, trend 0.09. Ten largest remainders: holidays and hot days in early 2013. 6 Example: "Demand follows the working week (Sundays about 17 % below Thursdays) and the weather — heating in winter, air conditioning on hot days. A forecast needs the calendar (weekday, holidays) and a temperature forecast; a yearly pattern from three years alone is unreliable." Pairs that finish early: worksheet 11, task 6.
+Expected results (tested): 1 52,608 rows, 2012-01-01 00:00 to 2014-12-31 23:30 local, no missing values, no duplicate UTC timestamps; naive local time has 6 duplicates and 6 gaps. 2 Hourly: demand mean, temperature mean; daily: demand mean (or energy = sum × 0.5 h, then MWh and DST days distorted), temperature max and min; weekly 158 bins, the first (1 day) and last (3 days) incomplete; monthly 36 bins, all complete. 3 Evening peak 18:00, night minimum 04:00; Sunday 4,097 MW, holidays 4,061 MW. 4 See slide "Stationarity". 5 STL period 7, robust: strength trend 0.53, seasonal 0.55 — the yearly pattern is then inside the "trend"; MSTL: weekly 0.77, yearly 0.80, trend 0.09. Ten largest remainders: holidays and hot days in early 2013. 6 Example: "Demand follows the working week (Sundays about 17 % below Thursdays) and the weather — heating in winter, air conditioning on hot days. A forecast needs the calendar (weekday, holidays) and a temperature forecast; a yearly pattern from three years alone is unreliable." Groups that finish early: worksheet 11, task 6.
 :::
 
 ---
