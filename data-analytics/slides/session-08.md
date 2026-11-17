@@ -10,7 +10,7 @@ program: DHBW Mannheim · Data Science and Artificial Intelligence · Semester 5
 
 ::: notes
 Time plan for today (3 h): recap 5 min · lab brief and tracks 10 min · pipelines, tuning and time-aware validation with the churn starter 25 min · break 10 min · segmentation and anomaly detection starters 15 min · interpreting and communicating 10 min · good notebook and assessment 5 min · lab 85 min · wrap-up 5 min · ~10 min buffer.
-Today is mostly lab: keep the input short and let the groups start early. Students need tpch.duckdb with the star schema from session 3 (fact_sales, dim_customer, dim_date, dim_part) and scikit-learn (installed in the session 1 setup; the preparation task was `import sklearn`). Track C anomaly variant on order level uses the base tables (worksheet). All numbers on the slides were run with DuckDB 1.5.5 (tpch extension, sf 0.1), scikit-learn 1.9.1, pandas 3.0 and NumPy 2.5, random_state = 42 everywhere. Check at the start who has no working scikit-learn and pair them with someone who has.
+Today is mostly lab: keep the input short and let the groups start early. Students need tpch.duckdb with the star schema from session 3 (fact_sales, dim_customer, dim_date, dim_part) and scikit-learn (installed in the session 1 setup; the preparation task was `import sklearn`). Track C anomaly variant on order level uses the base tables (worksheet). All numbers on the slides were run with DuckDB 1.5.5 (tpch extension, sf 0.1), scikit-learn 1.9.1, pandas 3.0 and NumPy 2.5, random_state = 42 everywhere. Check at the start who has no working scikit-learn and put them in a group with someone who has.
 :::
 
 ---
@@ -491,25 +491,25 @@ Reproducibility counts: the notebook runs top to bottom on a fresh tpch.duckdb, 
 
 ---
 
-# Assessment: A Suggested Rubric
+# Assessment: The Rubric
 
-| Criterion | Suggested weight |
+| Criterion | Points |
 |---|---|
-| Business framing and success criteria | 15 % |
-| Data preparation and point-in-time correctness | 20 % |
-| Baseline, pipeline and validation design | 25 % |
-| Evaluation and interpretation in business terms | 20 % |
-| Suitability assessment and communication | 15 % |
-| Reproducibility and code quality | 5 % |
+| Framing: decision, success criteria, framing questions, leakage audit | 15 |
+| Data and features: point-in-time correct, sanity checks | 15 |
+| Baseline, pipeline and validation design | 20 |
+| Evaluation and interpretation in business terms | 20 |
+| Own extension, compared with the track result | 10 |
+| Result summary and suitability assessment | 10 |
+| Form and reproducibility, incl. AI declaration | 10 |
 
 ::: callout
-Notebook 2 is one of three lab notebooks (in groups of three), which together make up **45 %** of the portfolio. This rubric is a **suggestion** for orientation; the official brief and rubric are published separately.
+Notebook 2 is one of three lab notebooks (in groups of three), each **15 %** of the portfolio. The full brief with the tasks per track is on the **course platform**.
 :::
 
 ::: notes
-Source of the 45 %: portfolio table in the session plan (agreed 2026-10-07). The weights above are the lecturer's suggestion for orientation only and must be confirmed in the official portfolio brief; the DHBW study and examination regulations on portfolios are still being checked. Say explicitly that a negative result (no gain over the baseline) is not penalised if it is shown and argued well.
+Same points as the official notebook 2 brief (hand-in Tuesday, 15 December 2026, 23:59). Say explicitly that a negative result (no gain over the baseline) is not penalised if it is shown and argued well. AI tools are allowed with a declaration, as in notebook 1.
 :::
-
 ---
 
 # Lab Tasks {.exercise}
