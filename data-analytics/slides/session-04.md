@@ -274,7 +274,7 @@ Warehouse, OLAP and analytical SQL · hand-in in two weeks
 
 # Portfolio Notebook 1: The Brief
 
-**Kickoff:** today · **Hand-in:** in two weeks (session 4 + 2 weeks) · **in pairs** · 15 % of the portfolio
+**Kickoff:** today · **Hand-in:** in two weeks (session 4 + 2 weeks) · **in groups of three** · 15 % of the portfolio
 
 - **Data:** the TPC-H star schema in DuckDB from session 3
 - Answer **business questions** for the wholesaler with OLAP operations and analytical SQL: rankings, shares, period comparisons, subtotals, cohorts or funnels
@@ -291,7 +291,7 @@ Own compilation based on Kimball and Ross (2013).
 :::
 
 ::: notes
-Matches the portfolio deck (notebook 1: kickoff session 4, hand-in two weeks later). Put the calendar date and the upload link on the course platform and say the date out loud. Pairs: ideally within the same project group, and the same pair for all three notebooks. Charts from session 5 are welcome but not required — session 5 falls inside the two weeks. TPC-H is synthetic and almost flat: "there is no trend" is a valid, well-founded finding.
+Matches the portfolio deck (notebook 1: kickoff session 4, hand-in two weeks later). Put the calendar date and the upload link on the course platform and say the date out loud. Groups of three: ideally within the same project group, and the same group for all three notebooks. The full brief with the three set questions and the rubric is on the course platform. Charts from session 5 are welcome but not required — session 5 falls inside the two weeks. TPC-H is synthetic and almost flat: "there is no trend" is a valid, well-founded finding.
 :::
 
 ---
@@ -327,7 +327,7 @@ Star schema from session 3
 
 # Lab Tasks {.exercise}
 
-Work in your notebook-1 pair. Write queries and a short interpretation — this is the start of your notebook 1.
+Work in your notebook-1 group of three. Write queries and a short interpretation — this is the start of your notebook 1.
 
 1. **Ranking:** the top 3 **customers** per **market segment** by revenue in 1997
 2. **Share:** each region's share of total revenue per year (window `sum() OVER (PARTITION BY year)`)
