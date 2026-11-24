@@ -57,6 +57,8 @@ Portfolio notebook 2: one ML use case, end to end
 
 # Portfolio Notebook 2: The Brief
 
+**Kickoff:** today · **Hand-in:** Tuesday, 15 December 2026, 23:59 · 15 % of the portfolio
+
 - **Work in groups of three** on **one** use case: churn prediction, customer segmentation or anomaly detection
 - Data: the TPC-H star schema in DuckDB — or a public dataset of your choice with the same depth
 - **Apply** methods you know from earlier modules; today adds pipelines, tuning and validation in applied form

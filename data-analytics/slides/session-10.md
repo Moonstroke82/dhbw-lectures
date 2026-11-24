@@ -2,14 +2,14 @@
 course: Data Analytics
 session: 10
 title: Lab Workshop and Catch-Up
-subtitle: Parts A–B in review · portfolio checklists · consultations · peer feedback · first findings of the partner projects
+subtitle: Parts A–B in review · portfolio checklists · consultations · peer feedback · Lastenheft of the partner projects
 program: DHBW Mannheim · Data Science and Artificial Intelligence · Semester 5
 ---
 
 # Lab Workshop and Catch-Up {.title}
 
 ::: notes
-Buffer block: no new content. Time plan for today (3 h): recap and open-question round 10 min · Parts A–B in review 20 min · self-check exercise 15 min · checklists and workshop rules 10 min · break 10 min · portfolio lab with consultations 60 min · peer feedback round 20 min · partner projects: first findings 25 min · wrap-up 5 min · ~5 min buffer.
+Buffer block: no new content. Time plan for today (3 h): recap and open-question round 10 min · Parts A–B in review 20 min · self-check exercise 15 min · checklists and workshop rules 10 min · break 10 min · portfolio lab with consultations 60 min · peer feedback round 15 min · partner projects: Lastenheft round 30 min · wrap-up 5 min · ~5 min buffer.
 Input about 40 min, hands-on about 120 min. If earlier sessions overran (e.g. the session 9 lab was not finished), this block absorbs it: let groups finish the session 9 lab in the first part of the portfolio lab and skip the optional catch-up slides. Students need their notebooks, tpch.duckdb with the star schema from session 3, and the Python setup from session 1. Nothing new is installed today.
 :::
 
@@ -21,14 +21,14 @@ Input about 40 min, hands-on about 120 min. If earlier sessions overran (e.g. th
 2. Parts A–B in review: what connects sessions 2–9
 3. Self-check: one question per session
 4. Portfolio checklists and how consultations work
-5. Portfolio lab with consultations
+5. Portfolio lab with consultations: notebooks and case study proposals
 6. Peer feedback on a notebook
-7. Partner projects: first findings of the two teams
+7. Partner projects: Lastenheft of the four project groups
 
 ::: notes
 Time and format guide (not shown to students):
-0:00 Open-question round (plenary, collect on the whiteboard) · 0:10 Parts A–B in review (input) · 0:30 Self-check (pairs, then plenary) · 0:45 Checklists and consultation rules (input) · 0:55 Break · 1:05 Portfolio lab (notebook groups; consultations at the tables, 10 minutes per group) · 2:05 Peer feedback (two groups swap notebooks) · 2:25 Partner projects: first findings (each team about 8 min + 4 min questions) · 2:50 Wrap-up · ~5 min buffer.
-Order is flexible: if the partner teams prefer to present first (e.g. because a company contact joins online), swap the partner round and the peer feedback.
+0:00 Open-question round (plenary, collect on the whiteboard) · 0:10 Parts A–B in review (input) · 0:30 Self-check (pairs, then plenary) · 0:45 Checklists and consultation rules (input) · 0:55 Break · 1:05 Portfolio lab (notebook groups; consultations at the tables, 10 minutes per group) · 2:05 Peer feedback (two groups swap notebooks) · 2:20 Partner projects: Lastenheft (four project groups, about 5 min + 2 min questions each) · 2:50 Wrap-up · ~5 min buffer.
+Order is flexible: if the project groups prefer to present first (e.g. because a company contact joins online), swap the partner round and the peer feedback.
 :::
 
 ---
@@ -150,15 +150,15 @@ Portfolio work, consultations and feedback
 ### Portfolio lab
 Work in your notebook group on notebook 1 or 2 — or finish the lab of session 9. Use the checklists on the next slides.
 ### Consultations
-Every group gets a slot at their table. Bring **one** concrete question and the cell where you are stuck.
+Every group gets a slot at their table — for a notebook or the **case study proposal**. Bring **one** concrete question and the cell where you are stuck.
 ### Peer feedback
 Two groups swap notebooks and give structured feedback against the checklist.
 ### Partner projects
-Each team shares its **first findings** and open questions for the semester-6 project.
+Each project group presents its **Lastenheft** — hand-in today — and its open questions.
 :::
 
 ::: notes
-Consultation order: groups that named a blocking problem in the open-question round first, then the others in table order. Ten minutes per group is enough for one question; if a problem needs more, give the group a concrete next step and come back later. Keep a short list of recurring problems; if three groups have the same one, explain it to the whole room (the optional catch-up slides help).
+Consultation order: groups that named a blocking problem in the open-question round first, then the others in table order. Ten minutes per group is enough for one question; if a problem needs more, give the group a concrete next step and come back later. Keep a short list of recurring problems; if three groups have the same one, explain it to the whole room (the optional catch-up slides help). Case study proposals (due session 6 + 2 weeks): give each group a short go / adjust with one concrete reason — dataset public and loadable, real decision behind the question, dashboard or big data part planned.
 :::
 
 ---
@@ -233,7 +233,7 @@ This is the content of the "What a Good Notebook Contains" slide of session 8, t
 - No manual steps: every number in the text comes from a cell above it
 - Data are **not** copied into the notebook folder if their licence or size forbids it — load them by URL or script
 - Markdown cells explain **decisions**; code cells stay short
-- Names of both partners and the date at the top
+- Names of all three group members and the date at the top
 
 ::: source
 Based on Sandve et al. (2013).
@@ -289,60 +289,70 @@ Hattie and Timperley describe effective feedback as answering three questions �
 
 ---
 
-# Partner Projects: First Findings {.section}
+# Partner Projects: Lastenheft {.section}
 
-Preparing the semester-6 projects
+Hand-in today · Pflichtenheft in two weeks
 
 ---
 
-# First Findings: What Each Team Shares
+# Lastenheft: What Each Group Presents
 
-Each team presents briefly, following the project brief from session 1:
+Each project group presents its **Lastenheft** — hand-in today, confirmed by the partner:
 
-1. **Business goal** and how success will be measured — as far as known
-2. **Stakeholders** you have spoken to, and what they need
-3. **As-is process** in one picture
-4. **Data inventory so far:** sources, volume, quality, access status
-5. **Open questions and risks** — and what you need from the partner next
+1. **Background and as-is process** — in one picture
+2. **Goals and success criteria** — which decision improves, measured how
+3. **Stakeholders and users** — who uses the result, who decides
+4. **Key requirements** — each prioritised as must, should or could
+5. **Data and constraints** — sources, access, quality, confidentiality, technology
+6. **Open questions** — and what you need from the partner next
 
 ::: callout
-Information from the partner companies is **confidential**: no names, no data, no screenshots in public repositories, chats or the course website.
+Information from the partner company is **confidential**: no names, no data, no screenshots in public repositories, chats or the course website.
 :::
 
 ::: notes
-The five points are the structure of the project brief introduced in session 1 (due at the end of semester 5; not graded in this module). Today's round is a progress check, not an assessment. The partner companies are referred to only by placeholders in the public material. Ask the other team for one question per presentation; note open points for the lecturer's next contact with the companies (in the lecturer's private notes for the project module, not here).
-:::
-
----
-
-# Project A: {{private:partner_a|Partner Company A}}
-
-**Topic:** {{private:partner_a_topic|Presented by the partner company in session 1}}
-
-- Business goal and success criteria
-- Stakeholders and their needs
-- As-is process
-- Data inventory: sources, volume, quality, access
-- Open questions, risks and next steps
-
-::: notes
-Team A presents first findings. Company name and topic are filled in only in the offline PPTX (from tools/local.json); the public web version shows a placeholder. Do not write any findings into this file — notes are public. Typical questions to ask: which decision will the result support? Who owns the data, and has access been requested formally? Which part of the data would fit a first analysis with the methods of Parts A–B?
+The structure follows the Lastenheft section of the portfolio deck. The Lastenheft and the Pflichtenheft together are the partner project analysis (15 % of the portfolio), graded in the project groups. Today's round is a short presentation; the grading is based on the documents handed in. Do not write any content of the Lastenheft into this file — notes are public; record open points in the lecturer's private notes.
 :::
 
 ---
 
-# Project B: {{private:partner_b|Partner Company B}}
+# Four Project Groups, One Partner
 
-**Topic:** {{private:partner_b_topic|Presented by the partner company in session 1}}
+| Group | Members |
+|---|---|
+| Project 1 | {{private:group_1|Group list on the course platform}} |
+| Project 2 | {{private:group_2|Group list on the course platform}} |
+| Project 3 | {{private:group_3|Group list on the course platform}} |
+| Project 4 | {{private:group_4|Group list on the course platform}} |
 
-- Business goal and success criteria
-- Stakeholders and their needs
-- As-is process
-- Data inventory: sources, volume, quality, access
-- Open questions, risks and next steps
+Each group: Lastenheft in brief, then questions from the other groups.
 
 ::: notes
-Team B presents first findings — same structure as team A so the two teams can compare progress. Same confidentiality rule: no findings in this public file. If a team has had no contact with its partner yet, use the time to plan the first contact: who, which questions (session 1, "Questions to Ask the Partners"), by when.
+About 5 minutes per group plus 2 minutes of questions. Ask each group: which requirement is the hardest to make measurable? Has the partner confirmed the Lastenheft in writing? Which data access is still open? Group names come from tools/local.json (offline PPTX only); the public web version shows the fallback text.
+:::
+
+---
+
+# Next Step: The Pflichtenheft
+
+**Hand-in:** in two weeks (session 10 + 2 weeks) · in your project group
+
+- **Solution concept:** data pipeline, storage, analytics methods, outputs
+- **Data plan:** access, preparation, data protection, test data
+- **Acceptance criteria:** how partner and group check that a requirement is met
+- **Project plan for semester 6:** milestones and roles
+- **Risks and assumptions,** each with a countermeasure
+
+::: callout
+Every requirement of the Lastenheft is **traced** to a part of the solution — or explicitly marked as out of scope.
+:::
+
+::: source
+Based on DIN 69901-5 (2009) and VDI 2519 Blatt 1 (2001).
+:::
+
+::: notes
+Same content as the Pflichtenheft slide of the portfolio deck. The methods of Parts A–B (warehouse and SQL, dashboards, ML use cases, experiments) are the building blocks of the solution concept — the next exercise links them.
 :::
 
 ---
@@ -437,7 +447,7 @@ Numbers from the session decks: 65.5 % accuracy of the majority baseline (sessio
 - The recurring checks: **grain and definitions**, **completeness**, **point-in-time correctness**, **baseline**, **uncertainty**
 - A good notebook is **reproducible**, explains its **decisions** and ends with a reasoned **suitability assessment**
 - Useful feedback is **specific and actionable**: two strengths, three suggestions, one question
-- Partner projects: start from the **decision** and the **data inventory** — and keep partner information confidential
+- Partner projects: the **Lastenheft** is handed in today, the **Pflichtenheft** follows in two weeks — and partner information stays confidential
 
 ---
 
@@ -457,6 +467,7 @@ Numbers from the session decks: 65.5 % accuracy of the majority baseline (sessio
 # References {.references}
 
 - Chapman, P., Clinton, J., Kerber, R., Khabaza, T., Reinartz, T., Shearer, C., & Wirth, R. (2000). *CRISP-DM 1.0: Step-by-step data mining guide*. SPSS.
+- Deutsches Institut für Normung. (2009). *Projektmanagement – Projektmanagementsysteme – Teil 5: Begriffe* (DIN 69901-5:2009-01). Beuth.
 - Hattie, J., & Timperley, H. (2007). The power of feedback. *Review of Educational Research, 77*(1), 81–112. https://doi.org/10.3102/003465430298487
 - Kaufman, S., Rosset, S., Perlich, C., & Stitelman, O. (2012). Leakage in data mining: Formulation, detection, and avoidance. *ACM Transactions on Knowledge Discovery from Data, 6*(4), Article 15. https://doi.org/10.1145/2382577.2382579
 - Kimball, R., & Ross, M. (2013). *The data warehouse toolkit: The definitive guide to dimensional modeling* (3rd ed.). Wiley.
@@ -465,3 +476,4 @@ Numbers from the session decks: 65.5 % accuracy of the majority baseline (sessio
 - Provost, F., & Fawcett, T. (2013). *Data science for business: What you need to know about data mining and data-analytic thinking*. O'Reilly Media.
 - Sandve, G. K., Nekrutenko, A., Taylor, J., & Hovig, E. (2013). Ten simple rules for reproducible computational research. *PLoS Computational Biology, 9*(10), Article e1003285. https://doi.org/10.1371/journal.pcbi.1003285
 - Transaction Processing Performance Council. (n.d.). *TPC-H*. Retrieved October 21, 2026, from https://www.tpc.org/tpch/
+- Verein Deutscher Ingenieure. (2001). *Vorgehensweise bei der Erstellung von Lasten-/Pflichtenheften* (VDI 2519 Blatt 1). Beuth.
